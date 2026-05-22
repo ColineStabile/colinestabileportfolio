@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <!-- ============================================================
+       COLINE STABILE — PORTFOLIO BUT TC BIAV
+       a-propos.html — Page À propos / My Journey
+       Référence : DEV-CS-2026-06 | ⚠ Page à traduire intégralement EN
+  ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- ── SEO ──────────────────────────────────────────────────── -->
+  <title
+    data-fr="À propos — Coline Stabile, étudiante BUT TC BIAV"
+    data-en="About — Coline Stabile, BUT TC BIAV Student"
+  >À propos — Coline Stabile, étudiante BUT TC BIAV</title>
+
+  <meta name="description"
+    data-fr="Étudiante en BUT TC parcours BIAV à Saint-Étienne, expériences en commerce international, stage à La Vinifacture et alternance chez Oé. Semestre à Glasgow."
+    data-en="BUT TC BIAV student based in Saint-Étienne. Experienced in international trade, stage at La Vinifacture and work-study at Oé. Semester abroad in Glasgow."
+    content="Étudiante en BUT TC parcours BIAV à Saint-Étienne, expériences en commerce international, stage à La Vinifacture et alternance chez Oé. Semestre à Glasgow."
+  />
+  <meta name="keywords" content="Coline Stabile BUT TC BIAV Saint-Étienne, étudiante alternance export Lyon, commerce international parcours BIAV" />
+  <meta name="author"  content="Coline Stabile" />
+  <meta name="robots"  content="index, follow" />
+
+  <!-- ── OPEN GRAPH ───────────────────────────────────────────── -->
+  <meta property="og:type"        content="profile" />
+  <meta property="og:title"       content="À propos — Coline Stabile" />
+  <meta property="og:description" content="Parcours, expériences et formations de Coline Stabile, étudiante BUT TC BIAV." />
+  <meta property="og:url"         content="https://colinestabile.github.io/a-propos.html" />
+
+  <!-- ── HREFLANG ─────────────────────────────────────────────── -->
+  <link rel="alternate" hreflang="fr" href="https://colinestabile.github.io/a-propos.html" />
+  <link rel="alternate" hreflang="en" href="https://colinestabile.github.io/about.html" />
+  <link rel="canonical"              href="https://colinestabile.github.io/a-propos.html" />
+
+  <!-- ── FAVICON ──────────────────────────────────────────────── -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <!-- ── GOOGLE FONTS ─────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ── FEUILLES DE STYLE ────────────────────────────────────── -->
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+
+  <!-- ── STYLES INLINE — SPÉCIFIQUES À CETTE PAGE ────────────── -->
+  <style>
+
+    /* ── HERO SOBRE ────────────────────────────────────────────── */
+    .page-hero {
+      background-color: var(--color-bg);
+      padding:          calc(var(--header-height) + var(--space-20)) var(--padding-x) var(--space-16);
+      text-align:       center;
+      position:         relative;
+      overflow:         hidden;
+    }
+
+    /* Filigrane décoratif en fond */
+    .page-hero::before {
+      content:          attr(data-bg-text);
+      position:         absolute;
+      bottom:           -0.18em;
+      left:             50%;
+      transform:        translateX(-50%);
+      font-family:      var(--font-display);
+      font-size:        clamp(8rem, 22vw, 18rem);
+      font-weight:      700;
+      font-style:       italic;
+      color:            transparent;
+      -webkit-text-stroke: 1px rgba(28, 35, 71, 0.05);
+      text-stroke:         1px rgba(28, 35, 71, 0.05);
+      white-space:      nowrap;
+      pointer-events:   none;
+      user-select:      none;
+      letter-spacing:   -0.04em;
+      line-height:      1;
+    }
+
+    .page-hero__inner {
+      position:   relative;
+      z-index:    1;
+      max-width:  var(--max-width-text);
+      margin:     0 auto;
+    }
+
+    /* Surtitre */
+    .page-hero__eyebrow {
+      display:        flex;
+      align-items:    center;
+      justify-content: center;
+      gap:            var(--space-4);
+      margin-bottom:  var(--space-8);
+      opacity:        0;
+      animation:      fadeUpIn 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;
+    }
+
+    .page-hero__eyebrow-line {
+      width:      32px;
+      height:     1px;
+      background: var(--color-gold);
+      flex-shrink: 0;
+    }
+
+    .page-hero__eyebrow-text {
+      font-family:    var(--font-label);
+      font-size:      var(--text-xs);
+      font-weight:    500;
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color:          var(--color-gold);
+    }
+
+    /* H1 de la page */
+    .page-hero__title {
+      font-family:    var(--font-display);
+      font-size:      clamp(var(--text-4xl), 7vw, 5rem);
+      font-weight:    300;
+      color:          var(--color-navy);
+      letter-spacing: -0.03em;
+      line-height:    var(--leading-tight);
+      margin-bottom:  var(--space-6);
+      opacity:        0;
+      animation:      fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.38s forwards;
+    }
+
+    /* Filet ornemental doré */
+    .page-hero__divider {
+      margin:   var(--space-6) auto;
+      opacity:  0;
+      animation: fadeUpIn 0.6s ease 0.55s forwards;
+    }
+
+    /* Chapeau */
+    .page-hero__chapeau {
+      font-family:  var(--font-body);
+      font-size:    var(--text-lg);
+      font-style:   italic;
+      line-height:  var(--leading-relaxed);
+      color:        var(--color-text-light);
+      max-width:    600px;
+      margin:       0 auto;
+      opacity:      0;
+      animation:    fadeUpIn 0.7s cubic-bezier(0.22,1,0.36,1) 0.68s forwards;
+    }
+
+    @keyframes fadeUpIn {
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(14px); }
+    }
+
+    /* ── SECTION PRÉSENTATION ──────────────────────────────────── */
+    .section-presentation {
+      background-color: var(--color-white);
+      padding:          var(--padding-section) var(--padding-x);
+    }
+
+    .presentation-grid {
+      display:    grid;
+      grid-template-columns: 360px 1fr;
+      gap:        var(--space-16) var(--space-20);
+      align-items: start;
+      max-width:  var(--max-width);
+      margin:     0 auto;
+    }
+
+    /* Photo portrait — colonne gauche */
+    .presentation__photo-col {
+      position:   sticky;
+      top:        calc(var(--header-height-scrolled) + var(--space-8));
+    }
+
+    .presentation__photo-wrap {
+      position:   relative;
+    }
+
+    .presentation__photo {
+      width:        100%;
+      aspect-ratio: 3 / 4;
+      object-fit:   cover;
+      object-position: center top;
+      display:      block;
+    }
+
+    /* Cadre décalé doré */
+    .presentation__photo-frame {
+      position:   absolute;
+      top:        -10px;
+      left:       -10px;
+      right:      10px;
+      bottom:     10px;
+      border:     1px solid rgba(201, 169, 110, 0.35);
+      pointer-events: none;
+      z-index:    -1;
+    }
+
+    /* Placeholder photo */
+    .presentation__photo-placeholder {
+      width:        100%;
+      aspect-ratio: 3 / 4;
+      background:   linear-gradient(160deg, #DCD6CA 0%, #C4BAA8 60%, #B0A494 100%);
+      display:      flex;
+      align-items:  center;
+      justify-content: center;
+    }
+
+    .presentation__photo-placeholder svg {
+      width:   90px;
+      height:  90px;
+      opacity: 0.2;
+    }
+
+    /* Infos de contact sous la photo */
+    .presentation__contact-card {
+      margin-top:  var(--space-6);
+      background:  var(--color-bg);
+      border:      var(--border-fine);
+      padding:     var(--space-6);
+      display:     flex;
+      flex-direction: column;
+      gap:         var(--space-3);
+    }
+
+    .presentation__contact-item {
+      display:     flex;
+      align-items: center;
+      gap:         var(--space-3);
+      font-family: var(--font-body);
+      font-size:   var(--text-base);
+      color:       var(--color-text);
+      text-decoration: none;
+      transition:  color var(--transition-base);
+    }
+
+    .presentation__contact-item svg {
+      width:       14px;
+      height:      14px;
+      stroke:      var(--color-gold);
+      fill:        none;
+      stroke-width: 1.4;
+      flex-shrink: 0;
+    }
+
+    a.presentation__contact-item:hover { color: var(--color-gold); }
+
+    /* Colonne droite — texte */
+    .presentation__text-col {
+      display:    flex;
+      flex-direction: column;
+      gap:        var(--space-6);
+    }
+
+    .presentation__title {
+      font-family:    var(--font-display);
+      font-size:      clamp(var(--text-2xl), 3.5vw, 3rem);
+      font-weight:    400;
+      color:          var(--color-navy);
+      letter-spacing: -0.02em;
+      line-height:    var(--leading-tight);
+    }
+
+    .presentation__text {
+      font-family:  var(--font-body);
+      font-size:    var(--text-md);
+      line-height:  var(--leading-relaxed);
+      color:        var(--color-text);
+      max-width:    none;
+      margin:       0;
+    }
+
+    /* ── SECTIONS TIMELINE ─────────────────────────────────────── */
+    .section-experiences {
+      background-color: var(--color-bg-alt);
+      padding:          var(--padding-section) var(--padding-x);
+    }
+
+    .section-formations {
+      background-color: var(--color-white);
+      padding:          var(--padding-section) var(--padding-x);
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin:    0 auto;
+    }
+
+    /* Sous-titre de section avec filet */
+    .section-title-block {
+      margin-bottom: var(--space-12);
+    }
+
+    .section-title-block h2 {
+      font-family:    var(--font-display);
+      font-size:      clamp(var(--text-2xl), 4vw, var(--text-3xl));
+      font-weight:    400;
+      color:          var(--color-navy);
+      letter-spacing: -0.02em;
+      line-height:    var(--leading-tight);
+      margin-bottom:  var(--space-4);
+    }
+
+    /* ── LANGUES ───────────────────────────────────────────────── */
+    .section-langues {
+      background-color: var(--color-navy);
+      padding:          var(--padding-section) var(--padding-x);
+      position:         relative;
+      overflow:         hidden;
+    }
+
+    .section-langues::before {
+      content:    '';
+      position:   absolute;
+      top: 0; left: 0; right: 0;
+      height:     1px;
+      background: linear-gradient(to right, transparent, var(--color-gold) 30%, var(--color-gold) 70%, transparent);
+      opacity:    0.3;
+    }
+
+    .section-langues__inner {
+      max-width: var(--max-width);
+      margin:    0 auto;
+    }
+
+    /* ── ENGAGEMENT ASSOCIATIF ─────────────────────────────────── */
+    .section-engagement {
+      background-color: var(--color-bg-alt);
+      padding:          var(--padding-section) var(--padding-x);
+    }
+
+    /* ── CTA FINAL ─────────────────────────────────────────────── */
+    .section-cta-about {
+      background-color: var(--color-bg);
+      padding:          var(--padding-section) var(--padding-x);
+      text-align:       center;
+    }
+
+    .cta-about__title {
+      font-family:    var(--font-display);
+      font-size:      clamp(var(--text-2xl), 3.5vw, var(--text-3xl));
+      font-weight:    300;
+      color:          var(--color-navy);
+      letter-spacing: -0.02em;
+      margin-bottom:  var(--space-8);
+    }
+
+    .cta-about__actions {
+      display:    flex;
+      align-items: center;
+      justify-content: center;
+      gap:        var(--space-6);
+      flex-wrap:  wrap;
+    }
+
+    /* ── RESPONSIVE ────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .presentation-grid { grid-template-columns: 280px 1fr; gap: var(--space-10) var(--space-12); }
+      .presentation__photo-col { position: static; }
+    }
+
+    @media (max-width: 768px) {
+      .presentation-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+      .presentation__photo-col { max-width: 320px; margin: 0 auto; }
+    }
+
+    @media (max-width: 480px) {
+      .cta-about__actions { flex-direction: column; align-items: stretch; }
+      .cta-about__actions .btn { text-align: center; justify-content: center; }
+    }
+  </style>
+
+  <!-- ── SCHEMA JSON-LD ───────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Coline Stabile",
+      "jobTitle": "Étudiante BUT TC BIAV",
+      "alumniOf": [
+        { "@type": "EducationalOrganization", "name": "IUT Jean-Monnet — Saint-Étienne" },
+        { "@type": "EducationalOrganization", "name": "Glasgow Caledonian University" }
+      ],
+      "worksFor": { "@type": "Organization", "name": "Oé — Lyon" },
+      "url": "https://colinestabile.github.io/a-propos.html"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ── Skip link ────────────────────────────────────────────── -->
+  <a class="skip-link" href="#main-content"
+     data-fr="Aller au contenu principal" data-en="Skip to main content"
+  >Aller au contenu principal</a>
+
+  <!-- ── Curseur ──────────────────────────────────────────────── -->
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       HEADER (identique à index.html)
+  ============================================================ -->
+  <header class="site-header" role="banner" id="site-header">
+    <div class="header__inner">
+
+      <a href="index.html" class="header__logo" aria-label="Coline Stabile — Accueil">
+        <div class="header__monogram">
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M28 10 C18 8 8 14 8 22 C8 30 18 36 28 34" stroke="var(--color-gold)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <path d="M26 13 C33 12 37 16 34 20 C31 24 24 22 26 27 C28 32 35 33 38 31" stroke="var(--color-navy)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <circle cx="22" cy="38" r="1.5" fill="var(--color-gold)" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="header__logo-name">
+          Coline Stabile
+          <span data-fr="Portfolio BUT TC BIAV" data-en="BUT TC BIAV Portfolio">Portfolio BUT TC BIAV</span>
+        </div>
+      </a>
+
+      <nav class="site-nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list" role="list">
+          <li class="nav__item"><a href="index.html"                    class="nav__link" data-fr="Accueil"              data-en="Home"        >Accueil</a></li>
+          <li class="nav__item"><a href="a-propos.html"                 class="nav__link is-active" aria-current="page" data-fr="À propos"     data-en="About"       >À propos</a></li>
+          <li class="nav__item"><a href="projet-professionnel.html"     class="nav__link" data-fr="Projet Professionnel" data-en="Career Vision">Projet Professionnel</a></li>
+          <li class="nav__item nav__item--has-dropdown">
+            <button class="nav__link nav__link--dropdown" aria-haspopup="true" aria-expanded="false" data-fr="Compétences" data-en="Skills">
+              Compétences
+              <svg class="dropdown-arrow" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <ul class="nav__dropdown" role="menu">
+              <li role="none"><a href="competences/techniques.html" class="nav__dropdown-link" role="menuitem"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Compétences Techniques" data-en="Technical Skills">Compétences Techniques</span></a></li>
+              <li role="none"><a href="competences/business-international.html" class="nav__dropdown-link" role="menuitem"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Business International BUT 3" data-en="International Business BUT 3">Business International BUT 3</span></a></li>
+              <li role="none"><a href="competences/comportementales.html" class="nav__dropdown-link" role="menuitem"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Compétences Comportementales" data-en="Soft Skills">Compétences Comportementales</span></a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a href="contact.html" class="nav__link" data-fr="Contact" data-en="Contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="flex" style="align-items:center;gap:var(--space-4);">
+        <div class="lang-switch" role="group" aria-label="Choisir la langue">
+          <button class="lang-switch__btn is-active" data-lang="fr" aria-pressed="true"  aria-label="Français">FR</button>
+          <div class="lang-switch__separator" aria-hidden="true"></div>
+          <button class="lang-switch__btn"            data-lang="en" aria-pressed="false" aria-label="English" >EN</button>
+        </div>
+        <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-overlay">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <div class="nav__mobile-overlay" id="mobile-overlay" aria-hidden="true" role="dialog">
+    <a href="index.html"                    class="nav__mobile-link" data-fr="Accueil"              data-en="Home"        >Accueil</a>
+    <a href="a-propos.html"                 class="nav__mobile-link" data-fr="À propos"             data-en="About"       >À propos</a>
+    <a href="projet-professionnel.html"     class="nav__mobile-link" data-fr="Projet Professionnel" data-en="Career Vision">Projet Professionnel</a>
+    <ul class="nav__mobile-sub">
+      <li><a href="competences/techniques.html"       class="nav__mobile-sub-link" data-fr="Compétences Techniques"       data-en="Technical Skills">Compétences Techniques</a></li>
+      <li><a href="competences/business-international.html" class="nav__mobile-sub-link" data-fr="Business International BUT 3" data-en="International Business BUT 3">Business International BUT 3</a></li>
+      <li><a href="competences/comportementales.html" class="nav__mobile-sub-link" data-fr="Compétences Comportementales" data-en="Soft Skills"      >Compétences Comportementales</a></li>
+    </ul>
+    <a href="contact.html" class="nav__mobile-link" data-fr="Contact" data-en="Contact">Contact</a>
+    <div class="nav__mobile-lang">
+      <button class="nav__mobile-lang-btn is-active" data-lang="fr" aria-pressed="true" >FR</button>
+      <span   class="nav__mobile-lang-sep" aria-hidden="true">·</span>
+      <button class="nav__mobile-lang-btn"            data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       CONTENU PRINCIPAL
+  ============================================================ -->
+  <main id="main-content">
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 1 — HERO SOBRE
+    ══════════════════════════════════════════════════════════ -->
+    <section class="page-hero" data-bg-text="Parcours" aria-label="Introduction de la page">
+      <div class="page-hero__inner">
+
+        <div class="page-hero__eyebrow">
+          <span class="page-hero__eyebrow-line" aria-hidden="true"></span>
+          <span class="page-hero__eyebrow-text"
+                data-fr="Portfolio BUT TC BIAV · IUT Jean-Monnet"
+                data-en="BUT TC BIAV Portfolio · IUT Jean-Monnet"
+          >Portfolio BUT TC BIAV · IUT Jean-Monnet</span>
+          <span class="page-hero__eyebrow-line" aria-hidden="true"></span>
+        </div>
+
+        <h1 class="page-hero__title"
+            data-fr="Mon parcours"
+            data-en="My Journey"
+        >Mon parcours</h1>
+
+        <div class="page-hero__divider">
+          <div class="ornament-divider" aria-hidden="true">
+            <svg viewBox="0 0 20 20"><path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.75"/></svg>
+          </div>
+        </div>
+
+        <p class="page-hero__chapeau"
+           data-fr="Assertive, réactive, autonome et force de proposition — voici les qualités qui structurent mon approche professionnelle et académique. Ce parcours retrace les étapes qui m'ont conduite à me spécialiser dans les achats internationaux."
+           data-en="Assertive, responsive, autonomous and proactive — these are the qualities that shape my professional and academic approach. This journey traces the steps that led me to specialise in international purchasing."
+        >Assertive, réactive, autonome et force de proposition — voici les qualités qui structurent mon approche professionnelle et académique. Ce parcours retrace les étapes qui m'ont conduite à me spécialiser dans les achats internationaux.</p>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 2 — PRÉSENTATION PERSONNELLE
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-presentation" aria-labelledby="who-title">
+      <div class="presentation-grid">
+
+        <!-- Colonne gauche : photo + contact -->
+        <div class="presentation__photo-col" data-reveal>
+          <div class="presentation__photo-wrap">
+            <!-- <img src="assets/img/portrait-about.jpg" alt="Portrait de Coline Stabile" class="presentation__photo"> -->
+            <img
+              src="assets/img/portrait-about.jpg"
+              alt="Coline Stabile, étudiante BUT TC BIAV"
+              class="presentation__photo"
+              loading="lazy"
+              width="360"
+              height="480"
+            />
+            <div class="presentation__photo-frame" aria-hidden="true"></div>
+          </div>
+
+          <!-- Carte de contact -->
+          <div class="presentation__contact-card">
+            <a href="mailto:colinestabile43@icloud.com" class="presentation__contact-item">
+              <svg viewBox="0 0 14 14" aria-label="Email">
+                <rect x="1" y="3" width="12" height="8" rx="1"/>
+                <path d="M1 4l6 4.5L13 4" stroke-linecap="round"/>
+              </svg>
+              colinestabile43@icloud.com
+            </a>
+            <a href="tel:+33763494599" class="presentation__contact-item">
+              <svg viewBox="0 0 14 14" aria-label="Téléphone">
+                <path d="M3 2a1 1 0 0 0-1 1v.5c0 4.7 3.8 8.5 8.5 8.5H11a1 1 0 0 0 1-1v-1.5a.5.5 0 0 0-.3-.46l-2-.8a.5.5 0 0 0-.58.16L8.4 9.8A6.5 6.5 0 0 1 4.2 5.6l1.44-.7a.5.5 0 0 0 .16-.58l-.8-2A.5.5 0 0 0 4.5 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              07 63 49 45 99
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="presentation__contact-item">
+              <svg viewBox="0 0 14 14" aria-label="LinkedIn">
+                <rect x="1" y="1" width="12" height="12" rx="2"/>
+                <path d="M4 6v4M4 4v.5M7 10V7.5A1.5 1.5 0 0 1 10 7.5V10M7 8h3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span data-fr="Profil LinkedIn" data-en="LinkedIn Profile">Profil LinkedIn</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Colonne droite : texte -->
+        <div class="presentation__text-col">
+
+          <h2 class="presentation__title" id="who-title" data-reveal
+              data-fr="Qui suis-je ?"
+              data-en="Who am I?"
+          >Qui suis-je ?</h2>
+
+          <div class="ornament-divider" style="margin:0;" data-reveal data-delay="80" aria-hidden="true">
+            <svg viewBox="0 0 20 20"><path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.7"/></svg>
+          </div>
+
+          <p class="presentation__text" data-reveal data-delay="120"
+             data-fr="Actuellement étudiante en troisième année de BUT Techniques de Commercialisation, avec une spécialisation en commerce international (parcours BIAV), je développe mes compétences à la fois théoriques et pratiques dans des domaines variés : Marketing, Négociation, Commerce International."
+             data-en="Currently a third-year student in the BUT Business and Commerce programme, specialising in international trade (BIAV track), I am developing both theoretical and practical skills across a range of disciplines: Marketing, Negotiation and International Trade."
+          >Actuellement étudiante en troisième année de BUT Techniques de Commercialisation, avec une spécialisation en commerce international (parcours BIAV), je développe mes compétences à la fois théoriques et pratiques dans des domaines variés : Marketing, Négociation, Commerce International.</p>
+
+          <p class="presentation__text" data-reveal data-delay="180"
+             data-fr="Curieuse, rigoureuse et ouverte d'esprit, j'ai eu l'opportunité d'effectuer un semestre à l'étranger à Glasgow — expérience qui a renforcé ma maîtrise des langues étrangères ainsi que ma capacité d'adaptation dans des environnements professionnels multiculturels."
+             data-en="Curious, rigorous and open-minded, I had the opportunity to spend a semester abroad in Glasgow — an experience that strengthened my command of foreign languages and my ability to adapt within multicultural professional environments."
+          >Curieuse, rigoureuse et ouverte d'esprit, j'ai eu l'opportunité d'effectuer un semestre à l'étranger à Glasgow — expérience qui a renforcé ma maîtrise des langues étrangères ainsi que ma capacité d'adaptation dans des environnements professionnels multiculturels.</p>
+
+          <p class="presentation__text" data-reveal data-delay="240"
+             data-fr="Mes expériences professionnelles, notamment en stage et en alternance, m'ont permis de mieux comprendre les enjeux du commerce international et de me confronter aux réalités du terrain : missions de prospection, études de marché et gestion de la relation client. Je suis particulièrement attirée par les secteurs liés aux produits responsables, au vin et à la parfumerie."
+             data-en="My professional experiences — internships and work-study placements — have given me a clearer understanding of the challenges of international trade and exposed me to real-world situations: prospecting missions, market research and client relationship management. I am particularly drawn to sectors related to responsible products, wine and perfumery."
+          >Mes expériences professionnelles, notamment en stage et en alternance, m'ont permis de mieux comprendre les enjeux du commerce international et de me confronter aux réalités du terrain : missions de prospection, études de marché et gestion de la relation client. Je suis particulièrement attirée par les secteurs liés aux produits responsables, au vin et à la parfumerie.</p>
+
+          <!-- Tags mots-clés -->
+          <div class="tags-group" data-reveal data-delay="300">
+            <span class="tag tag--gold" data-fr="Achats Internationaux"   data-en="International Purchasing">Achats Internationaux</span>
+            <span class="tag tag--gold" data-fr="Commerce Export"          data-en="Export Trade"             >Commerce Export</span>
+            <span class="tag tag--gold" data-fr="Parfumerie de Niche"      data-en="Niche Perfumery"          >Parfumerie de Niche</span>
+            <span class="tag tag--gold" data-fr="Négociation B2B"          data-en="B2B Negotiation"          >Négociation B2B</span>
+            <span class="tag tag--gold" data-fr="Anglais C1"               data-en="English C1"               >Anglais C1</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 3 — EXPÉRIENCES PROFESSIONNELLES
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-experiences" aria-labelledby="exp-title">
+      <div class="section-inner">
+
+        <div class="section-title-block" data-reveal>
+          <h2 id="exp-title"
+              data-fr="Expériences professionnelles"
+              data-en="Professional Experience"
+          >Expériences professionnelles</h2>
+          <div class="ornament-divider" style="margin: var(--space-4) 0 0;" aria-hidden="true">
+            <svg viewBox="0 0 20 20"><path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.7"/></svg>
+          </div>
+        </div>
+
+        <div class="timeline">
+
+        <!-- ── Entrée 0 : Versatile Paris — Stage (Fév–Juin 2026) ── -->
+          <article class="timeline__entry" data-reveal>
+            <div class="timeline__date">
+              <span data-fr="Fév. – Juin 2026" data-en="Feb. – June 2026">Fév. – Juin 2026</span><br>
+              <span style="font-weight:300; color:var(--color-gold); font-size:9px; letter-spacing:0.08em;"
+                    data-fr="EN COURS" data-en="ONGOING">EN COURS</span>
+            </div>
+            <div class="timeline__content">
+              <h3 class="timeline__role"
+                  data-fr="Stagiaire — Commerciale KAM Internationale"
+                  data-en="Intern — International KAM Sales"
+              >Stagiaire — Commerciale KAM Internationale</h3>
+              <div class="timeline__company">
+                <span data-fr="Versatile Paris" data-en="Versatile Paris">Versatile Paris</span>
+                <span class="timeline__company-sep" aria-hidden="true">·</span>
+                <span data-fr="Paris (75)" data-en="Paris, France">Paris (75)</span>
+                <span class="timeline__company-sep" aria-hidden="true">·</span>
+                <span class="timeline__badge" data-fr="Stage" data-en="Internship">Stage</span>
+              </div>
+              <ul class="timeline__missions" role="list">
+                <li data-fr="Gestion du portefeuille B2B (suivi, réassort, augmentation du CA)"
+                    data-en="B2B portfolio management (monitoring, restocking, revenue growth)"
+                >Gestion du portefeuille B2B (suivi, réassort, augmentation du CA)</li>
+                <li data-fr="Prospection et transformation de nouveaux partenaires commerciaux"
+                    data-en="Prospecting and conversion of new commercial partners"
+                >Prospection et transformation de nouveaux partenaires commerciaux</li>
+                <li data-fr="Formation des nouveaux points de vente"
+                    data-en="Training of new points of sale"
+                >Formation des nouveaux points de vente</li>
+                <li data-fr="Check terrain des partenaires"
+                    data-en="Field visits to partners"
+                >Check terrain des partenaires</li>
+                <li data-fr="Participation aux évènements trade (salons, évènements boutiques)"
+                    data-en="Participation in trade events (trade shows, boutique events)"
+                >Participation aux évènements trade (salons, évènements boutiques)</li>
+                <li data-fr="Pricing B2B"
+                    data-en="B2B pricing"
+                >Pricing B2B</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- ── Entrée 1 : Oé — Alternance (2025–2026 en cours) ── -->
+          <article class="timeline__entry" data-reveal>
+            <div class="timeline__date">
+              <span data-fr="2025–2026" data-en="2025–2026">2025–2026</span>
+            </div>
+            <div class="timeline__content">
+              <h3 class="timeline__role"
+                  data-fr="Alternante — Business Developer Export"
+                  data-en="Work-Study — Export Business Developer"
+              >Alternante — Business Developer Export</h3>
+              <div class="timeline__company">
+                <span data-fr="Oé" data-en="Oé">Oé</span>
+                <span class="timeline__company-sep" aria-hidden="true">·</span>
+                <span data-fr="Lyon (69)" data-en="Lyon, France">Lyon (69)</span>
+                <span class="timeline__company-sep" aria-hidden="true">·</span>
+                <span class="timeline__badge" data-fr="Alternance" data-en="Work-Study">Alternance</span>
+              </div>
+              <ul class="timeline__missions" role="list">
+                <li data-fr="Prospection et développement commercial sur des marchés export ciblés (B2B)"
+                    data-en="Prospecting and commercial development on targeted export markets (B2B)"
+                >Prospection et développement commercial sur des marchés export ciblés (B2B)</li>
+                <li data-fr="Rédaction de propositions commerciales et participation aux négociations"
+                    data-en="Drafting commercial proposals and participation in negotiations"
+                >Rédaction de propositions commerciales et participation aux négociations</li>
+                <li data-fr="Contribution à la mise en place de campagnes de prospection digitale"
+                    data-en="Contributing to the implementation of digital prospecting campaigns"
+                >Contribution à la mise en place de campagnes de prospection digitale</li>
+                <li data-fr="Support logistique et administratif : préparation de salons export, gestion des appels d'offres, suivi des commandes et envoi d'échantillons"
+                    data-en="Logistical and administrative support: preparation for export trade shows, management of tenders, order tracking and sample dispatch"
+                >Support logistique et administratif : préparation de salons export, gestion des appels d'offres, suivi des commandes et envoi d'échantillons</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- ── Entrée 2 : La Vinifacture — Stage (Mai–Juin 2025) ── -->
+          <article class="timeline__entry" data-reveal data-delay="100">
+            <div class="timeline__date">
+              <span data-fr="Mai – Juin 2025" data-en="May – June 2025">Mai – Juin 2025</span>
+            </div>
+            <div class="timeline__content">
+              <h3 class="timeline__role"
+                  data-fr="Stagiaire — Assistante Développement International"
+                  data-en="Intern — International Development Assistant"
+              >Stagiaire — Assistante Développement International</h3>
+              <div class="timeline__company">
+                <span data-fr="La Vinifacture" data-en="La Vinifacture">La Vinifacture</span>
+                <span class="timeline__company-sep" aria-hidden="true">·</span>
+                <span data-fr="Saint-Étienne (42)" data-en="Saint-Étienne, France">Saint-Étienne (42)</span>
+                <span class="timeline__company-sep" aria-hidden="true">·</span>
+                <span class="timeline__badge" data-fr="Stage" data-en="Internship">Stage</span>
+              </div>
+              <ul class="timeline__missions" role="list">
+                <li data-fr="Réalisation d'une étude de marché sur la Belgique pour évaluer la faisabilité d'une exportation"
+                    data-en="Conducting a market study on Belgium to assess the feasibility of export"
+                >Réalisation d'une étude de marché sur la Belgique pour évaluer la faisabilité d'une exportation</li>
+                <li data-fr="Identification et qualification de prospects B2B"
+                    data-en="Identification and qualification of B2B prospects"
+                >Identification et qualification de prospects B2B</li>
+                <li data-fr="Création d'une base de données clients potentiels et contact initial"
+                    data-en="Creation of a potential client database and initial outreach"
+                >Création d'une base de données clients potentiels et contact initial</li>
+                <li data-fr="Participation à la stratégie de développement commercial à l'export"
+                    data-en="Participation in the export commercial development strategy"
+                >Participation à la stratégie de développement commercial à l'export</li>
+                <li data-fr="Renforcement des compétences en prospection"
+                    data-en="Strengthening of prospecting skills"
+                >Renforcement des compétences en prospection</li>
+              </ul>
+
+            </div>
+          </article>
+
+          <!-- ── Entrée 3 : Presto Cosy — Stage (Mai 2024) ── -->
+          <article class="timeline__entry" data-reveal data-delay="200">
+            <div class="timeline__date">
+              <span data-fr="Mai 2024" data-en="May 2024">Mai 2024</span>
+            </div>
+            <div class="timeline__content">
+              <h3 class="timeline__role"
+                  data-fr="Stagiaire — Assistante Direction de Conciergerie"
+                  data-en="Intern — Concierge Management Assistant"
+              >Stagiaire — Assistante Direction de Conciergerie</h3>
+              <div class="timeline__company">
+                <span data-fr="Presto Cosy" data-en="Presto Cosy">Presto Cosy</span>
+                <span class="timeline__company-sep" aria-hidden="true">·</span>
+                <span data-fr="Grenoble (38)" data-en="Grenoble, France">Grenoble (38)</span>
+                <span class="timeline__company-sep" aria-hidden="true">·</span>
+                <span class="timeline__badge" data-fr="Stage" data-en="Internship">Stage</span>
+              </div>
+              <ul class="timeline__missions" role="list">
+                <li data-fr="Veille concurrentielle"                              data-en="Competitive intelligence"                    >Veille concurrentielle</li>
+                <li data-fr="Prospection client"                                  data-en="Client prospecting"                          >Prospection client</li>
+                <li data-fr="Organisation de la logistique des tournées"          data-en="Organisation of delivery round logistics"     >Organisation de la logistique des tournées</li>
+                <li data-fr="Réflexion et rédaction de la communication"          data-en="Design and drafting of communication content" >Réflexion et rédaction de la communication</li>
+                <li data-fr="Déploiement de nouvelles offres"                     data-en="Deployment of new service offers"            >Déploiement de nouvelles offres</li>
+              </ul>
+
+            </div>
+          </article>
+
+          <!-- ── Entrée 4 : Assa Abloy — Stage (Février 2023) ── -->
+          <article class="timeline__entry" data-reveal data-delay="300">
+            <div class="timeline__date">
+              <span data-fr="Février 2023" data-en="February 2023">Février 2023</span>
+            </div>
+            <div class="timeline__content">
+              <h3 class="timeline__role"
+                  data-fr="Stagiaire — Assistante Import-Export"
+                  data-en="Intern — Import-Export Assistant"
+              >Stagiaire — Assistante Import-Export</h3>
+              <div class="timeline__company">
+                <span data-fr="Assa Abloy (Nergeco)" data-en="Assa Abloy (Nergeco)">Assa Abloy (Nergeco)</span>
+                <span class="timeline__company-sep" aria-hidden="true">·</span>
+                <span data-fr="Dunières (43)" data-en="Dunières, France">Dunières (43)</span>
+                <span class="timeline__company-sep" aria-hidden="true">·</span>
+                <span class="timeline__badge" data-fr="Stage" data-en="Internship">Stage</span>
+              </div>
+              <ul class="timeline__missions" role="list">
+                <li data-fr="Suivi des expéditions et coordination avec les transporteurs"
+                    data-en="Shipment tracking and coordination with carriers"
+                >Suivi des expéditions et coordination avec les transporteurs</li>
+                <li data-fr="Participation à l'élaboration de stratégies d'importation et d'exportation"
+                    data-en="Participation in the development of import and export strategies"
+                >Participation à l'élaboration de stratégies d'importation et d'exportation</li>
+                <li data-fr="Utilisation et maîtrise des Incoterms"
+                    data-en="Use and command of Incoterms"
+                >Utilisation et maîtrise des Incoterms</li>
+              </ul>
+
+            </div>
+          </article>
+
+        </div><!-- /timeline -->
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 4 — FORMATIONS & DIPLÔMES
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-formations" aria-labelledby="edu-title">
+      <div class="section-inner">
+
+        <div class="section-title-block" data-reveal>
+          <h2 id="edu-title"
+              data-fr="Formations &amp; Diplômes"
+              data-en="Education &amp; Qualifications"
+          >Formations &amp; Diplômes</h2>
+          <div class="ornament-divider" style="margin:var(--space-4) 0 0;" aria-hidden="true">
+            <svg viewBox="0 0 20 20"><path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.7"/></svg>
+          </div>
+        </div>
+
+        <div class="timeline">
+
+          <!-- ── Formation 1 : Master PGE (2027–2029, projet) ── -->
+          <article class="timeline__entry" data-reveal>
+            <div class="timeline__date">
+              <span data-fr="2027–2029" data-en="2027–2029">2027–2029</span><br>
+              <span style="font-weight:300;color:rgba(201,169,110,0.6);font-size:9px;letter-spacing:0.08em;"
+                    data-fr="PROJET" data-en="PLANNED">PROJET</span>
+            </div>
+            <div class="timeline__content">
+              <h3 class="timeline__role"
+                  data-fr="Master PGE — Programme Grande École en école de commerce"
+                  data-en="Master PGE — Grande École Programme at a Business School"
+              >Master PGE — Programme Grande École en école de commerce</h3>
+              <ul class="timeline__missions" role="list">
+                <li data-fr="Rentrée prévisionnelle : septembre 2027"
+                    data-en="Planned start: September 2027"
+                >Rentrée prévisionnelle : septembre 2027</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- ── Formation 2 : DUETI Corée du Sud (2026–2027, à venir) ── -->
+          <article class="timeline__entry" data-reveal data-delay="80">
+            <div class="timeline__date">
+              <span data-fr="2026–2027" data-en="2026–2027">2026–2027</span><br>
+              <span style="font-weight:300;color:rgba(201,169,110,0.6);font-size:9px;letter-spacing:0.08em;"
+                    data-fr="À VENIR" data-en="UPCOMING">À VENIR</span>
+            </div>
+            <div class="timeline__content">
+              <h3 class="timeline__role"
+                  data-fr="DUETI — Diplôme Universitaire d'Études Technologiques Internationales"
+                  data-en="DUETI — International Technological Studies University Diploma"
+              >DUETI — Diplôme Universitaire d'Études Technologiques Internationales</h3>
+              <div class="timeline__company">
+                <span data-fr="Pusan National University — Busan, Corée du Sud"
+                      data-en="Pusan National University — Busan, South Korea"
+                >Pusan National University — Busan, Corée du Sud</span>
+              </div>
+              <ul class="timeline__missions" role="list">
+                <li data-fr="Rentrée prévue : septembre 2026"
+                    data-en="Planned start: September 2026"
+                >Rentrée prévue : septembre 2026</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- ── Formation 3 : BUT TC BIAV (2023–2026) ── -->
+          <article class="timeline__entry" data-reveal data-delay="150">
+            <div class="timeline__date">
+              <span data-fr="2023–2026" data-en="2023–2026">2023–2026</span><br>
+              <span style="font-weight:300;color:var(--color-gold);font-size:9px;letter-spacing:0.08em;"
+                    data-fr="EN COURS" data-en="ONGOING">EN COURS</span>
+            </div>
+            <div class="timeline__content">
+              <h3 class="timeline__role"
+                  data-fr="Bachelor Universitaire de Technologie — Techniques de Commercialisation"
+                  data-en="University Bachelor of Technology — Business and Commerce"
+              >Bachelor Universitaire de Technologie — Techniques de Commercialisation</h3>
+              <div class="timeline__company">
+                <span data-fr="Parcours BIAV — Business International &amp; Achats"
+                      data-en="BIAV Track — International Business &amp; Purchasing"
+                >Parcours BIAV — Business International &amp; Achats</span>
+              </div>
+              <div class="timeline__company" style="margin-top:var(--space-2);">
+                <span data-fr="IUT Jean-Monnet — Saint-Étienne (42)"
+                      data-en="IUT Jean-Monnet — Saint-Étienne, France"
+                >IUT Jean-Monnet — Saint-Étienne (42)</span>
+              </div>
+              <ul class="timeline__missions" role="list">
+                <li data-fr="Spécialisation en commerce international, achats stratégiques, marketing"
+                    data-en="Specialisation in international trade, strategic purchasing and marketing"
+                >Spécialisation en commerce international, achats stratégiques, marketing</li>
+                <li data-fr="Semestre intégré à Glasgow (2024) — GSBS, Glasgow Caledonian University (GCU)"
+                    data-en="Integrated semester in Glasgow (2024) — GSBS, Glasgow Caledonian University (GCU)"
+                >Semestre intégré à Glasgow (2024) — GSBS, Glasgow Caledonian University (GCU)</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- ── Formation 4 : Baccalauréat (Juin 2023) ── -->
+          <article class="timeline__entry" data-reveal data-delay="220">
+            <div class="timeline__date">
+              <span data-fr="Juin 2023" data-en="June 2023">Juin 2023</span>
+            </div>
+            <div class="timeline__content">
+              <h3 class="timeline__role"
+                  data-fr="Baccalauréat Général"
+                  data-en="General Baccalaureate (French A-Level)"
+              >Baccalauréat Général</h3>
+              <div class="timeline__company">
+                <span data-fr="Lycée Emmanuel Chabrier — Yssingeaux (43)"
+                      data-en="Lycée Emmanuel Chabrier — Yssingeaux, France"
+                >Lycée Emmanuel Chabrier — Yssingeaux (43)</span>
+              </div>
+              <ul class="timeline__missions" role="list">
+                <li data-fr="Spécialités : SES (Sciences Économiques et Sociales) et LLCE Anglais"
+                    data-en="Specialities: Economics &amp; Social Sciences (SES) and English Language, Literature &amp; Culture (LLCE)"
+                >Spécialités : SES (Sciences Économiques et Sociales) et LLCE Anglais</li>
+                <li data-fr="Mention : DNL Anglais (Discipline Non Linguistique)"
+                    data-en="Distinction: DNL English (Non-Linguistic Discipline taught in English)"
+                >Mention : DNL Anglais (Discipline Non Linguistique)</li>
+              </ul>
+            </div>
+          </article>
+
+        </div><!-- /timeline formations -->
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 5 — LANGUES
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-langues" aria-labelledby="lang-title">
+      <div class="section-langues__inner">
+
+        <div class="section-title-block" data-reveal style="margin-bottom:var(--space-10);">
+          <h2 id="lang-title" style="color:var(--color-on-navy);"
+              data-fr="Langues" data-en="Languages">Langues</h2>
+          <div class="ornament-divider" style="margin:var(--space-4) 0 0;" aria-hidden="true">
+            <svg viewBox="0 0 20 20"><path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.7"/></svg>
+          </div>
+        </div>
+
+        <div class="languages-grid">
+
+          <!-- Anglais — C1 -->
+          <div class="language-card" data-reveal>
+            <span class="language-card__name" data-fr="Anglais" data-en="English">Anglais</span>
+            <span class="language-card__level-label" data-fr="C1 — Courant professionnel" data-en="C1 — Professional Fluency">C1 — Courant professionnel</span>
+            <!-- Barre 5/6 niveaux CECRL : A1 A2 B1 B2 C1 C2 -->
+            <div class="language-bar" aria-label="Niveau C1 sur 6">
+              <div class="language-bar__segment is-filled"></div>
+              <div class="language-bar__segment is-filled"></div>
+              <div class="language-bar__segment is-filled"></div>
+              <div class="language-bar__segment is-filled"></div>
+              <div class="language-bar__segment is-filled"></div>
+              <div class="language-bar__segment"></div>
+            </div>
+            <p class="language-card__certs"
+               data-fr="Cambridge English Qualifications 2022 (C1) · TOEIC 2025 — 950/990"
+               data-en="Cambridge English Qualifications 2022 (C1) · TOEIC 2025 — 950/990"
+            >Cambridge English Qualifications 2022 (C1) · TOEIC 2025 — 950/990</p>
+          </div>
+
+          <!-- Espagnol — A2 -->
+          <div class="language-card" data-reveal data-delay="150">
+            <span class="language-card__name" data-fr="Espagnol" data-en="Spanish">Espagnol</span>
+            <span class="language-card__level-label" data-fr="A2 — Débutant" data-en="A2 — Elementary">A2 — Débutant</span>
+            <div class="language-bar" aria-label="Niveau A2 sur 6">
+              <div class="language-bar__segment is-filled"></div>
+              <div class="language-bar__segment is-filled"></div>
+              <div class="language-bar__segment"></div>
+              <div class="language-bar__segment"></div>
+              <div class="language-bar__segment"></div>
+              <div class="language-bar__segment"></div>
+            </div>
+          </div>
+
+          <!-- Français — Langue maternelle -->
+          <div class="language-card" data-reveal data-delay="300">
+            <span class="language-card__name" data-fr="Français" data-en="French">Français</span>
+            <span class="language-card__level-label" data-fr="Langue maternelle" data-en="Native Language">Langue maternelle</span>
+            <div class="language-bar" aria-label="Langue maternelle — niveau maximal">
+              <div class="language-bar__segment is-filled"></div>
+              <div class="language-bar__segment is-filled"></div>
+              <div class="language-bar__segment is-filled"></div>
+              <div class="language-bar__segment is-filled"></div>
+              <div class="language-bar__segment is-filled"></div>
+              <div class="language-bar__segment is-filled"></div>
+            </div>
+            <p class="language-card__certs"
+               data-fr="Langue de travail · Expression écrite et orale"
+               data-en="Working language · Written and oral expression"
+            >Langue de travail · Expression écrite et orale</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 6 — ENGAGEMENT ASSOCIATIF
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-engagement" aria-labelledby="asso-title">
+      <div class="section-inner">
+
+        <div class="section-title-block" data-reveal>
+          <h2 id="asso-title"
+              data-fr="Engagement associatif"
+              data-en="Community Involvement"
+          >Engagement associatif</h2>
+          <div class="ornament-divider" style="margin:var(--space-4) 0 0;" aria-hidden="true">
+            <svg viewBox="0 0 20 20"><path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.7"/></svg>
+          </div>
+        </div>
+
+        <!-- Contexte introductif -->
+        <p class="presentation__text" style="max-width:680px; margin-bottom:var(--space-8);" data-reveal data-delay="80"
+           data-fr="Cette expérience témoigne d'un engagement humain cohérent avec les valeurs RSE et de traçabilité portées par la parfumerie de niche — secteur au sein duquel je souhaite évoluer."
+           data-en="This experience reflects a human commitment consistent with the CSR and traceability values championed by the niche perfumery sector — the industry in which I aspire to work."
+        >Cette expérience témoigne d'un engagement humain cohérent avec les valeurs RSE et de traçabilité portées par la parfumerie de niche — secteur au sein duquel je souhaite évoluer.</p>
+
+        <!-- Carte isolée -->
+        <article class="engagement-card" data-reveal data-delay="150">
+
+          <!-- Méta : dates et rôle -->
+          <div class="engagement-card__meta">
+            <span class="engagement-card__date"
+                  data-fr="Fév. 2019 – Fév. 2022"
+                  data-en="Feb. 2019 – Feb. 2022"
+            >Fév. 2019 – Fév. 2022</span>
+            <p class="engagement-card__role"
+               data-fr="Membre actif"
+               data-en="Active member"
+            >Membre actif</p>
+          </div>
+
+          <!-- Contenu -->
+          <div class="engagement-card__content">
+            <h3 class="engagement-card__assoc"
+                data-fr="Skippy Club — Les Enfants du Ballon · Sokone (FK, Sénégal)"
+                data-en="Skippy Club — Les Enfants du Ballon · Sokone (FK, Senegal)"
+            >Skippy Club — Les Enfants du Ballon · Sokone (FK, Sénégal)</h3>
+            <ul class="engagement-card__missions" role="list">
+              <li data-fr="Gestion d'un budget et d'une trésorerie associative"
+                  data-en="Management of an association's budget and cash flow"
+              >Gestion d'un budget et d'une trésorerie associative</li>
+              <li data-fr="Recherche de sponsors (Marcon, Air France)"
+                  data-en="Sponsorship outreach (Marcon, Air France)"
+              >Recherche de sponsors (Marcon, Air France)</li>
+              <li data-fr="Vente d'encarts publicitaires"
+                  data-en="Sales of advertising slots"
+              >Vente d'encarts publicitaires</li>
+              <li data-fr="Organisation d'un voyage humanitaire à Sokone (Sénégal)"
+                  data-en="Organisation of a humanitarian trip to Sokone (Senegal)"
+              >Organisation d'un voyage humanitaire à Sokone (Sénégal)</li>
+            </ul>
+
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 7 — CTA FINAL
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-cta-about" aria-labelledby="cta-about-title">
+      <div class="container--narrow">
+
+        <div class="ornament-divider" data-reveal aria-hidden="true">
+          <svg viewBox="0 0 20 20"><path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.7"/></svg>
+        </div>
+
+        <h2 class="cta-about__title" id="cta-about-title" data-reveal data-delay="100"
+            data-fr="Vous souhaitez consulter mon CV complet ?"
+            data-en="Would you like to view my full CV?"
+        >Vous souhaitez consulter mon CV complet ?</h2>
+
+        <div class="cta-about__actions" data-reveal data-delay="180">
+          <a href="assets/pdf/CV_Coline_Stabile_2026.pdf"
+             download
+             class="btn btn--primary js-cv-link"
+             data-href-fr="assets/pdf/CV_Coline_Stabile_2026.pdf"
+             data-href-en="assets/pdf/CV_Coline_Stabile_EN_2026.pdf"
+             data-fr="↓ Télécharger mon CV (PDF)"
+             data-en="↓ Download my CV (PDF)"
+          >↓ Télécharger mon CV (PDF)</a>
+
+          <a href="contact.html" class="btn btn--secondary"
+             data-fr="→ Me contacter"
+             data-en="→ Get in touch"
+          >→ Me contacter</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__grid">
+
+        <div class="footer__identity">
+          <p class="footer__name">Coline Stabile</p>
+          <p class="footer__subtitle"
+             data-fr="Étudiante BUT TC BIAV · IUT Jean-Monnet, Saint-Étienne"
+             data-en="BUT TC BIAV Student · IUT Jean-Monnet, Saint-Étienne"
+          >Étudiante BUT TC BIAV · IUT Jean-Monnet, Saint-Étienne</p>
+          <a href="mailto:colinestabile43@icloud.com" class="footer__email">colinestabile43@icloud.com</a>
+          <p class="footer__phone">07 63 49 45 99</p>
+          <div class="tags-group" style="margin-top:var(--space-6);">
+            <span class="tag tag--gold" data-fr="Achats Internationaux" data-en="International Purchasing">Achats Internationaux</span>
+            <span class="tag tag--gold" data-fr="Parfumerie de Niche"   data-en="Niche Perfumery"         >Parfumerie de Niche</span>
+            <span class="tag tag--gold" data-fr="Commerce Export"        data-en="Export Trade"            >Commerce Export</span>
+          </div>
+        </div>
+
+        <div class="footer__monogram">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Monogramme CS">
+            <path d="M52 18 C32 14 14 24 14 40 C14 56 32 66 52 62" stroke="var(--color-gold)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+            <path d="M48 22 C62 20 68 30 60 37 C52 44 40 40 46 50 C52 60 66 62 72 58" stroke="rgba(245,240,232,0.55)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <circle cx="40" cy="72" r="2" fill="var(--color-gold)" opacity="0.5"/>
+            <line x1="30" y1="72" x2="36" y2="72" stroke="var(--color-gold)" stroke-width="0.8" opacity="0.4"/>
+            <line x1="44" y1="72" x2="50" y2="72" stroke="var(--color-gold)" stroke-width="0.8" opacity="0.4"/>
+          </svg>
+          <span class="footer__monogram-tagline" data-fr="Portfolio · 2026" data-en="Portfolio · 2026">Portfolio · 2026</span>
+        </div>
+
+        <div class="footer__links">
+          <p class="footer__nav-label" data-fr="Navigation" data-en="Navigation">Navigation</p>
+          <a href="index.html"                    class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Accueil"              data-en="Home"        >Accueil</span></a>
+          <a href="a-propos.html"                 class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="À propos"            data-en="About"       >À propos</span></a>
+          <a href="projet-professionnel.html"     class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Projet Professionnel" data-en="Career Vision">Projet Professionnel</span></a>
+          <a href="competences/techniques.html"   class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Compétences"          data-en="Skills"      >Compétences</span></a>
+          <a href="contact.html"                  class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Contact"              data-en="Contact"     >Contact</span></a>
+          <a href="assets/pdf/CV_Coline_Stabile_2026.pdf"
+             download
+             class="footer__cv-btn js-cv-link"
+             data-href-fr="assets/pdf/CV_Coline_Stabile_2026.pdf"
+             data-href-en="assets/pdf/CV_Coline_Stabile_EN_2026.pdf"
+             style="margin-top:var(--space-6);">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 2v6M3 6l3 3 3-3M2 10h8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-fr="Télécharger mon CV (PDF)" data-en="Download my CV (PDF)">Télécharger mon CV (PDF)</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <span class="footer__copyright">© 2026 Coline Stabile · Tous droits réservés</span>
+        <div style="display:flex;align-items:center;gap:var(--space-4);">
+          <a href="#" class="footer__legal" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
+          <span class="footer__bottom-sep" aria-hidden="true">·</span>
+          <span class="footer__legal">colinestabile.github.io</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ── SCRIPTS ──────────────────────────────────────────────── -->
+  <script src="assets/js/lang-switch.js"   defer></script>
+  <script src="assets/js/scroll-reveal.js" defer></script>
+
+  <!-- ── CV bilingue : met à jour le href des boutons CV selon la langue active ── -->
+  <script>
+    (function () {
+      function updateCvLinks(lang) {
+        document.querySelectorAll('.js-cv-link').forEach(function (link) {
+          var href = link.getAttribute('data-href-' + lang);
+          if (href) link.setAttribute('href', href);
+        });
+      }
+
+      /* Applique immédiatement la préférence stockée (même clé que lang-switch.js) */
+      updateCvLinks(localStorage.getItem('lang') || 'fr');
+
+      /* Écoute l'événement langChange émis par lang-switch.js à chaque bascule */
+      document.addEventListener('langChange', function (e) {
+        updateCvLinks(e.detail.lang);
+      });
+    })();
+  </script>
+
+</body>
+</html>

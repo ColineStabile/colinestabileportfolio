@@ -1,0 +1,925 @@
+/* ============================================================
+   COLINE STABILE — PORTFOLIO BUT TC BIAV
+   layout.css — Header, Navigation, Footer
+   Référence : DEV-CS-2026-06 | Direction Artistique : Old Money Editorial
+   ============================================================ */
+
+
+/* ============================================================
+   1. HEADER — STRUCTURE PRINCIPALE
+   Position fixe, transition au scroll (--scrolled), hauteur variable
+   ============================================================ */
+
+.site-header {
+  position:         fixed;
+  top:              0;
+  left:             0;
+  right:            0;
+  z-index:          var(--z-header);
+  height:           var(--header-height);
+  display:          flex;
+  align-items:      center;
+
+  /* Transition globale sur scroll */
+  transition:
+    background-color  var(--transition-slow),
+    height            var(--transition-slow),
+    box-shadow        var(--transition-slow),
+    border-bottom-color var(--transition-slow);
+
+  /* État initial : transparent (pour le hero) */
+  background-color: transparent;
+  border-bottom:    1px solid transparent;
+}
+
+/* État scrollé — fond crème semi-opaque avec légère ombre */
+.site-header.is-scrolled {
+  height:           var(--header-height-scrolled);
+  background-color: rgba(245, 240, 232, 0.97);
+  border-bottom-color: rgba(201, 169, 110, 0.25);
+  box-shadow:       0 2px 32px rgba(28, 35, 71, 0.06);
+  backdrop-filter:  blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Sur les pages à hero navy (fond sombre), le header reste lisible */
+.site-header.header--navy-hero {
+  background-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.site-header.header--navy-hero.is-scrolled {
+  background-color: rgba(19, 24, 48, 0.96);
+  border-bottom-color: rgba(201, 169, 110, 0.2);
+}
+
+.site-header.header--navy-hero .nav__link,
+.site-header.header--navy-hero .header__logo-name {
+  color: var(--color-on-navy);
+}
+
+.site-header.header--navy-hero.is-scrolled .nav__link,
+.site-header.header--navy-hero.is-scrolled .header__logo-name {
+  color: var(--color-on-navy);
+}
+
+/* Conteneur intérieur du header */
+.header__inner {
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  width:            100%;
+  max-width:        var(--max-width);
+  margin:           0 auto;
+  padding:          0 var(--padding-x);
+  gap:              var(--space-8);
+}
+
+
+/* ============================================================
+   2. LOGO / IDENTITÉ — COIN GAUCHE DU HEADER
+   Monogramme SVG + nom typographié
+   ============================================================ */
+
+.header__logo {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--space-3);
+  text-decoration: none;
+  flex-shrink:    0;
+}
+
+/* Monogramme SVG — "CS" style calligraphique */
+.header__monogram {
+  width:          40px;
+  height:         40px;
+  flex-shrink:    0;
+  transition:     transform var(--transition-slow);
+}
+
+.header__logo:hover .header__monogram {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.header__monogram svg {
+  width:  100%;
+  height: 100%;
+}
+
+/* Nom stylisé */
+.header__logo-name {
+  font-family:    var(--font-display);
+  font-size:      1.2rem;
+  font-weight:    500;
+  letter-spacing: 0.06em;
+  color:          var(--color-navy);
+  line-height:    1;
+  transition:     color var(--transition-base);
+}
+
+.header__logo-name span {
+  display:    block;
+  font-family: var(--font-label);
+  font-size:   var(--text-xs);
+  font-weight: 400;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:       var(--color-text-light);
+  margin-top:  2px;
+  transition:  color var(--transition-base);
+}
+
+/* Hover sur le nom */
+.header__logo:hover .header__logo-name {
+  color: var(--color-gold);
+}
+
+.header__logo:hover .header__logo-name span {
+  color: var(--color-gold-light);
+}
+
+
+/* ============================================================
+   3. NAVIGATION PRINCIPALE — DESKTOP
+   ============================================================ */
+
+.site-nav {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--space-2);
+}
+
+.nav__list {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--space-1);
+  list-style:     none;
+  margin:         0;
+  padding:        0;
+}
+
+.nav__item {
+  position: relative; /* Pour le dropdown */
+}
+
+/* Lien de navigation */
+.nav__link {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          var(--color-navy);
+  text-decoration: none;
+  padding:        var(--space-2) var(--space-4);
+  display:        block;
+  position:       relative;
+  transition:     color var(--transition-base);
+  white-space:    nowrap;
+}
+
+/* Filet doré animé au hover/actif */
+.nav__link::after {
+  content:          '';
+  position:         absolute;
+  bottom:           0;
+  left:             var(--space-4);
+  right:            var(--space-4);
+  height:           1px;
+  background-color: var(--color-gold);
+  transform:        scaleX(0);
+  transform-origin: center;
+  transition:       transform var(--transition-slow);
+}
+
+.nav__link:hover {
+  color: var(--color-gold);
+}
+
+.nav__link:hover::after,
+.nav__link.is-active::after {
+  transform: scaleX(1);
+}
+
+.nav__link.is-active {
+  color: var(--color-navy);
+}
+
+/* Lien avec flèche dropdown */
+.nav__link--dropdown {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--space-1);
+}
+
+.nav__link--dropdown .dropdown-arrow {
+  width:    10px;
+  height:   10px;
+  stroke:   currentColor;
+  fill:     none;
+  stroke-width: 1.5;
+  transition: transform var(--transition-base);
+  flex-shrink: 0;
+}
+
+.nav__item--has-dropdown:hover .dropdown-arrow,
+.nav__item--has-dropdown.is-open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+
+/* ============================================================
+   4. DROPDOWN — MENU COMPÉTENCES
+   ============================================================ */
+
+.nav__dropdown {
+  position:         absolute;
+  top:              calc(100% + var(--space-3));
+  left:             50%;
+  transform:        translateX(-50%) translateY(-8px);
+  min-width:        300px;
+  background-color: var(--color-bg);
+  border:           var(--border-gold);
+  box-shadow:       var(--shadow-card);
+  list-style:       none;
+  padding:          var(--space-3) 0;
+
+  /* Masqué par défaut */
+  opacity:          0;
+  pointer-events:   none;
+  visibility:       hidden;
+  transition:
+    opacity    var(--transition-slow),
+    transform  var(--transition-slow),
+    visibility var(--transition-slow);
+}
+
+/* Petite flèche (caret) au-dessus du dropdown */
+.nav__dropdown::before {
+  content:      '';
+  position:     absolute;
+  top:          -5px;
+  left:         50%;
+  transform:    translateX(-50%) rotate(45deg);
+  width:        8px;
+  height:       8px;
+  background:   var(--color-bg);
+  border-top:   var(--border-gold);
+  border-left:  var(--border-gold);
+}
+
+/* Affichage au hover / focus-within sur le parent */
+.nav__item--has-dropdown:hover .nav__dropdown,
+.nav__item--has-dropdown:focus-within .nav__dropdown,
+.nav__item--has-dropdown.is-open .nav__dropdown {
+  opacity:       1;
+  pointer-events: all;
+  visibility:    visible;
+  transform:     translateX(-50%) translateY(0);
+}
+
+/* Liens du dropdown */
+.nav__dropdown-link {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--space-3);
+  padding:        var(--space-3) var(--space-6);
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    400;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          var(--color-navy);
+  text-decoration: none;
+  transition:     background-color var(--transition-base),
+                  color var(--transition-base),
+                  padding-left var(--transition-base);
+  white-space:    nowrap;
+}
+
+.nav__dropdown-link:hover {
+  background-color: var(--color-bg-alt);
+  color:            var(--color-gold);
+  padding-left:     calc(var(--space-6) + var(--space-2));
+}
+
+/* Icône SVG inline dans les liens dropdown */
+.nav__dropdown-link svg {
+  width:  14px;
+  height: 14px;
+  stroke: currentColor;
+  fill:   none;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   5. SWITCH LINGUISTIQUE FR · EN
+   Bouton discret, coin droit du header
+   ============================================================ */
+
+.lang-switch {
+  display:        flex;
+  align-items:    center;
+  gap:            0;
+  flex-shrink:    0;
+  border:         var(--border-fine);
+  border-radius:  var(--radius-sm);
+  overflow:       hidden;
+}
+
+.lang-switch__btn {
+  font-family:    var(--font-label);
+  font-size:      10px;
+  font-weight:    600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding:        5px 9px;
+  background:     transparent;
+  color:          var(--color-text-light);
+  border:         none;
+  cursor:         none;
+  transition:     background-color var(--transition-base),
+                  color var(--transition-base);
+  line-height:    1;
+}
+
+.lang-switch__btn.is-active {
+  background-color: var(--color-navy);
+  color:            var(--color-on-navy);
+}
+
+.lang-switch__btn:not(.is-active):hover {
+  background-color: var(--color-bg-alt);
+  color:            var(--color-navy);
+}
+
+/* Séparateur entre FR et EN */
+.lang-switch__separator {
+  width:            1px;
+  height:           16px;
+  background-color: rgba(28, 35, 71, 0.15);
+  flex-shrink:      0;
+}
+
+/* Sur fond navy */
+.site-header.header--navy-hero .lang-switch {
+  border-color: rgba(245, 240, 232, 0.25);
+}
+
+.site-header.header--navy-hero .lang-switch__separator {
+  background-color: rgba(245, 240, 232, 0.2);
+}
+
+.site-header.header--navy-hero .lang-switch__btn {
+  color: rgba(245, 240, 232, 0.6);
+}
+
+.site-header.header--navy-hero .lang-switch__btn.is-active {
+  background-color: var(--color-on-navy);
+  color:            var(--color-navy);
+}
+
+
+/* ============================================================
+   6. MENU HAMBURGER — MOBILE
+   Icône animée 3 traits → croix
+   ============================================================ */
+
+.nav__toggle {
+  display:        none; /* Masqué sur desktop */
+  flex-direction: column;
+  justify-content: center;
+  align-items:    center;
+  gap:            5px;
+  width:          40px;
+  height:         40px;
+  padding:        var(--space-2);
+  cursor:         none;
+  flex-shrink:    0;
+  background:     transparent;
+  border:         none;
+}
+
+.nav__toggle-bar {
+  display:          block;
+  width:            22px;
+  height:           1.5px;
+  background-color: var(--color-navy);
+  transition:       transform var(--transition-slow),
+                    opacity var(--transition-base),
+                    width var(--transition-base);
+  transform-origin: center;
+}
+
+/* État ouvert — transformation en croix */
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(2) {
+  opacity: 0;
+  width:   0;
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* Sur fond navy hero */
+.site-header.header--navy-hero .nav__toggle-bar {
+  background-color: var(--color-on-navy);
+}
+
+
+/* ============================================================
+   7. MENU MOBILE — OVERLAY PLEIN ÉCRAN
+   ============================================================ */
+
+.nav__mobile-overlay {
+  position:         fixed;
+  inset:            0;
+  z-index:          calc(var(--z-header) - 1);
+  background-color: var(--color-navy);
+  display:          flex;
+  flex-direction:   column;
+  align-items:      center;
+  justify-content:  center;
+  gap:              var(--space-2);
+  padding:          var(--space-24) var(--padding-x);
+
+  /* Masqué par défaut */
+  opacity:          0;
+  pointer-events:   none;
+  visibility:       hidden;
+  transition:
+    opacity    var(--transition-slow),
+    visibility var(--transition-slow);
+}
+
+.nav__mobile-overlay.is-open {
+  opacity:       1;
+  pointer-events: all;
+  visibility:    visible;
+}
+
+/* Liens dans le menu mobile */
+.nav__mobile-link {
+  font-family:    var(--font-display);
+  font-size:      clamp(2rem, 8vw, 3.5rem);
+  font-weight:    300;
+  color:          var(--color-on-navy);
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  text-align:     center;
+  line-height:    1.2;
+  padding:        var(--space-3) 0;
+  transition:     color var(--transition-base),
+                  transform var(--transition-base);
+
+  /* Entrée animée */
+  opacity:        0;
+  transform:      translateY(20px);
+  transition:     opacity var(--transition-reveal),
+                  transform var(--transition-reveal),
+                  color var(--transition-base);
+}
+
+.nav__mobile-overlay.is-open .nav__mobile-link {
+  opacity:    1;
+  transform:  translateY(0);
+}
+
+/* Délais en cascade pour les liens mobile */
+.nav__mobile-overlay.is-open .nav__mobile-link:nth-child(1) { transition-delay: 80ms; }
+.nav__mobile-overlay.is-open .nav__mobile-link:nth-child(2) { transition-delay: 140ms; }
+.nav__mobile-overlay.is-open .nav__mobile-link:nth-child(3) { transition-delay: 200ms; }
+.nav__mobile-overlay.is-open .nav__mobile-link:nth-child(4) { transition-delay: 260ms; }
+.nav__mobile-overlay.is-open .nav__mobile-link:nth-child(5) { transition-delay: 320ms; }
+.nav__mobile-overlay.is-open .nav__mobile-link:nth-child(6) { transition-delay: 380ms; }
+
+.nav__mobile-link:hover {
+  color: var(--color-gold);
+}
+
+/* Sous-liens dropdown dans le menu mobile */
+.nav__mobile-sub {
+  list-style:     none;
+  padding:        0;
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  gap:            var(--space-1);
+  border-top:     1px solid rgba(201, 169, 110, 0.25);
+  border-bottom:  1px solid rgba(201, 169, 110, 0.25);
+  padding:        var(--space-3) 0;
+  margin-top:     var(--space-2);
+  width:          100%;
+  text-align:     center;
+}
+
+.nav__mobile-sub-link {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    400;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          rgba(245, 240, 232, 0.65);
+  text-decoration: none;
+  padding:        var(--space-2) 0;
+  transition:     color var(--transition-base);
+}
+
+.nav__mobile-sub-link:hover {
+  color: var(--color-gold-light);
+}
+
+/* Switch langue dans le menu mobile */
+.nav__mobile-lang {
+  margin-top:  var(--space-8);
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-4);
+}
+
+.nav__mobile-lang-btn {
+  font-family:    var(--font-label);
+  font-size:      var(--text-sm);
+  font-weight:    500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          rgba(245, 240, 232, 0.5);
+  background:     none;
+  border:         none;
+  cursor:         none;
+  transition:     color var(--transition-base);
+  padding:        0;
+}
+
+.nav__mobile-lang-btn.is-active {
+  color: var(--color-on-navy);
+}
+
+.nav__mobile-lang-btn:hover {
+  color: var(--color-gold-light);
+}
+
+.nav__mobile-lang-sep {
+  color:          rgba(201, 169, 110, 0.4);
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+}
+
+
+/* ============================================================
+   8. FOOTER
+   Fond : --color-navy | Monogramme + liens + copyright
+   ============================================================ */
+
+.site-footer {
+  background-color: var(--color-navy);
+  color:            var(--color-on-navy);
+  padding:          var(--space-20) var(--padding-x) var(--space-10);
+  position:         relative;
+  overflow:         hidden;
+}
+
+/* Ornement de fond — "CS" en filigrane géant */
+.site-footer::before {
+  content:          'CS';
+  position:         absolute;
+  bottom:           -0.15em;
+  right:            -0.05em;
+  font-family:      var(--font-display);
+  font-size:        clamp(10rem, 25vw, 22rem);
+  font-weight:      700;
+  font-style:       italic;
+  color:            transparent;
+  -webkit-text-stroke: 1px rgba(201, 169, 110, 0.08);
+  text-stroke:      1px rgba(201, 169, 110, 0.08);
+  line-height:      1;
+  pointer-events:   none;
+  user-select:      none;
+  letter-spacing:   -0.05em;
+}
+
+/* Intérieur du footer */
+.footer__inner {
+  max-width:  var(--max-width);
+  margin:     0 auto;
+  position:   relative;
+  z-index:    var(--z-base);
+}
+
+/* Grille principale */
+.footer__grid {
+  display:        grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items:    start;
+  gap:            var(--space-12);
+  padding-bottom: var(--space-16);
+  border-bottom:  1px solid rgba(201, 169, 110, 0.2);
+  margin-bottom:  var(--space-8);
+}
+
+/* Colonne gauche — identité */
+.footer__identity {}
+
+.footer__name {
+  font-family:    var(--font-display);
+  font-size:      clamp(1.5rem, 3vw, 2.25rem);
+  font-weight:    400;
+  color:          var(--color-on-navy);
+  letter-spacing: 0.04em;
+  margin-bottom:  var(--space-2);
+  line-height:    1.1;
+}
+
+.footer__subtitle {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    400;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          rgba(245, 240, 232, 0.5);
+  margin-bottom:  var(--space-6);
+  line-height:    1.5;
+}
+
+/* Colonne centre — monogramme SVG grand format */
+.footer__monogram {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  gap:            var(--space-4);
+}
+
+.footer__monogram svg {
+  width:      clamp(60px, 8vw, 90px);
+  height:     clamp(60px, 8vw, 90px);
+  opacity:    0.75;
+  transition: opacity var(--transition-base),
+              transform var(--transition-slow);
+}
+
+.footer__monogram:hover svg {
+  opacity:    1;
+  transform:  scale(1.05);
+}
+
+.footer__monogram-tagline {
+  font-family:    var(--font-display);
+  font-size:      var(--text-xs);
+  font-style:     italic;
+  color:          rgba(245, 240, 232, 0.4);
+  letter-spacing: var(--tracking-wide);
+  text-align:     center;
+}
+
+/* Colonne droite — liens et contact */
+.footer__links {
+  display:        flex;
+  flex-direction: column;
+  align-items:    flex-end;
+  gap:            var(--space-3);
+}
+
+.footer__nav-label {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          rgba(245, 240, 232, 0.4);
+  margin-bottom:  var(--space-2);
+}
+
+.footer__link {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    400;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          rgba(245, 240, 232, 0.65);
+  text-decoration: none;
+  transition:     color var(--transition-base);
+  display:        flex;
+  align-items:    center;
+  gap:            var(--space-2);
+}
+
+.footer__link svg {
+  width:      12px;
+  height:     12px;
+  stroke:     currentColor;
+  fill:       none;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+
+.footer__link:hover {
+  color: var(--color-gold);
+}
+
+/* Email stylisé — EB Garamond italique */
+.footer__email {
+  font-family:    var(--font-body);
+  font-size:      var(--text-md);
+  font-style:     italic;
+  font-weight:    400;
+  color:          var(--color-on-navy);
+  text-decoration: none;
+  transition:     color var(--transition-base);
+  margin-top:     var(--space-4);
+}
+
+.footer__email:hover {
+  color: var(--color-gold);
+}
+
+/* Téléphone */
+.footer__phone {
+  font-family:    var(--font-body);
+  font-size:      var(--text-base);
+  color:          rgba(245, 240, 232, 0.65);
+  margin-top:     var(--space-2);
+}
+
+/* --- Bas du footer — copyright et mentions légales --- */
+
+.footer__bottom {
+  display:        flex;
+  align-items:    center;
+  justify-content: space-between;
+  flex-wrap:      wrap;
+  gap:            var(--space-4);
+}
+
+.footer__copyright {
+  font-family:    var(--font-label);
+  font-size:      10px;
+  font-weight:    400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color:          rgba(245, 240, 232, 0.3);
+}
+
+.footer__legal {
+  font-family:    var(--font-label);
+  font-size:      10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color:          rgba(245, 240, 232, 0.3);
+  text-decoration: none;
+  transition:     color var(--transition-base);
+}
+
+.footer__legal:hover {
+  color: rgba(245, 240, 232, 0.7);
+}
+
+/* Séparateur doré dans le footer bottom */
+.footer__bottom-sep {
+  color: rgba(201, 169, 110, 0.25);
+  font-size: 0.75rem;
+}
+
+/* Bouton CV dans le footer */
+.footer__cv-btn {
+  display:        inline-flex;
+  align-items:    center;
+  gap:            var(--space-2);
+  font-family:    var(--font-label);
+  font-size:      10px;
+  font-weight:    600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          var(--color-on-navy);
+  text-decoration: none;
+  padding:        0.5em 1.2em;
+  border:         1px solid rgba(201, 169, 110, 0.4);
+  transition:     border-color var(--transition-base),
+                  color var(--transition-base),
+                  background-color var(--transition-base);
+}
+
+.footer__cv-btn svg {
+  width:  12px;
+  height: 12px;
+  stroke: currentColor;
+  fill:   none;
+  stroke-width: 1.5;
+}
+
+.footer__cv-btn:hover {
+  border-color:     var(--color-gold);
+  color:            var(--color-gold);
+  background-color: rgba(201, 169, 110, 0.06);
+}
+
+
+/* ============================================================
+   9. DÉCALAGE DU CONTENU POUR LE HEADER FIXE
+   Appliqué à main pour éviter le recouvrement
+   ============================================================ */
+
+main {
+  /* Le hero plein écran gère son propre padding-top via min-height: 100vh */
+}
+
+/* Pour les pages sans hero plein écran */
+.page-offset {
+  padding-top: var(--header-height);
+}
+
+
+/* ============================================================
+   10. RESPONSIVE — BREAKPOINTS
+   ============================================================ */
+
+/* --- Tablette — 1024px --- */
+@media (max-width: 1024px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:    auto auto;
+  }
+
+  .footer__monogram {
+    grid-column: 1 / -1;
+    order:       -1;
+    padding-bottom: var(--space-8);
+    border-bottom:  1px solid rgba(201, 169, 110, 0.1);
+    margin-bottom:  var(--space-4);
+  }
+
+  .footer__links {
+    align-items: flex-start;
+  }
+}
+
+/* --- Mobile — 768px --- */
+@media (max-width: 768px) {
+
+  /* Header : masquer nav desktop, afficher hamburger */
+  .site-nav .nav__list {
+    display: none;
+  }
+
+  .nav__toggle {
+    display: flex;
+  }
+
+  /* Footer grid : une colonne */
+  .footer__grid {
+    grid-template-columns: 1fr;
+    text-align:            center;
+  }
+
+  .footer__links {
+    align-items: center;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items:    center;
+    text-align:     center;
+    gap:            var(--space-3);
+  }
+
+  .footer__monogram {
+    order: -1;
+  }
+}
+
+/* --- Très petits écrans — 480px --- */
+@media (max-width: 480px) {
+  :root {
+    --header-height: 68px;
+  }
+
+  .header__logo-name span {
+    display: none; /* Masquer le sous-titre sur très petit écran */
+  }
+
+  .lang-switch__btn {
+    padding: 4px 7px;
+  }
+}
+
+
+/* ============================================================
+   11. FOCUS VISIBLE — ACCESSIBILITÉ
+   Outline doré cohérent avec la charte graphique
+   ============================================================ */
+
+:focus-visible {
+  outline:        2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius:  var(--radius-sm);
+}
+
+/* Suppression du focus visible sur clic souris (pour .cursor custom) */
+:focus:not(:focus-visible) {
+  outline: none;
+}

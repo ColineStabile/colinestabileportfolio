@@ -1,0 +1,716 @@
+/* ============================================================
+   COLINE STABILE — PORTFOLIO BUT TC BIAV
+   global.css — Variables, Reset, Typographie, Styles de base
+   Référence : DEV-CS-2026-06 | Direction Artistique : Old Money Editorial
+   ============================================================ */
+
+
+/* ============================================================
+   1. GOOGLE FONTS — IMPORT
+   Cormorant Garamond : titres élégants (serif)
+   EB Garamond         : corps de texte (serif)
+   Montserrat          : labels, navigation, CTA (sans-serif)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
+
+
+/* ============================================================
+   2. CUSTOM PROPERTIES — PALETTE "OLD MONEY"
+   ============================================================ */
+
+:root {
+
+  /* --- Couleurs principales --- */
+  --color-bg:          #F5F0E8;   /* Crème ivoire — fond principal */
+  --color-bg-alt:      #EDE8DC;   /* Beige chaud — sections alternées */
+  --color-navy:        #1C2347;   /* Bleu nuit — titres, boutons primaires */
+  --color-navy-dark:   #131830;   /* Hover, accents foncés */
+  --color-gold:        #C9A96E;   /* Accent doré — séparateurs, monogrammes */
+  --color-gold-light:  #DFC28E;   /* Or clair — hover sur éléments dorés */
+  --color-text:        #2E2E2E;   /* Texte courant */
+  --color-text-light:  #7A7568;   /* Légendes, métas, textes secondaires */
+  --color-white:       #FFFFFF;   /* Blanc pur — cartes, formulaire */
+  --color-cream-transp: rgba(245, 240, 232, 0.92); /* Overlay hero mobile */
+
+  /* --- Couleurs sur fond navy (texte inversé) --- */
+  --color-on-navy:     #F5F0E8;   /* Texte crème sur fond bleu nuit */
+  --color-on-navy-dim: rgba(245, 240, 232, 0.65); /* Texte crème atténué */
+
+  /* --- Bordures & ombres --- */
+  --border-fine:       1px solid rgba(28, 35, 71, 0.15);
+  --border-navy:       1px solid var(--color-navy);
+  --border-gold:       1px solid var(--color-gold);
+  --shadow-card:       0 4px 24px rgba(28, 35, 71, 0.08);
+  --shadow-card-hover: 0 8px 40px rgba(28, 35, 71, 0.14);
+  --shadow-hero:       0 2px 60px rgba(28, 35, 71, 0.12);
+
+  /* --- Typographies --- */
+  --font-display:  'Cormorant Garamond', 'Georgia', serif;
+  --font-body:     'EB Garamond', 'Georgia', serif;
+  --font-label:    'Montserrat', 'Helvetica Neue', sans-serif;
+
+  /* --- Tailles de police (échelle typographique) --- */
+  --text-xs:    0.6875rem;  /* 11px — labels fins */
+  --text-sm:    0.8125rem;  /* 13px — labels nav */
+  --text-base:  1rem;       /* 16px — base */
+  --text-md:    1.125rem;   /* 18px — corps légèrement agrandi */
+  --text-lg:    1.375rem;   /* 22px — chapeau */
+  --text-xl:    1.75rem;    /* 28px — pull-quote */
+  --text-2xl:   2.25rem;    /* 36px — H3 */
+  --text-3xl:   3rem;       /* 48px — H2 section */
+  --text-4xl:   4rem;       /* 64px — H1 pages internes */
+  --text-5xl:   4.5rem;     /* 72px — H1 hero */
+  --text-6xl:   6rem;       /* 96px — chiffres clés */
+
+  /* --- Espacements --- */
+  --space-1:    0.25rem;
+  --space-2:    0.5rem;
+  --space-3:    0.75rem;
+  --space-4:    1rem;
+  --space-6:    1.5rem;
+  --space-8:    2rem;
+  --space-10:   2.5rem;
+  --space-12:   3rem;
+  --space-16:   4rem;
+  --space-20:   5rem;
+  --space-24:   6rem;
+  --space-32:   8rem;
+
+  /* --- Letter-spacing --- */
+  --tracking-tight:    -0.02em;
+  --tracking-normal:    0;
+  --tracking-wide:      0.05em;
+  --tracking-wider:     0.1em;
+  --tracking-widest:    0.2em;
+  --tracking-label:     0.18em; /* Montserrat caps */
+
+  /* --- Line-height --- */
+  --leading-tight:   1.15;
+  --leading-snug:    1.35;
+  --leading-normal:  1.6;
+  --leading-relaxed: 1.75;
+  --leading-body:    1.7;
+
+  /* --- Transitions --- */
+  --transition-fast:    150ms ease;
+  --transition-base:    280ms ease;
+  --transition-slow:    420ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-reveal:  400ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* --- Radius --- */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-full: 9999px;
+
+  /* --- Layout --- */
+  --max-width:       1240px;
+  --max-width-text:  780px;
+  --max-width-form:  640px;
+  --padding-section: clamp(var(--space-16), 8vw, var(--space-32));
+  --padding-x:       clamp(var(--space-6), 5vw, var(--space-16));
+
+  /* --- Header --- */
+  --header-height:   80px;
+  --header-height-scrolled: 64px;
+
+  /* --- Z-index --- */
+  --z-base:    1;
+  --z-card:    10;
+  --z-nav:     100;
+  --z-header:  200;
+  --z-overlay: 300;
+  --z-cursor:  9999;
+}
+
+
+/* ============================================================
+   3. CSS RESET MODERNE
+   Inspiré de Andy Bell's "A Modern CSS Reset" + adaptations
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Suppression des styles de liste par défaut quand liste avec rôle */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Comportement de défilement fluide, respect des préférences utilisateur */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Corps principal */
+body {
+  min-height: 100vh;
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+}
+
+/* Éléments médias — comportement cohérent */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Héritage de la typographie sur les inputs */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Gestion des débordements longs */
+p,
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Liens de base */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Boutons */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+
+/* ============================================================
+   4. BASE TYPOGRAPHIQUE GLOBALE
+   Corps de page : Old Money — EB Garamond + couleur crème ivoire
+   ============================================================ */
+
+body {
+  font-family:    var(--font-body);
+  font-size:      var(--text-base);
+  font-weight:    400;
+  color:          var(--color-text);
+  background-color: var(--color-bg);
+  cursor: none; /* Remplacé par le curseur personnalisé JS */
+}
+
+/* --- Hiérarchie typographique : titres Cormorant --- */
+
+h1, h2, h3 {
+  font-family:    var(--font-display);
+  font-weight:    500;
+  line-height:    var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color:          var(--color-navy);
+}
+
+h4, h5, h6 {
+  font-family:    var(--font-label);
+  font-weight:    500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  font-size:      var(--text-xs);
+  color:          var(--color-text-light);
+}
+
+h1 { font-size: clamp(var(--text-4xl), 6vw, var(--text-5xl)); }
+h2 { font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl)); }
+h3 { font-size: clamp(var(--text-xl),  2.5vw, var(--text-2xl)); }
+
+/* Italique Cormorant — très utilisé pour les taglines */
+.italic,
+em {
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+/* --- Corps de texte --- */
+
+p {
+  font-family:  var(--font-body);
+  font-size:    var(--text-md);
+  line-height:  var(--leading-relaxed);
+  color:        var(--color-text);
+  max-width:    var(--max-width-text);
+}
+
+/* Chapeau (intro paragraphe) */
+.chapeau,
+.lead {
+  font-family:  var(--font-body);
+  font-size:    var(--text-lg);
+  line-height:  var(--leading-relaxed);
+  color:        var(--color-text);
+  font-weight:  400;
+  font-style:   italic;
+  max-width:    var(--max-width-text);
+}
+
+/* Pull-quote décoratif */
+.pull-quote {
+  font-family:    var(--font-display);
+  font-size:      var(--text-xl);
+  font-style:     italic;
+  line-height:    var(--leading-snug);
+  color:          var(--color-navy);
+  padding-left:   var(--space-8);
+  border-left:    3px solid var(--color-gold);
+  margin:         var(--space-8) 0;
+  position:       relative;
+}
+
+.pull-quote::before {
+  content:      '\201C'; /* Guillemet ouvrant décoratif */
+  font-family:  var(--font-display);
+  font-size:    clamp(4rem, 8vw, 7rem);
+  color:        var(--color-gold);
+  line-height:  1;
+  position:     absolute;
+  left:         -0.15em;
+  top:          -0.2em;
+  opacity:      0.35;
+  pointer-events: none;
+}
+
+/* --- Labels et navigation — Montserrat caps --- */
+
+.label,
+.caption,
+nav a,
+.btn,
+.tag {
+  font-family:    var(--font-label);
+  font-size:      var(--text-sm);
+  font-weight:    500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+/* --- Texte sur fond navy --- */
+.text-on-navy,
+.section--navy p,
+.section--navy .chapeau,
+.section--navy .lead {
+  color: var(--color-on-navy);
+}
+
+.section--navy h1,
+.section--navy h2,
+.section--navy h3 {
+  color: var(--color-on-navy);
+}
+
+
+/* ============================================================
+   5. SÉPARATEURS ORNEMENTAUX
+   Filets dorés avec fleuron SVG centré
+   ============================================================ */
+
+.ornament-divider {
+  display:          flex;
+  align-items:      center;
+  gap:              var(--space-4);
+  margin:           var(--space-8) auto;
+  width:            100%;
+  max-width:        320px;
+  color:            var(--color-gold);
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content:          '';
+  flex:             1;
+  height:           1px;
+  background-color: var(--color-gold);
+  opacity:          0.6;
+}
+
+.ornament-divider svg {
+  flex-shrink: 0;
+  width:  20px;
+  height: 20px;
+  fill:   var(--color-gold);
+  opacity: 0.8;
+}
+
+/* Variante horizontale pleine largeur (entre sections majeures) */
+.section-divider {
+  display:  block;
+  width:    100%;
+  height:   1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-gold) 20%,
+    var(--color-gold) 80%,
+    transparent
+  );
+  opacity:  0.4;
+  margin:   0;
+  border:   none;
+}
+
+
+/* ============================================================
+   6. TEXTURE GRAIN DE FOND
+   Superposée via pseudo-élément sur les sections hero
+   ============================================================ */
+
+.grain-overlay::after {
+  content:          '';
+  position:         fixed;
+  inset:            0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size:  200px 200px;
+  opacity:          0.06;
+  pointer-events:   none;
+  z-index:          var(--z-overlay);
+  mix-blend-mode:   multiply;
+}
+
+
+/* ============================================================
+   7. CURSEUR PERSONNALISÉ
+   Cercle crème 12px, s'agrandit au survol des liens
+   ============================================================ */
+
+.cursor {
+  position:         fixed;
+  top:              0;
+  left:             0;
+  width:            12px;
+  height:           12px;
+  border-radius:    var(--radius-full);
+  background-color: var(--color-bg);
+  border:           1px solid var(--color-navy);
+  pointer-events:   none;
+  z-index:          var(--z-cursor);
+  transform:        translate(-50%, -50%);
+  transition:       width var(--transition-base),
+                    height var(--transition-base),
+                    background-color var(--transition-base),
+                    border-color var(--transition-base);
+  mix-blend-mode:   difference;
+}
+
+.cursor--hover {
+  width:            32px;
+  height:           32px;
+  background-color: var(--color-gold);
+  border-color:     var(--color-gold);
+}
+
+/* Affichage du curseur natif sur éléments interactifs (formulaire) */
+input,
+textarea,
+select,
+[contenteditable] {
+  cursor: text;
+}
+
+
+/* ============================================================
+   8. BOUTONS — SYSTÈME GLOBAL
+   Hover : inversion fond navy ↔ crème
+   ============================================================ */
+
+.btn {
+  display:          inline-flex;
+  align-items:      center;
+  gap:              var(--space-3);
+  padding:          0.85em 2em;
+  border:           var(--border-navy);
+  font-family:      var(--font-label);
+  font-size:        var(--text-xs);
+  font-weight:      600;
+  letter-spacing:   var(--tracking-label);
+  text-transform:   uppercase;
+  text-decoration:  none;
+  transition:       background-color var(--transition-slow),
+                    color var(--transition-slow),
+                    border-color var(--transition-slow),
+                    box-shadow var(--transition-slow);
+  cursor:           none; /* Curseur custom */
+  position:         relative;
+  overflow:         hidden;
+  white-space:      nowrap;
+}
+
+/* Variante principale — fond navy, texte crème */
+.btn--primary {
+  background-color: var(--color-navy);
+  color:            var(--color-on-navy);
+  border-color:     var(--color-navy);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background-color: transparent;
+  color:            var(--color-navy);
+  border-color:     var(--color-navy);
+  box-shadow:       inset 0 0 0 1px var(--color-navy);
+}
+
+/* Variante secondaire — transparent, bordure navy */
+.btn--secondary {
+  background-color: transparent;
+  color:            var(--color-navy);
+  border-color:     var(--color-navy);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+  background-color: var(--color-navy);
+  color:            var(--color-on-navy);
+}
+
+/* Variante sur fond navy — crème sur navy */
+.btn--on-navy {
+  background-color: var(--color-on-navy);
+  color:            var(--color-navy);
+  border-color:     var(--color-on-navy);
+}
+
+.btn--on-navy:hover,
+.btn--on-navy:focus-visible {
+  background-color: transparent;
+  color:            var(--color-on-navy);
+  border-color:     var(--color-on-navy);
+}
+
+/* Lien texte (CTA secondaire discret) */
+.btn--text {
+  background:     none;
+  border:         none;
+  color:          var(--color-navy);
+  padding:        0;
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  display:        inline-flex;
+  align-items:    center;
+  gap:            var(--space-2);
+  transition:     color var(--transition-base),
+                  gap var(--transition-base);
+}
+
+.btn--text:hover {
+  color:  var(--color-gold);
+  gap:    var(--space-3);
+}
+
+.btn--text.btn--on-navy {
+  color: var(--color-on-navy);
+}
+
+.btn--text.btn--on-navy:hover {
+  color: var(--color-gold-light);
+}
+
+
+/* ============================================================
+   9. LIENS INLINE
+   ============================================================ */
+
+.link-underline {
+  position:       relative;
+  color:          var(--color-navy);
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content:    '';
+  position:   absolute;
+  bottom:     -1px;
+  left:       0;
+  width:      0;
+  height:     1px;
+  background: var(--color-gold);
+  transition: width var(--transition-slow);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+
+/* ============================================================
+   10. SECTIONS — STRUCTURE DE BASE
+   ============================================================ */
+
+.section {
+  padding: var(--padding-section) var(--padding-x);
+  position: relative;
+}
+
+.section--navy {
+  background-color: var(--color-navy);
+  color:            var(--color-on-navy);
+}
+
+.section--bg-alt {
+  background-color: var(--color-bg-alt);
+}
+
+.section--white {
+  background-color: var(--color-white);
+}
+
+/* Conteneur centré */
+.container {
+  width:     100%;
+  max-width: var(--max-width);
+  margin:    0 auto;
+  padding:   0 var(--padding-x);
+}
+
+/* Conteneur texte étroit */
+.container--narrow {
+  max-width: var(--max-width-text);
+  margin:    0 auto;
+}
+
+/* En-tête de section standard */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.section-header h2 {
+  margin-bottom: var(--space-4);
+}
+
+.section-header p {
+  margin: 0 auto;
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+.section-header .ornament-divider {
+  margin: var(--space-6) auto;
+}
+
+
+/* ============================================================
+   11. SCROLL REVEAL — CLASSES DE BASE
+   Gérées par scroll-reveal.js (Intersection Observer)
+   ============================================================ */
+
+[data-reveal] {
+  opacity:    0;
+  transform:  translateY(28px);
+  transition: opacity var(--transition-reveal),
+              transform var(--transition-reveal);
+}
+
+[data-reveal].is-visible {
+  opacity:    1;
+  transform:  translateY(0);
+}
+
+/* Délais pour les entrées en cascade */
+[data-reveal][data-delay="100"] { transition-delay: 100ms; }
+[data-reveal][data-delay="200"] { transition-delay: 200ms; }
+[data-reveal][data-delay="300"] { transition-delay: 300ms; }
+[data-reveal][data-delay="400"] { transition-delay: 400ms; }
+[data-reveal][data-delay="500"] { transition-delay: 500ms; }
+[data-reveal][data-delay="600"] { transition-delay: 600ms; }
+
+
+/* ============================================================
+   12. UTILITAIRES VISUELS
+   ============================================================ */
+
+/* Texte centré */
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+
+/* Visibilité langue — géré par lang-switch.js */
+[data-lang-block="en"] { display: none; }
+[data-lang-block="fr"] { display: block; }
+
+body[data-lang="en"] [data-lang-block="fr"] { display: none; }
+body[data-lang="en"] [data-lang-block="en"] { display: block; }
+body[data-lang="en"] [data-lang-block="en"].inline { display: inline; }
+[data-lang-block="fr"].inline { display: inline; }
+
+/* Espacements utilitaires */
+.mt-auto  { margin-top: auto; }
+.mb-0     { margin-bottom: 0; }
+.mt-4     { margin-top: var(--space-4); }
+.mt-8     { margin-top: var(--space-8); }
+.mt-12    { margin-top: var(--space-12); }
+
+/* Flex helpers */
+.flex          { display: flex; }
+.flex-center   { display: flex; align-items: center; justify-content: center; }
+.flex-between  { display: flex; align-items: center; justify-content: space-between; }
+.gap-4         { gap: var(--space-4); }
+.gap-8         { gap: var(--space-8); }
+
+/* Accessibilité — skip link */
+.skip-link {
+  position:   absolute;
+  top:        -100%;
+  left:       var(--space-4);
+  z-index:    var(--z-cursor);
+  background: var(--color-navy);
+  color:      var(--color-on-navy);
+  padding:    var(--space-2) var(--space-4);
+  font-family: var(--font-label);
+  font-size:  var(--text-sm);
+  letter-spacing: var(--tracking-label);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* Texte visuellement caché mais accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

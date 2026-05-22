@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-fr="Business International BUT 3 · Coline Stabile" data-en="International Business BUT 3 · Coline Stabile">Business International BUT 3 · Coline Stabile</title>
+  <meta name="description" data-fr="Les 4 compétences du parcours BIAV en 3ème année de BUT TC : marketing, vente, stratégie internationale et opérations à l'international." data-en="The 4 competencies of the BIAV track in 3rd year BUT TC." content="Les 4 compétences du parcours BIAV en 3ème année de BUT TC."/>
+  <meta name="author" content="Coline Stabile" />
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <style>
+    .page-hero { background-color:var(--color-bg); padding:calc(var(--header-height) + var(--space-20)) var(--padding-x) var(--space-16); text-align:center; position:relative; overflow:hidden; }
+    .page-hero__inner { position:relative; z-index:1; max-width:var(--max-width-text); margin:0 auto; }
+    .page-hero__eyebrow { display:flex; align-items:center; justify-content:center; gap:var(--space-4); margin-bottom:var(--space-8); opacity:0; animation:heroIn 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s forwards; }
+    .page-hero__eyebrow-line { width:32px; height:1px; background:var(--color-gold); flex-shrink:0; }
+    .page-hero__eyebrow-text { font-family:var(--font-label); font-size:var(--text-xs); font-weight:500; letter-spacing:var(--tracking-label); text-transform:uppercase; color:var(--color-gold); }
+    .page-hero__title { font-family:var(--font-display); font-size:clamp(var(--text-4xl),7vw,5rem); font-weight:300; color:var(--color-navy); letter-spacing:-0.03em; line-height:var(--leading-tight); margin-bottom:var(--space-6); opacity:0; animation:heroIn 0.85s cubic-bezier(0.22,1,0.36,1) 0.36s forwards; }
+    .page-hero__divider { margin:var(--space-6) auto; opacity:0; animation:heroIn 0.6s ease 0.54s forwards; }
+    .page-hero__chapeau { font-family:var(--font-body); font-size:var(--text-lg); font-style:italic; line-height:var(--leading-relaxed); color:var(--color-text-light); max-width:640px; margin:0 auto; opacity:0; animation:heroIn 0.7s cubic-bezier(0.22,1,0.36,1) 0.68s forwards; }
+    @keyframes heroIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+
+    .skills-nav { background-color:var(--color-navy); position:sticky; top:var(--header-height-scrolled); z-index:calc(var(--z-header) - 1); overflow-x:auto; scrollbar-width:none; border-bottom:1px solid rgba(201,169,110,0.15); }
+    .skills-nav::-webkit-scrollbar { display:none; }
+    .skills-nav__list { display:flex; list-style:none; margin:0 auto; padding:0 var(--padding-x); max-width:var(--max-width); white-space:nowrap; }
+    .skills-nav__link { display:block; font-family:var(--font-label); font-size:10px; font-weight:500; letter-spacing:var(--tracking-label); text-transform:uppercase; color:rgba(245,240,232,0.5); text-decoration:none; padding:var(--space-4) var(--space-5); border-bottom:2px solid transparent; transition:color var(--transition-base),border-color var(--transition-base); }
+    .skills-nav__link:hover, .skills-nav__link.is-active { color:var(--color-gold); border-color:var(--color-gold); }
+
+    .section-skills { background-color:var(--color-white); padding:var(--space-12) var(--padding-x) var(--padding-section); }
+    .section-skills__inner { max-width:var(--max-width); margin:0 auto; }
+    .skills-intro { max-width:680px; margin:0 auto var(--space-12); text-align:center; }
+    .skills-intro h2 { font-family:var(--font-display); font-size:clamp(var(--text-2xl),3.5vw,var(--text-3xl)); font-weight:400; color:var(--color-navy); letter-spacing:-0.02em; margin-bottom:var(--space-4); }
+    .skills-intro p { font-family:var(--font-body); font-size:var(--text-md); font-style:italic; color:var(--color-text-light); margin:0; max-width:none; }
+
+    .skill-legend { display:flex; align-items:center; justify-content:flex-end; gap:var(--space-6); margin-bottom:var(--space-6); flex-wrap:wrap; }
+    .skill-legend__label { font-family:var(--font-label); font-size:9px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-text-light); }
+    .skill-legend__item { display:flex; align-items:center; gap:var(--space-2); }
+    .skill-legend__dots { display:flex; gap:3px; }
+    .skill-legend__dot { width:8px; height:8px; border-radius:50%; border:1.5px solid var(--color-navy); background-color:transparent; }
+    .skill-legend__dot.filled { background-color:var(--color-navy); }
+
+    .section-cta-tech { background-color:var(--color-bg-alt); padding:var(--padding-section) var(--padding-x); text-align:center; }
+    .cta-tech__title { font-family:var(--font-display); font-size:clamp(var(--text-2xl),3.5vw,var(--text-3xl)); font-weight:300; color:var(--color-navy); letter-spacing:-0.02em; margin-bottom:var(--space-8); }
+    .cta-tech__actions { display:flex; align-items:center; justify-content:center; gap:var(--space-6); flex-wrap:wrap; }
+
+    .proof-encart--active { background-color:rgba(28,35,71,0.04); border-left-color:var(--color-navy); }
+    .proof-encart__content { display:flex; flex-direction:column; gap:var(--space-3); flex:1; }
+    .proof-encart__link { display:inline-flex; align-items:center; gap:var(--space-2); font-family:var(--font-label); font-size:10px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-navy); text-decoration:none; padding:4px 10px; border:1px solid rgba(28,35,71,0.25); width:fit-content; transition:background-color var(--transition-base),color var(--transition-base); }
+    .proof-encart__link:hover { background-color:var(--color-navy); color:var(--color-on-navy); }
+    .proof-encart__links { display:flex; flex-wrap:wrap; gap:var(--space-2); }
+
+    .but3-badge { display:inline-flex; align-items:center; gap:var(--space-2); font-family:var(--font-label); font-size:9px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-gold); border:1px solid rgba(201,169,110,0.4); padding:3px 10px; margin-bottom:var(--space-4); }
+
+    @media (max-width:640px) { .cta-tech__actions{flex-direction:column;align-items:stretch;} }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content" data-fr="Aller au contenu principal" data-en="Skip to main content">Aller au contenu principal</a>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="site-header" role="banner" id="site-header">
+    <div class="header__inner">
+      <a href="../index.html" class="header__logo" aria-label="Coline Stabile — Accueil">
+        <div class="header__monogram">
+          <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <path d="M28 10 C18 8 8 14 8 22 C8 30 18 36 28 34" stroke="var(--color-gold)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <path d="M26 13 C33 12 37 16 34 20 C31 24 24 22 26 27 C28 32 35 33 38 31" stroke="var(--color-navy)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <circle cx="22" cy="38" r="1.5" fill="var(--color-gold)" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="header__logo-name">Coline Stabile<span data-fr="Portfolio BUT TC BIAV" data-en="BUT TC BIAV Portfolio">Portfolio BUT TC BIAV</span></div>
+      </a>
+      <nav class="site-nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list" role="list">
+          <li class="nav__item"><a href="../index.html" class="nav__link" data-fr="Accueil" data-en="Home">Accueil</a></li>
+          <li class="nav__item"><a href="../a-propos.html" class="nav__link" data-fr="À propos" data-en="About">À propos</a></li>
+          <li class="nav__item"><a href="../projet-professionnel.html" class="nav__link" data-fr="Projet Professionnel" data-en="Career Vision">Projet Professionnel</a></li>
+          <li class="nav__item nav__item--has-dropdown">
+            <button class="nav__link nav__link--dropdown is-active" aria-haspopup="true" aria-expanded="false" data-fr="Compétences" data-en="Skills">Compétences<svg class="dropdown-arrow" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <ul class="nav__dropdown" role="menu">
+              <li role="none"><a href="techniques.html" class="nav__dropdown-link" role="menuitem"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Compétences Techniques" data-en="Technical Skills">Compétences Techniques</span></a></li>
+              <li role="none"><a href="business-international.html" class="nav__dropdown-link is-active" role="menuitem" aria-current="page"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Business International BUT 3" data-en="International Business BUT 3">Business International BUT 3</span></a></li>
+              <li role="none"><a href="comportementales.html" class="nav__dropdown-link" role="menuitem"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Compétences Comportementales" data-en="Soft Skills">Compétences Comportementales</span></a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a href="../contact.html" class="nav__link" data-fr="Contact" data-en="Contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="flex" style="align-items:center;gap:var(--space-4);">
+        <div class="lang-switch" role="group" aria-label="Choisir la langue">
+          <button class="lang-switch__btn is-active" data-lang="fr" aria-pressed="true" aria-label="Français">FR</button>
+          <div class="lang-switch__separator" aria-hidden="true"></div>
+          <button class="lang-switch__btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+        </div>
+        <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-overlay">
+          <span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav__mobile-overlay" id="mobile-overlay" aria-hidden="true" role="dialog">
+    <a href="../index.html" class="nav__mobile-link" data-fr="Accueil" data-en="Home">Accueil</a>
+    <a href="../a-propos.html" class="nav__mobile-link" data-fr="À propos" data-en="About">À propos</a>
+    <a href="../projet-professionnel.html" class="nav__mobile-link" data-fr="Projet Professionnel" data-en="Career Vision">Projet Professionnel</a>
+    <ul class="nav__mobile-sub">
+      <li><a href="techniques.html" class="nav__mobile-sub-link" data-fr="Compétences Techniques" data-en="Technical Skills">Compétences Techniques</a></li>
+      <li><a href="business-international.html" class="nav__mobile-sub-link" data-fr="Business International BUT 3" data-en="International Business BUT 3">Business International BUT 3</a></li>
+      <li><a href="comportementales.html" class="nav__mobile-sub-link" data-fr="Compétences Comportementales" data-en="Soft Skills">Compétences Comportementales</a></li>
+    </ul>
+    <a href="../contact.html" class="nav__mobile-link" data-fr="Contact" data-en="Contact">Contact</a>
+    <div class="nav__mobile-lang">
+      <button class="nav__mobile-lang-btn is-active" data-lang="fr" aria-pressed="true">FR</button>
+      <span class="nav__mobile-lang-sep" aria-hidden="true">·</span>
+      <button class="nav__mobile-lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="page-hero" aria-labelledby="bi-h1">
+      <div class="page-hero__inner">
+        <div class="page-hero__eyebrow">
+          <span class="page-hero__eyebrow-line" aria-hidden="true"></span>
+          <span class="page-hero__eyebrow-text" data-fr="BUT TC BIAV · 3ème Année · IUT Jean-Monnet" data-en="BUT TC BIAV · 3rd Year · IUT Jean-Monnet">BUT TC BIAV · 3ème Année · IUT Jean-Monnet</span>
+          <span class="page-hero__eyebrow-line" aria-hidden="true"></span>
+        </div>
+        <h1 class="page-hero__title" id="bi-h1" data-fr="Business International BUT 3" data-en="International Business BUT 3">Business International BUT 3</h1>
+        <div class="page-hero__divider"><div class="ornament-divider" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.75"/></svg></div></div>
+        <p class="page-hero__chapeau"
+           data-fr="Les 4 compétences du parcours Business International : Achat et Vente (BIAV), développées en 3ème année de BUT TC à l'IUT Jean-Monnet de Saint-Étienne."
+           data-en="The 4 competencies of the International Business: Purchasing and Sales (BIAV) track, developed in the 3rd year of BUT TC at IUT Jean-Monnet, Saint-Étienne."
+        >Les 4 compétences du parcours Business International : Achat et Vente (BIAV), développées en 3ème année de BUT TC à l'IUT Jean-Monnet de Saint-Étienne.</p>
+      </div>
+    </section>
+
+    <!-- NAVIGATION RAPIDE -->
+    <nav class="skills-nav" aria-label="Navigation dans les compétences">
+      <ul class="skills-nav__list" role="list">
+        <li><a href="#c1-marketing" class="skills-nav__link" data-fr="01 · Marketing" data-en="01 · Marketing">01 · Marketing</a></li>
+        <li><a href="#c2-vente" class="skills-nav__link" data-fr="02 · Vente" data-en="02 · Sales">02 · Vente</a></li>
+        <li><a href="#c3-strategie" class="skills-nav__link" data-fr="03 · Stratégie Internationale" data-en="03 · International Strategy">03 · Stratégie Internationale</a></li>
+        <li><a href="#c4-operations" class="skills-nav__link" data-fr="04 · Opérations Internationales" data-en="04 · International Operations">04 · Opérations Internationales</a></li>
+      </ul>
+    </nav>
+
+    <!-- ACCORDÉONS -->
+    <section class="section-skills" aria-labelledby="bi-main-title">
+      <div class="section-skills__inner">
+
+        <div class="skills-intro" data-reveal>
+          <h2 id="bi-main-title" data-fr="Détail des compétences BUT 3" data-en="BUT 3 competencies breakdown">Détail des compétences BUT 3</h2>
+          <p data-fr="Chaque compétence présente ses apprentissages critiques de niveau 3, son niveau d'acquisition et les preuves académiques disponibles."
+             data-en="Each competency presents its level 3 critical learnings, acquisition level and available academic evidence."
+          >Chaque compétence présente ses apprentissages critiques de niveau 3, son niveau d'acquisition et les preuves académiques disponibles.</p>
+        </div>
+
+        <!-- Légende -->
+        <div class="skill-legend" data-reveal>
+          <span class="skill-legend__label" data-fr="Niveau :" data-en="Level:">Niveau :</span>
+          <div class="skill-legend__item"><div class="skill-legend__dots"><div class="skill-legend__dot filled"></div><div class="skill-legend__dot filled"></div><div class="skill-legend__dot empty"></div><div class="skill-legend__dot empty"></div><div class="skill-legend__dot empty"></div></div><span class="skill-legend__label" data-fr="Notions" data-en="Awareness">Notions</span></div>
+          <div class="skill-legend__item"><div class="skill-legend__dots"><div class="skill-legend__dot filled"></div><div class="skill-legend__dot filled"></div><div class="skill-legend__dot filled"></div><div class="skill-legend__dot empty"></div><div class="skill-legend__dot empty"></div></div><span class="skill-legend__label" data-fr="Pratique" data-en="Practice">Pratique</span></div>
+          <div class="skill-legend__item"><div class="skill-legend__dots"><div class="skill-legend__dot filled"></div><div class="skill-legend__dot filled"></div><div class="skill-legend__dot filled"></div><div class="skill-legend__dot filled"></div><div class="skill-legend__dot empty"></div></div><span class="skill-legend__label" data-fr="Maîtrise" data-en="Proficiency">Maîtrise</span></div>
+          <div class="skill-legend__item"><div class="skill-legend__dots"><div class="skill-legend__dot filled"></div><div class="skill-legend__dot filled"></div><div class="skill-legend__dot filled"></div><div class="skill-legend__dot filled"></div><div class="skill-legend__dot filled"></div></div><span class="skill-legend__label" data-fr="Expert" data-en="Expert">Expert</span></div>
+        </div>
+
+        <div class="accordion" role="list" data-reveal>
+
+          <!-- ══ 01 — MARKETING ══ -->
+          <div class="accordion__item" id="c1-marketing" role="listitem">
+            <div class="accordion__header" role="button" tabindex="0" aria-expanded="false" aria-controls="body-c1">
+              <div class="accordion__title-group">
+                <span class="accordion__number">01</span>
+                <h2 class="accordion__title" data-fr="Conduire les actions marketing" data-en="Manage marketing actions">Conduire les actions marketing</h2>
+              </div>
+              <svg class="accordion__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="accordion__body" id="body-c1">
+              <div class="accordion__body-inner">
+                <div class="but3-badge">BUT 3 · Niveau 3 · Solution client étendue</div>
+                <p class="accordion__description"
+                   data-fr="En 3ème année, l'objectif est de construire une solution client étendue à tous les secteurs d'activités, en intégrant une dimension RSE forte et une capacité à anticiper les évolutions de marché."
+                   data-en="In the 3rd year, the goal is to build a client solution extended to all sectors, integrating a strong CSR dimension and the ability to anticipate market changes."
+                >En 3ème année, l'objectif est de construire une solution client étendue à tous les secteurs d'activités, en intégrant une dimension RSE forte et une capacité à anticiper les évolutions de marché.</p>
+                <table class="skills-table" role="table">
+                  <thead><tr><th scope="col" data-fr="Apprentissage critique" data-en="Critical learning">Apprentissage critique</th><th scope="col" data-fr="Niveau" data-en="Level">Niveau</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td class="skill-name" data-fr="AC31.01 · Mettre en place des outils de veille stratégique" data-en="AC31.01 · Implement strategic monitoring tools">AC31.01 · Mettre en place des outils de veille stratégique</td>
+                      <td class="skill-bar-cell"><div class="skill-bar"><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot"></div><div class="skill-bar__dot"></div></div></td>
+                    </tr>
+                    <tr>
+                      <td class="skill-name" data-fr="AC31.03 · Faire évoluer l'offre via des leviers de création de valeur" data-en="AC31.03 · Evolve the offer using value creation levers">AC31.03 · Faire évoluer l'offre via des leviers de valeur</td>
+                      <td class="skill-bar-cell"><div class="skill-bar"><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot"></div><div class="skill-bar__dot"></div></div></td>
+                    </tr>
+                    <tr>
+                      <td class="skill-name" data-fr="AC31.04 · Intégrer la RSE dans la stratégie de l'offre" data-en="AC31.04 · Integrate CSR into the offer strategy">AC31.04 · Intégrer la RSE dans la stratégie de l'offre</td>
+                      <!-- NOTIONS : 2 points pleins -->
+                      <td class="skill-bar-cell"><div class="skill-bar"><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot"></div><div class="skill-bar__dot"></div><div class="skill-bar__dot"></div></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="proof-encart proof-encart--active" role="note" style="margin-top:var(--space-6);">
+                  <svg class="proof-encart__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v10M3 7l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 13h14" stroke-linecap="round" opacity="0.5"/></svg>
+                  <div class="proof-encart__content">
+                    <p class="proof-encart__text"><strong data-fr="3 preuves — Marketing" data-en="3 pieces of evidence — Marketing">3 preuves — Marketing</strong></p>
+                    <div class="proof-encart__links">
+                      <a href="../assets/preuves/but3/marketing-but3-01-veille.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Veille stratégique</a>
+                      <a href="../assets/preuves/but3/marketing-but3-02-offre.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Évolution de l'offre</a>
+                      <a href="../assets/preuves/but3/marketing-but3-03-rse.jpeg" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="2" width="10" height="8" rx="1"/><path d="M1 8l3-3 2 2 2-2 3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>RSE &amp; Offre (image)</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ 02 — VENTE ══ -->
+          <div class="accordion__item" id="c2-vente" role="listitem">
+            <div class="accordion__header" role="button" tabindex="0" aria-expanded="false" aria-controls="body-c2">
+              <div class="accordion__title-group">
+                <span class="accordion__number">02</span>
+                <h2 class="accordion__title" data-fr="Vendre une offre commerciale" data-en="Sell a commercial offer">Vendre une offre commerciale</h2>
+              </div>
+              <svg class="accordion__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="accordion__body" id="body-c2">
+              <div class="accordion__body-inner">
+                <div class="but3-badge">BUT 3 · Niveau 3 · Vente complexe</div>
+                <p class="accordion__description"
+                   data-fr="Conduire une vente complexe impliquant des enjeux financiers, contractuels et interculturels, avec une maîtrise des techniques d'achat professionnel."
+                   data-en="Conducting a complex sale involving financial, contractual and intercultural challenges, with mastery of professional purchasing techniques."
+                >Conduire une vente complexe impliquant des enjeux financiers, contractuels et interculturels, avec une maîtrise des techniques d'achat professionnel.</p>
+                <table class="skills-table" role="table">
+                  <thead><tr><th scope="col" data-fr="Apprentissage critique" data-en="Critical learning">Apprentissage critique</th><th scope="col" data-fr="Niveau" data-en="Level">Niveau</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td class="skill-name" data-fr="AC32.01 · Identifier les techniques d'achat employées par un acheteur professionnel" data-en="AC32.01 · Identify purchasing techniques used by a professional buyer">AC32.01 · Techniques d'achat professionnel</td>
+                      <!-- PRATIQUE : 3 points pleins -->
+                      <td class="skill-bar-cell"><div class="skill-bar"><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot"></div><div class="skill-bar__dot"></div></div></td>
+                    </tr>
+                    <tr>
+                      <td class="skill-name" data-fr="AC32.02 · Élaborer des outils de gestion et de calcul efficaces pour la vente complexe" data-en="AC32.02 · Develop effective management tools for complex sales">AC32.02 · Outils de gestion pour la vente complexe</td>
+                      <td class="skill-bar-cell"><div class="skill-bar"><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot"></div><div class="skill-bar__dot"></div></div></td>
+                    </tr>
+                    <tr>
+                      <td class="skill-name" data-fr="AC32.03 · Maîtriser les codes propres à l'univers spécifique rencontré : achat, finance, international" data-en="AC32.03 · Master sector-specific professional codes">AC32.03 · Codes métier achat, finance, international</td>
+                      <td class="skill-bar-cell"><div class="skill-bar"><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot"></div><div class="skill-bar__dot"></div></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="proof-encart proof-encart--active" role="note" style="margin-top:var(--space-6);">
+                  <svg class="proof-encart__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v10M3 7l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 13h14" stroke-linecap="round" opacity="0.5"/></svg>
+                  <div class="proof-encart__content">
+                    <p class="proof-encart__text"><strong data-fr="3 preuves — Vente" data-en="3 pieces of evidence — Sales">3 preuves — Vente</strong></p>
+                    <div class="proof-encart__links">
+                      <a href="../assets/preuves/but3/vente-but3-01-techniques-achat.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Techniques d'achat</a>
+                      <a href="../assets/preuves/but3/vente-but3-02-outils-gestion.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Outils de gestion</a>
+                      <a href="../assets/preuves/but3/vente-but3-03-codes-metier.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Codes métier B2B</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ 03 — STRATÉGIE INTERNATIONALE ══ -->
+          <div class="accordion__item" id="c3-strategie" role="listitem">
+            <div class="accordion__header" role="button" tabindex="0" aria-expanded="false" aria-controls="body-c3">
+              <div class="accordion__title-group">
+                <span class="accordion__number">03</span>
+                <h2 class="accordion__title" data-fr="Formuler une stratégie de commerce à l'international" data-en="Formulate an international business strategy">Formuler une stratégie de commerce à l'international</h2>
+              </div>
+              <svg class="accordion__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="accordion__body" id="body-c3">
+              <div class="accordion__body-inner">
+                <div class="but3-badge">BUT 3 · Niveau 2 · Chargée développement import/export</div>
+                <p class="accordion__description"
+                   data-fr="Évaluer les marchés internationaux en prenant en compte les contextes géopolitiques, culturels et éthiques, et proposer les modes d'entrée les plus adaptés à la stratégie de l'entreprise."
+                   data-en="Assessing international markets considering geopolitical, cultural and ethical contexts, and proposing the most appropriate entry modes."
+                >Évaluer les marchés internationaux en prenant en compte les contextes géopolitiques, culturels et éthiques, et proposer les modes d'entrée les plus adaptés à la stratégie de l'entreprise.</p>
+                <table class="skills-table" role="table">
+                  <thead><tr><th scope="col" data-fr="Apprentissage critique" data-en="Critical learning">Apprentissage critique</th><th scope="col" data-fr="Niveau" data-en="Level">Niveau</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td class="skill-name" data-fr="AC34.01BI · Évaluer le diagnostic export/import et formuler des préconisations" data-en="AC34.01BI · Assess the export/import diagnosis and formulate recommendations">AC34.01BI · Diagnostic export/import &amp; préconisations</td>
+                      <td class="skill-bar-cell"><div class="skill-bar"><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot"></div></div></td>
+                    </tr>
+                    <tr>
+                      <td class="skill-name" data-fr="AC34.02BI · Évaluer les marchés internationaux (géopolitique, culture, éthique)" data-en="AC34.02BI · Assess international markets with geopolitical and cultural context">AC34.02BI · Marchés internationaux (géopolitique, culture)</td>
+                      <td class="skill-bar-cell"><div class="skill-bar"><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot"></div><div class="skill-bar__dot"></div></div></td>
+                    </tr>
+                    <tr>
+                      <td class="skill-name" data-fr="AC34.03BI · Proposer le mode d'entrée sur le marché le plus adéquat" data-en="AC34.03BI · Propose the most appropriate market entry mode">AC34.03BI · Choix du mode d'entrée à l'international</td>
+                      <td class="skill-bar-cell"><div class="skill-bar"><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot"></div><div class="skill-bar__dot"></div></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="proof-encart proof-encart--active" role="note" style="margin-top:var(--space-6);">
+                  <svg class="proof-encart__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v10M3 7l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 13h14" stroke-linecap="round" opacity="0.5"/></svg>
+                  <div class="proof-encart__content">
+                    <p class="proof-encart__text"><strong data-fr="3 preuves — Stratégie Internationale" data-en="3 pieces of evidence — International Strategy">3 preuves — Stratégie Internationale</strong></p>
+                    <div class="proof-encart__links">
+                      <a href="../assets/preuves/but3/strategie-but3-01-diagnostic.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Diagnostic export/import</a>
+                      <a href="../assets/preuves/but3/strategie-but3-02-marches.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Analyse marchés internationaux</a>
+                      <a href="../assets/preuves/but3/strategie-but3-03-mode-entree.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Mode d'entrée marché</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ 04 — OPÉRATIONS INTERNATIONALES ══ -->
+          <div class="accordion__item" id="c4-operations" role="listitem">
+            <div class="accordion__header" role="button" tabindex="0" aria-expanded="false" aria-controls="body-c4">
+              <div class="accordion__title-group">
+                <span class="accordion__number">04</span>
+                <h2 class="accordion__title" data-fr="Piloter les opérations à l'international" data-en="Manage international operations">Piloter les opérations à l'international</h2>
+              </div>
+              <svg class="accordion__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 7.5L10 12.5L15 7.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="accordion__body" id="body-c4">
+              <div class="accordion__body-inner">
+                <div class="but3-badge">BUT 3 · Niveau 2 · Offre complexe à l'international</div>
+                <p class="accordion__description"
+                   data-fr="Gérer les processus de vente et d'achat dans des situations interculturelles complexes, en optimisant la chaîne logistique internationale et l'administration des opérations import/export."
+                   data-en="Managing sales and purchasing processes in complex intercultural situations, optimising the international logistics chain and import/export operations administration."
+                >Gérer les processus de vente et d'achat dans des situations interculturelles complexes, en optimisant la chaîne logistique internationale et l'administration des opérations import/export.</p>
+                <table class="skills-table" role="table">
+                  <thead><tr><th scope="col" data-fr="Apprentissage critique" data-en="Critical learning">Apprentissage critique</th><th scope="col" data-fr="Niveau" data-en="Level">Niveau</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td class="skill-name" data-fr="AC35.01BI · Mobiliser ses connaissances en achat dans des situations interculturelles" data-en="AC35.01BI · Apply purchasing knowledge in intercultural situations">AC35.01BI · Achat &amp; vente en situations interculturelles</td>
+                      <td class="skill-bar-cell"><div class="skill-bar"><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot"></div></div></td>
+                    </tr>
+                    <tr>
+                      <td class="skill-name" data-fr="AC35.02BI · Optimiser la chaîne logistique en intégrant les enjeux environnementaux et éthiques" data-en="AC35.02BI · Optimise the logistics chain integrating environmental issues">AC35.02BI · Chaîne logistique (RSE, environnement)</td>
+                      <!-- NOTIONS : 2 points pleins -->
+                      <td class="skill-bar-cell"><div class="skill-bar"><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot"></div><div class="skill-bar__dot"></div><div class="skill-bar__dot"></div></div></td>
+                    </tr>
+                    <tr>
+                      <td class="skill-name" data-fr="AC35.03BI · Gérer l'administration des achats/ventes à l'international" data-en="AC35.03BI · Manage international purchases/sales administration">AC35.03BI · Administration import/export (Incoterms, docs)</td>
+                      <td class="skill-bar-cell"><div class="skill-bar"><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot is-filled"></div><div class="skill-bar__dot"></div><div class="skill-bar__dot"></div></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="proof-encart proof-encart--active" role="note" style="margin-top:var(--space-6);">
+                  <svg class="proof-encart__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v10M3 7l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 13h14" stroke-linecap="round" opacity="0.5"/></svg>
+                  <div class="proof-encart__content">
+                    <p class="proof-encart__text"><strong data-fr="3 preuves — Opérations Internationales" data-en="3 pieces of evidence — International Operations">3 preuves — Opérations Internationales</strong></p>
+                    <div class="proof-encart__links">
+                      <a href="../assets/preuves/but3/operations-but3-01-interculturel.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Gestion interculturelle</a>
+                      <a href="../assets/preuves/but3/operations-but3-02-logistique.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Chaîne logistique</a>
+                      <a href="../assets/preuves/but3/operations-but3-03-admin.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Administration import/export</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /accordion -->
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-cta-tech" aria-labelledby="cta-bi-title">
+      <div class="container--narrow">
+        <div class="ornament-divider" data-reveal aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.7"/></svg></div>
+        <h2 class="cta-tech__title" id="cta-bi-title" data-reveal data-delay="80" data-fr="Découvrir mes autres compétences" data-en="Discover my other competencies">Découvrir mes autres compétences</h2>
+        <div class="cta-tech__actions" data-reveal data-delay="160">
+          <a href="techniques.html" class="btn btn--primary" data-fr="→ Compétences Techniques" data-en="→ Technical Skills">→ Compétences Techniques</a>
+          <a href="comportementales.html" class="btn btn--secondary" data-fr="Soft Skills" data-en="Soft Skills">Soft Skills</a>
+          <a href="../contact.html" class="btn--text" data-fr="Me contacter →" data-en="Get in touch →">Me contacter →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div class="footer__identity">
+          <p class="footer__name">Coline Stabile</p>
+          <p class="footer__subtitle" data-fr="Étudiante BUT TC BIAV · IUT Jean-Monnet, Saint-Étienne" data-en="BUT TC BIAV Student · IUT Jean-Monnet, Saint-Étienne">Étudiante BUT TC BIAV · IUT Jean-Monnet, Saint-Étienne</p>
+          <a href="mailto:colinestabile43@icloud.com" class="footer__email">colinestabile43@icloud.com</a>
+          <p class="footer__phone">07 63 49 45 99</p>
+        </div>
+        <div class="footer__monogram">
+          <svg viewBox="0 0 80 80" fill="none" aria-label="Monogramme CS">
+            <path d="M52 18 C32 14 14 24 14 40 C14 56 32 66 52 62" stroke="var(--color-gold)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+            <path d="M48 22 C62 20 68 30 60 37 C52 44 40 40 46 50 C52 60 66 62 72 58" stroke="rgba(245,240,232,0.55)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          </svg>
+          <span class="footer__monogram-tagline">Portfolio · 2026</span>
+        </div>
+        <div class="footer__links">
+          <p class="footer__nav-label" data-fr="Navigation" data-en="Navigation">Navigation</p>
+          <a href="../index.html" class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Accueil" data-en="Home">Accueil</span></a>
+          <a href="../a-propos.html" class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="À propos" data-en="About">À propos</span></a>
+          <a href="techniques.html" class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Compétences Techniques" data-en="Technical Skills">Compétences Techniques</span></a>
+          <a href="comportementales.html" class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Soft Skills" data-en="Soft Skills">Soft Skills</span></a>
+          <a href="../contact.html" class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Contact" data-en="Contact">Contact</span></a>
+          <a href="../assets/pdf/CV_Coline_Stabile_2026.pdf" download class="footer__cv-btn" style="margin-top:var(--space-6);">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 2v6M3 6l3 3 3-3M2 10h8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-fr="Télécharger mon CV (PDF)" data-en="Download my CV (PDF)">Télécharger mon CV (PDF)</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copyright">© 2026 Coline Stabile · Tous droits réservés</span>
+        <div style="display:flex;align-items:center;gap:var(--space-4);">
+          <a href="#" class="footer__legal" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
+          <span class="footer__bottom-sep" aria-hidden="true">·</span>
+          <span class="footer__legal">colinestabile.github.io</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/lang-switch.js" defer></script>
+  <script src="../assets/js/scroll-reveal.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.accordion__item[id]');
+      const navLinks = document.querySelectorAll('.skills-nav__link');
+      if (!sections.length || !navLinks.length) return;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            navLinks.forEach(link => { link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`); });
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+      sections.forEach(s => observer.observe(s));
+    });
+  </script>
+</body>
+</html>

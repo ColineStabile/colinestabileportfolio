@@ -1,0 +1,1878 @@
+/* ============================================================
+   COLINE STABILE — PORTFOLIO BUT TC BIAV
+   components.css — Tous les composants réutilisables
+   Référence : DEV-CS-2026-06 | Direction Artistique : Old Money Editorial
+   ============================================================
+
+
+   TABLE DES MATIÈRES
+   ------------------
+   1.  Cartes de compétences (preview grid)
+   2.  Cartes de compétences comportementales (blocs alternés)
+   3.  Accordéon (compétences techniques)
+   4.  Barres de progression (niveaux de compétences)
+   5.  Timeline (expériences & formations)
+   6.  Chiffres clés (counter section)
+   7.  Cartes SMART (objectifs I / II / III)
+   8.  Cartes compétences à développer (grid 2×3)
+   9.  Section forces & axes (deux colonnes contrastées)
+   10. Frise chronologique de formation (horizontale)
+   11. Formulaire de contact
+   12. Bloc de téléchargement CV
+   13. Bloc langues (barres CECRL)
+   14. Engagement associatif (carte isolée)
+   15. Overlay de confirmation (formulaire)
+   16. Encarts de preuves académiques
+   17. Badge / tag de compétence
+   18. Grille responsive utilitaire
+   ============================================================ */
+
+
+/* ============================================================
+   1. CARTES DE COMPÉTENCES — SECTION PREVIEW ACCUEIL
+   5 cartes en grid, hover : fond navy, texte crème
+   ============================================================ */
+
+.skills-preview-grid {
+  display:               grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap:                   var(--space-4);
+  margin-top:            var(--space-10);
+}
+
+.skill-card {
+  background-color:   var(--color-white);
+  border:             var(--border-fine);
+  padding:            var(--space-8) var(--space-6);
+  display:            flex;
+  flex-direction:     column;
+  align-items:        flex-start;
+  gap:                var(--space-4);
+  position:           relative;
+  overflow:           hidden;
+  cursor:             none;
+  transition:
+    background-color  var(--transition-slow),
+    border-color      var(--transition-slow),
+    box-shadow        var(--transition-slow),
+    transform         var(--transition-slow);
+}
+
+/* Filet doré décoratif en haut de chaque carte */
+.skill-card::before {
+  content:          '';
+  position:         absolute;
+  top:              0;
+  left:             0;
+  right:            100%;
+  height:           2px;
+  background-color: var(--color-gold);
+  transition:       right var(--transition-slow);
+}
+
+.skill-card:hover::before {
+  right: 0;
+}
+
+/* Icône SVG */
+.skill-card__icon {
+  width:      32px;
+  height:     32px;
+  stroke:     var(--color-navy);
+  fill:       none;
+  stroke-width: 1.2;
+  flex-shrink: 0;
+  transition: stroke var(--transition-base);
+}
+
+/* Titre */
+.skill-card__title {
+  font-family:    var(--font-display);
+  font-size:      var(--text-lg);
+  font-weight:    500;
+  color:          var(--color-navy);
+  line-height:    var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  transition:     color var(--transition-base);
+}
+
+/* Phrase d'accroche */
+.skill-card__desc {
+  font-family:  var(--font-body);
+  font-size:    0.9375rem;
+  line-height:  var(--leading-relaxed);
+  color:        var(--color-text-light);
+  font-style:   italic;
+  margin:       0;
+  max-width:    none;
+  transition:   color var(--transition-base);
+}
+
+/* Hover global sur la carte */
+.skill-card:hover {
+  background-color: var(--color-navy);
+  border-color:     var(--color-navy);
+  box-shadow:       var(--shadow-card-hover);
+  transform:        translateY(-4px);
+}
+
+.skill-card:hover .skill-card__icon  { stroke: var(--color-gold); }
+.skill-card:hover .skill-card__title { color: var(--color-on-navy); }
+.skill-card:hover .skill-card__desc  { color: rgba(245, 240, 232, 0.65); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .skills-preview-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-preview-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .skills-preview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   2. BLOCS COMPÉTENCES COMPORTEMENTALES
+   Numéro large en or à gauche, contenu à droite
+   Alternance fond crème / fond blanc
+   ============================================================ */
+
+.soft-skill-block {
+  display:    grid;
+  grid-template-columns: clamp(80px, 10vw, 120px) 1fr;
+  gap:        var(--space-8) var(--space-12);
+  align-items: start;
+  padding:    var(--space-12) var(--padding-x);
+  position:   relative;
+}
+
+.soft-skill-block:nth-child(even) {
+  background-color: var(--color-white);
+}
+
+/* Filet de séparation entre les blocs */
+.soft-skill-block + .soft-skill-block {
+  border-top: var(--border-fine);
+}
+
+/* Numéro séquentiel style éditorial */
+.soft-skill-block__number {
+  font-family:    var(--font-display);
+  font-size:      clamp(4rem, 8vw, 7rem);
+  font-weight:    600;
+  color:          var(--color-gold);
+  line-height:    0.85;
+  letter-spacing: -0.04em;
+  opacity:        0.7;
+  user-select:    none;
+  padding-top:    0.15em; /* Alignement visuel avec le titre */
+}
+
+.soft-skill-block__content {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--space-4);
+}
+
+.soft-skill-block__title {
+  font-family:    var(--font-display);
+  font-size:      clamp(var(--text-xl), 3vw, var(--text-2xl));
+  font-weight:    500;
+  color:          var(--color-navy);
+  letter-spacing: var(--tracking-tight);
+  line-height:    var(--leading-tight);
+}
+
+.soft-skill-block__why {
+  font-family:  var(--font-body);
+  font-size:    var(--text-md);
+  line-height:  var(--leading-relaxed);
+  color:        var(--color-text);
+  max-width:    none;
+}
+
+.soft-skill-block__why strong {
+  font-weight:  600;
+  color:        var(--color-navy);
+  font-style:   italic;
+}
+
+.soft-skill-block__example {
+  font-family:    var(--font-body);
+  font-size:      var(--text-base);
+  font-style:     italic;
+  line-height:    var(--leading-relaxed);
+  color:          var(--color-text-light);
+  padding-left:   var(--space-6);
+  border-left:    2px solid var(--color-gold);
+  max-width:      none;
+  margin-top:     var(--space-2);
+}
+
+@media (max-width: 640px) {
+  .soft-skill-block {
+    grid-template-columns: 1fr;
+    gap:                   var(--space-4);
+  }
+
+  .soft-skill-block__number {
+    font-size: 3rem;
+  }
+}
+
+
+/* ============================================================
+   3. ACCORDÉON — COMPÉTENCES TECHNIQUES
+   Header cliquable, contenu expansible avec animation de hauteur
+   ============================================================ */
+
+.accordion {
+  display:        flex;
+  flex-direction: column;
+  gap:            0;
+  border-top:     var(--border-fine);
+}
+
+.accordion__item {
+  border-bottom: var(--border-fine);
+  overflow:      hidden;
+}
+
+/* En-tête de l'accordéon */
+.accordion__header {
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  padding:          var(--space-6) var(--space-8);
+  cursor:           none;
+  background-color: transparent;
+  transition:       background-color var(--transition-base);
+  user-select:      none;
+  gap:              var(--space-6);
+}
+
+.accordion__header:hover {
+  background-color: rgba(201, 169, 110, 0.05);
+}
+
+/* Numéro + titre */
+.accordion__title-group {
+  display:        flex;
+  align-items:    baseline;
+  gap:            var(--space-4);
+  flex:           1;
+}
+
+.accordion__number {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    600;
+  letter-spacing: var(--tracking-label);
+  color:          var(--color-gold);
+  white-space:    nowrap;
+}
+
+.accordion__title {
+  font-family:    var(--font-display);
+  font-size:      clamp(var(--text-xl), 3vw, var(--text-2xl));
+  font-weight:    500;
+  color:          var(--color-navy);
+  letter-spacing: var(--tracking-tight);
+  line-height:    var(--leading-tight);
+  transition:     color var(--transition-base);
+}
+
+.accordion__item.is-open .accordion__title {
+  color: var(--color-gold);
+}
+
+/* Flèche d'expansion */
+.accordion__arrow {
+  width:            20px;
+  height:           20px;
+  flex-shrink:      0;
+  stroke:           var(--color-navy);
+  fill:             none;
+  stroke-width:     1.5;
+  transition:       transform var(--transition-slow),
+                    stroke var(--transition-base);
+}
+
+.accordion__item.is-open .accordion__arrow {
+  transform: rotate(180deg);
+  stroke:    var(--color-gold);
+}
+
+/* Contenu expansible */
+.accordion__body {
+  display:    grid;
+  grid-template-rows: 0fr; /* Technique d'animation height: auto */
+  transition: grid-template-rows var(--transition-slow);
+}
+
+.accordion__item.is-open .accordion__body {
+  grid-template-rows: 1fr;
+}
+
+.accordion__body-inner {
+  overflow:    hidden;
+  padding:     0 var(--space-8);
+}
+
+.accordion__item.is-open .accordion__body-inner {
+  padding-bottom: var(--space-8);
+}
+
+/* Texte de présentation dans l'accordéon */
+.accordion__description {
+  font-family:  var(--font-body);
+  font-size:    var(--text-md);
+  font-style:   italic;
+  line-height:  var(--leading-relaxed);
+  color:        var(--color-text-light);
+  margin-bottom: var(--space-8);
+  padding-top:  var(--space-4);
+  border-top:   1px solid rgba(201, 169, 110, 0.2);
+  max-width:    none;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .accordion__header { padding: var(--space-5) var(--space-4); }
+  .accordion__body-inner { padding: 0 var(--space-4); }
+  .accordion__item.is-open .accordion__body-inner { padding-bottom: var(--space-6); }
+  .accordion__title { font-size: var(--text-xl); }
+}
+
+
+/* ============================================================
+   4. BARRES DE PROGRESSION — NIVEAUX DE COMPÉTENCES
+   Grille de sous-compétences avec barre animée au scroll
+   ============================================================ */
+
+.skills-table {
+  width:          100%;
+  border-collapse: collapse;
+  margin-top:     var(--space-4);
+}
+
+.skills-table th {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          var(--color-text-light);
+  padding:        var(--space-2) 0 var(--space-4);
+  text-align:     left;
+  border-bottom:  1px solid rgba(201, 169, 110, 0.2);
+}
+
+.skills-table th:last-child {
+  text-align: right;
+  width:      200px;
+}
+
+.skills-table tr {
+  border-bottom: 1px solid rgba(28, 35, 71, 0.05);
+}
+
+.skills-table tr:last-child {
+  border-bottom: none;
+}
+
+.skills-table td {
+  padding:       var(--space-4) 0;
+  vertical-align: middle;
+}
+
+/* Nom de la sous-compétence */
+.skill-name {
+  font-family:  var(--font-body);
+  font-size:    var(--text-base);
+  color:        var(--color-text);
+  padding-right: var(--space-8);
+  line-height:  var(--leading-snug);
+}
+
+/* Conteneur de la barre de progression */
+.skill-bar-cell {
+  text-align: right;
+  width:      200px;
+}
+
+.skill-bar {
+  display:          flex;
+  align-items:      center;
+  gap:              4px;
+  justify-content:  flex-end;
+}
+
+/* Pastille individuelle (5 niveaux) */
+.skill-bar__dot {
+  width:            10px;
+  height:           10px;
+  border-radius:    50%;
+  border:           1.5px solid var(--color-navy);
+  background-color: transparent;
+  transition:       background-color var(--transition-slow),
+                    transform var(--transition-slow);
+}
+
+/* Pastille remplie */
+.skill-bar__dot.is-filled {
+  background-color: var(--color-navy);
+}
+
+/* Animation des pastilles au scroll */
+.skill-bar.animate .skill-bar__dot.is-filled {
+  animation: dotFill 0.4s ease forwards;
+}
+
+.skill-bar.animate .skill-bar__dot.is-filled:nth-child(1) { animation-delay: 0.05s; }
+.skill-bar.animate .skill-bar__dot.is-filled:nth-child(2) { animation-delay: 0.15s; }
+.skill-bar.animate .skill-bar__dot.is-filled:nth-child(3) { animation-delay: 0.25s; }
+.skill-bar.animate .skill-bar__dot.is-filled:nth-child(4) { animation-delay: 0.35s; }
+.skill-bar.animate .skill-bar__dot.is-filled:nth-child(5) { animation-delay: 0.45s; }
+
+@keyframes dotFill {
+  0%   { background-color: transparent; transform: scale(0.5); }
+  60%  { transform: scale(1.3); }
+  100% { background-color: var(--color-navy); transform: scale(1); }
+}
+
+/* Responsive : tableau → liste sur mobile */
+@media (max-width: 640px) {
+  .skills-table thead { display: none; }
+
+  .skills-table tr {
+    display:        grid;
+    grid-template-columns: 1fr auto;
+    align-items:    center;
+    gap:            var(--space-2);
+    padding:        var(--space-3) 0;
+  }
+
+  .skills-table td {
+    padding: 0;
+  }
+
+  .skill-bar-cell { width: auto; }
+}
+
+
+/* ============================================================
+   5. TIMELINE — EXPÉRIENCES & FORMATIONS
+   Axe vertical doré, cartes avec point décoratif
+   ============================================================ */
+
+.timeline {
+  position:   relative;
+  padding:    var(--space-4) 0;
+}
+
+/* Ligne verticale centrale */
+.timeline::before {
+  content:          '';
+  position:         absolute;
+  left:             clamp(100px, 15%, 160px);
+  top:              0;
+  bottom:           0;
+  width:            1px;
+  background:       linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-gold) 8%,
+    var(--color-gold) 92%,
+    transparent
+  );
+  opacity:          0.5;
+}
+
+.timeline__entry {
+  display:          grid;
+  grid-template-columns: clamp(100px, 15%, 160px) 1fr;
+  gap:              0 var(--space-10);
+  align-items:      start;
+  margin-bottom:    var(--space-10);
+  position:         relative;
+}
+
+.timeline__entry:last-child {
+  margin-bottom: 0;
+}
+
+/* Colonne date (gauche) */
+.timeline__date {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          var(--color-navy);
+  text-align:     right;
+  padding-top:    0.3em; /* Alignement avec le titre */
+  padding-right:  var(--space-6);
+  position:       relative;
+  line-height:    var(--leading-snug);
+}
+
+/* Point décoratif doré sur l'axe */
+.timeline__date::after {
+  content:          '';
+  position:         absolute;
+  right:            -5px;
+  top:              0.45em;
+  width:            9px;
+  height:           9px;
+  border-radius:    50%;
+  background-color: var(--color-gold);
+  border:           2px solid var(--color-bg);
+  box-shadow:       0 0 0 1.5px var(--color-gold);
+  z-index:          var(--z-base);
+}
+
+/* Contenu de l'entrée */
+.timeline__content {
+  background-color: var(--color-white);
+  border:           var(--border-fine);
+  padding:          var(--space-6) var(--space-8);
+  transition:       box-shadow var(--transition-slow),
+                    transform var(--transition-slow);
+}
+
+.timeline__content:hover {
+  box-shadow: var(--shadow-card);
+  transform:  translateX(4px);
+}
+
+/* En-tête de l'entrée timeline */
+.timeline__role {
+  font-family:    var(--font-display);
+  font-size:      var(--text-xl);
+  font-weight:    600;
+  color:          var(--color-navy);
+  letter-spacing: var(--tracking-tight);
+  line-height:    var(--leading-tight);
+  margin-bottom:  var(--space-1);
+}
+
+.timeline__company {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          var(--color-gold);
+  margin-bottom:  var(--space-4);
+  display:        flex;
+  align-items:    center;
+  gap:            var(--space-2);
+  flex-wrap:      wrap;
+}
+
+.timeline__company-sep {
+  color: rgba(201, 169, 110, 0.4);
+}
+
+/* Badge de type (Stage / Alternance) */
+.timeline__badge {
+  display:        inline-block;
+  font-family:    var(--font-label);
+  font-size:      9px;
+  font-weight:    600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color:          var(--color-navy);
+  border:         1px solid rgba(28, 35, 71, 0.25);
+  padding:        2px 7px;
+  border-radius:  2px;
+}
+
+/* Liste de missions */
+.timeline__missions {
+  list-style:  none;
+  padding:     0;
+  margin:      var(--space-4) 0 0;
+  display:     flex;
+  flex-direction: column;
+  gap:         var(--space-2);
+}
+
+.timeline__missions li {
+  font-family:  var(--font-body);
+  font-size:    var(--text-base);
+  line-height:  var(--leading-relaxed);
+  color:        var(--color-text);
+  padding-left: var(--space-6);
+  position:     relative;
+  max-width:    none;
+}
+
+/* Tiret doré avant chaque mission */
+.timeline__missions li::before {
+  content:          '—';
+  position:         absolute;
+  left:             0;
+  color:            var(--color-gold);
+  font-family:      var(--font-body);
+  font-weight:      300;
+}
+
+/* Section sur fond --color-bg-alt */
+.section--bg-alt .timeline__content {
+  background-color: var(--color-bg);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .timeline::before { display: none; }
+
+  .timeline__entry {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .timeline__date {
+    text-align:   left;
+    padding-right: 0;
+  }
+
+  .timeline__date::after { display: none; }
+
+  .timeline__content {
+    padding: var(--space-5) var(--space-5);
+  }
+}
+
+
+/* ============================================================
+   6. CHIFFRES CLÉS — COUNTER SECTION (FOND NAVY)
+   4 colonnes, animation counter JS au scroll
+   ============================================================ */
+
+.stats-grid {
+  display:               grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:                   var(--space-1);
+  padding:               var(--space-12) 0;
+}
+
+.stat-item {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  text-align:     center;
+  padding:        var(--space-8) var(--space-6);
+  position:       relative;
+}
+
+/* Séparateur vertical entre les stats */
+.stat-item + .stat-item::before {
+  content:          '';
+  position:         absolute;
+  left:             0;
+  top:              20%;
+  bottom:           20%;
+  width:            1px;
+  background:       rgba(201, 169, 110, 0.25);
+}
+
+/* Chiffre principal */
+.stat-item__value {
+  font-family:    var(--font-display);
+  font-size:      clamp(3.5rem, 7vw, var(--text-6xl));
+  font-weight:    300;
+  color:          var(--color-on-navy);
+  line-height:    1;
+  letter-spacing: -0.03em;
+  margin-bottom:  var(--space-3);
+  font-feature-settings: 'lnum' 1, 'tnum' 1; /* Chiffres tabulaires */
+}
+
+/* Suffixe du chiffre (ex : "C1" — la partie texte) */
+.stat-item__value .stat-suffix {
+  font-size:      0.6em;
+  font-weight:    400;
+  vertical-align: baseline;
+  margin-left:    2px;
+}
+
+/* Libellé */
+.stat-item__label {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          rgba(245, 240, 232, 0.55);
+  line-height:    var(--leading-snug);
+  max-width:      160px;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-item:nth-child(3)::before,
+  .stat-item:nth-child(1)::before {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-item + .stat-item::before { display: none; }
+}
+
+
+/* ============================================================
+   7. CARTES OBJECTIFS SMART
+   Numérotées I / II / III (chiffres romains), 5 critères chacune
+   ============================================================ */
+
+.smart-grid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   var(--space-6);
+}
+
+.smart-card {
+  background-color: var(--color-white);
+  border:           var(--border-fine);
+  padding:          var(--space-8) var(--space-8) var(--space-8);
+  display:          flex;
+  flex-direction:   column;
+  gap:              var(--space-6);
+  position:         relative;
+  overflow:         hidden;
+}
+
+/* Numéro romain en arrière-plan */
+.smart-card::before {
+  content:          attr(data-roman);
+  position:         absolute;
+  bottom:           -0.1em;
+  right:            -0.05em;
+  font-family:      var(--font-display);
+  font-size:        10rem;
+  font-weight:      700;
+  color:            transparent;
+  -webkit-text-stroke: 1px rgba(201, 169, 110, 0.1);
+  text-stroke:      1px rgba(201, 169, 110, 0.1);
+  line-height:      1;
+  pointer-events:   none;
+  user-select:      none;
+  letter-spacing:   -0.05em;
+}
+
+/* En-tête de la carte */
+.smart-card__header {
+  display:        flex;
+  align-items:    baseline;
+  gap:            var(--space-3);
+}
+
+.smart-card__roman {
+  font-family:    var(--font-display);
+  font-size:      var(--text-3xl);
+  font-weight:    600;
+  color:          var(--color-gold);
+  line-height:    1;
+  letter-spacing: 0.02em;
+}
+
+.smart-card__title {
+  font-family:    var(--font-display);
+  font-size:      var(--text-lg);
+  font-weight:    500;
+  color:          var(--color-navy);
+  line-height:    var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Critères SMART */
+.smart-criteria {
+  list-style:  none;
+  padding:     0;
+  margin:      0;
+  display:     flex;
+  flex-direction: column;
+  gap:         var(--space-3);
+}
+
+.smart-criteria li {
+  display:      flex;
+  gap:          var(--space-3);
+  align-items:  flex-start;
+  font-family:  var(--font-body);
+  font-size:    var(--text-base);
+  line-height:  var(--leading-relaxed);
+  color:        var(--color-text);
+  max-width:    none;
+}
+
+/* Initiale SMART en doré */
+.smart-criteria li::before {
+  content:        attr(data-letter);
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    700;
+  letter-spacing: 0.08em;
+  color:          var(--color-gold);
+  text-transform: uppercase;
+  flex-shrink:    0;
+  width:          16px;
+  padding-top:    0.25em;
+}
+
+@media (max-width: 1024px) {
+  .smart-grid { grid-template-columns: 1fr; }
+  .smart-card { max-width: 640px; margin: 0 auto; width: 100%; }
+}
+
+
+/* ============================================================
+   8. CARTES COMPÉTENCES À DÉVELOPPER (PROJET PRO)
+   Grid 2×3 — numéro séquentiel grand format en or
+   ============================================================ */
+
+.dev-skills-grid {
+  display:               grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:                   var(--space-6);
+  margin-top:            var(--space-8);
+}
+
+.dev-skill-card {
+  background-color: var(--color-white);
+  border:           var(--border-fine);
+  border-bottom:    2px solid transparent;
+  padding:          var(--space-8) var(--space-8) var(--space-6);
+  position:         relative;
+  overflow:         hidden;
+  transition:       border-bottom-color var(--transition-slow),
+                    box-shadow        var(--transition-slow),
+                    transform         var(--transition-slow);
+}
+
+.dev-skill-card:hover {
+  border-bottom-color: var(--color-navy);
+  box-shadow:          var(--shadow-card);
+  transform:           translateY(-3px);
+}
+
+/* Numéro séquentiel style éditorial */
+.dev-skill-card__number {
+  font-family:    var(--font-display);
+  font-size:      clamp(4rem, 6vw, 5rem);
+  font-weight:    600;
+  color:          var(--color-gold);
+  line-height:    1;
+  opacity:        0.5;
+  letter-spacing: -0.03em;
+  margin-bottom:  var(--space-4);
+  transition:     opacity var(--transition-base);
+  user-select:    none;
+}
+
+.dev-skill-card:hover .dev-skill-card__number {
+  opacity: 0.8;
+}
+
+.dev-skill-card__title {
+  font-family:    var(--font-display);
+  font-size:      var(--text-xl);
+  font-weight:    500;
+  color:          var(--color-navy);
+  letter-spacing: var(--tracking-tight);
+  line-height:    var(--leading-snug);
+  margin-bottom:  var(--space-3);
+}
+
+.dev-skill-card__text {
+  font-family:  var(--font-body);
+  font-size:    var(--text-base);
+  line-height:  var(--leading-relaxed);
+  color:        var(--color-text-light);
+  font-style:   italic;
+  max-width:    none;
+  margin:       0;
+}
+
+@media (max-width: 640px) {
+  .dev-skills-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ============================================================
+   9. SECTION FORCES & AXES DE PROGRESSION
+   Deux colonnes contrastées — navy / crème
+   Séparateur vertical doré
+   ============================================================ */
+
+.strengths-grid {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   0;
+  margin-top:            var(--space-8);
+}
+
+/* Séparateur vertical doré entre les deux colonnes */
+.strengths-grid::after {
+  display: none; /* Géré par border */
+}
+
+.strengths-col {
+  padding: var(--space-12) var(--space-10);
+}
+
+/* Colonne gauche — fond navy, texte crème */
+.strengths-col--forces {
+  background-color: var(--color-navy);
+  border-right:     1px solid rgba(201, 169, 110, 0.3);
+}
+
+/* Colonne droite — fond crème, texte navy */
+.strengths-col--axes {
+  background-color: var(--color-bg);
+}
+
+/* Titre de colonne */
+.strengths-col__title {
+  font-family:    var(--font-display);
+  font-size:      clamp(var(--text-xl), 3vw, var(--text-2xl));
+  font-weight:    500;
+  letter-spacing: var(--tracking-tight);
+  line-height:    var(--leading-tight);
+  margin-bottom:  var(--space-8);
+  padding-bottom: var(--space-4);
+  position:       relative;
+}
+
+.strengths-col--forces .strengths-col__title {
+  color: var(--color-on-navy);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.25);
+}
+
+.strengths-col--axes .strengths-col__title {
+  color: var(--color-navy);
+  border-bottom: 1px solid rgba(28, 35, 71, 0.12);
+}
+
+/* Items individuels */
+.strengths-list {
+  list-style:  none;
+  padding:     0;
+  margin:      0;
+  display:     flex;
+  flex-direction: column;
+  gap:         var(--space-8);
+}
+
+.strengths-item {}
+
+.strengths-item__title {
+  font-family:    var(--font-display);
+  font-size:      var(--text-lg);
+  font-weight:    500;
+  letter-spacing: var(--tracking-tight);
+  line-height:    var(--leading-tight);
+  margin-bottom:  var(--space-2);
+}
+
+.strengths-col--forces .strengths-item__title {
+  color: var(--color-gold-light);
+}
+
+.strengths-col--axes .strengths-item__title {
+  color: var(--color-navy);
+}
+
+.strengths-item__text {
+  font-family:  var(--font-body);
+  font-size:    var(--text-base);
+  line-height:  var(--leading-relaxed);
+  max-width:    none;
+  margin:       0;
+}
+
+.strengths-col--forces .strengths-item__text {
+  color: rgba(245, 240, 232, 0.7);
+}
+
+.strengths-col--axes .strengths-item__text {
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .strengths-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strengths-col {
+    padding: var(--space-10) var(--space-8);
+  }
+
+  .strengths-col--forces {
+    border-right:  none;
+    border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+  }
+}
+
+
+/* ============================================================
+   10. FRISE CHRONOLOGIQUE HORIZONTALE — PARCOURS DE FORMATION
+   Fond navy, points dorés, texte crème
+   ============================================================ */
+
+.timeline-h {
+  position:   relative;
+  padding:    var(--space-12) 0 var(--space-8);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ligne horizontale dorée */
+.timeline-h::before {
+  content:    '';
+  position:   absolute;
+  top:        calc(var(--space-12) + 10px); /* Aligné avec le point central */
+  left:       0;
+  right:      0;
+  height:     1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-gold) 5%,
+    var(--color-gold) 95%,
+    transparent
+  );
+  opacity:    0.4;
+}
+
+.timeline-h__track {
+  display:             grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:                 var(--space-4);
+  min-width:           600px;
+}
+
+.timeline-h__step {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  text-align:     center;
+  gap:            var(--space-4);
+}
+
+/* Point sur la frise */
+.timeline-h__dot {
+  width:            20px;
+  height:           20px;
+  border-radius:    50%;
+  background-color: var(--color-gold);
+  border:           3px solid var(--color-navy);
+  box-shadow:       0 0 0 2px var(--color-gold);
+  flex-shrink:      0;
+  z-index:          var(--z-base);
+  position:         relative;
+}
+
+/* Contenu texte */
+.timeline-h__period {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          var(--color-gold);
+  line-height:    1;
+}
+
+.timeline-h__label {
+  font-family:  var(--font-body);
+  font-size:    var(--text-base);
+  line-height:  var(--leading-relaxed);
+  color:        var(--color-on-navy);
+  font-style:   italic;
+}
+
+.timeline-h__label strong {
+  display:      block;
+  font-family:  var(--font-label);
+  font-style:   normal;
+  font-size:    var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:        rgba(245, 240, 232, 0.55);
+  margin-top:   var(--space-1);
+}
+
+
+/* ============================================================
+   11. FORMULAIRE DE CONTACT
+   Largeur max 640px, bordure fine navy, validation HTML5
+   ============================================================ */
+
+.contact-form {
+  max-width:  var(--max-width-form);
+  margin:     0 auto;
+  width:      100%;
+}
+
+/* Groupe de champ */
+.form-group {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--space-2);
+  margin-bottom:  var(--space-6);
+}
+
+.form-group:last-of-type {
+  margin-bottom: var(--space-8);
+}
+
+/* Label */
+.form-label {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          var(--color-navy);
+  display:        flex;
+  align-items:    center;
+  gap:            var(--space-2);
+}
+
+/* Astérisque obligatoire */
+.form-label .required {
+  color:       var(--color-gold);
+  font-size:   0.85em;
+  line-height: 1;
+}
+
+/* Champs texte, email, select */
+.form-input,
+.form-select,
+.form-textarea {
+  width:            100%;
+  padding:          0.85em 1em;
+  font-family:      var(--font-body);
+  font-size:        var(--text-md);
+  color:            var(--color-text);
+  background-color: var(--color-white);
+  border:           var(--border-navy);
+  border-radius:    0; /* Esthétique editorial — sans arrondi */
+  outline:          none;
+  appearance:       none;
+  -webkit-appearance: none;
+  transition:       border-color var(--transition-base),
+                    box-shadow   var(--transition-base);
+  line-height:      var(--leading-snug);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color:      var(--color-text-light);
+  font-style: italic;
+}
+
+/* Focus */
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--color-gold);
+  box-shadow:   0 0 0 3px rgba(201, 169, 110, 0.12);
+}
+
+/* Erreur de validation HTML5 */
+.form-input:invalid:not(:placeholder-shown),
+.form-select:invalid:not(:placeholder-shown),
+.form-textarea:invalid:not(:placeholder-shown) {
+  border-color: #B94A3B;
+  box-shadow:   0 0 0 3px rgba(185, 74, 59, 0.08);
+}
+
+/* Textarea */
+.form-textarea {
+  resize:     vertical;
+  min-height: 160px;
+  line-height: var(--leading-relaxed);
+}
+
+/* Select — flèche personnalisée */
+.form-select-wrapper {
+  position: relative;
+}
+
+.form-select-wrapper::after {
+  content:          '';
+  position:         absolute;
+  right:            1em;
+  top:              50%;
+  transform:        translateY(-50%) rotate(45deg);
+  width:            6px;
+  height:           6px;
+  border-right:     1.5px solid var(--color-navy);
+  border-bottom:    1.5px solid var(--color-navy);
+  pointer-events:   none;
+  transition:       border-color var(--transition-base);
+}
+
+.form-select {
+  cursor:             none;
+  padding-right:      3em;
+}
+
+/* Grille 2 colonnes pour les premiers champs */
+.form-row {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   var(--space-4);
+}
+
+/* Bouton de soumission — pleine largeur */
+.form-submit {
+  width:            100%;
+  padding:          1em 2em;
+  font-family:      var(--font-label);
+  font-size:        var(--text-xs);
+  font-weight:      600;
+  letter-spacing:   var(--tracking-label);
+  text-transform:   uppercase;
+  background-color: var(--color-navy);
+  color:            var(--color-on-navy);
+  border:           var(--border-navy);
+  cursor:           none;
+  transition:       background-color var(--transition-slow),
+                    color            var(--transition-slow),
+                    box-shadow       var(--transition-slow);
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  gap:              var(--space-3);
+  margin-top:       var(--space-4);
+}
+
+.form-submit:hover {
+  background-color: transparent;
+  color:            var(--color-navy);
+  box-shadow:       inset 0 0 0 1px var(--color-navy);
+}
+
+.form-submit:active {
+  transform: scale(0.99);
+}
+
+.form-submit svg {
+  width:      16px;
+  height:     16px;
+  stroke:     currentColor;
+  fill:       none;
+  stroke-width: 1.5;
+  transition: transform var(--transition-base);
+}
+
+.form-submit:hover svg {
+  transform: translateX(3px);
+}
+
+/* Note de confidentialité */
+.form-note {
+  font-family:  var(--font-label);
+  font-size:    10px;
+  letter-spacing: 0.08em;
+  color:        var(--color-text-light);
+  text-align:   center;
+  margin-top:   var(--space-4);
+}
+
+/* Honeypot — invisible */
+.form-honeypot {
+  position:   absolute;
+  opacity:    0;
+  height:     0;
+  overflow:   hidden;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+
+/* ============================================================
+   12. BLOC TÉLÉCHARGEMENT CV
+   Fond navy, bouton crème, icône PDF
+   ============================================================ */
+
+.cv-download-block {
+  display:          flex;
+  flex-direction:   column;
+  align-items:      center;
+  gap:              var(--space-6);
+  padding:          var(--space-12) var(--space-10);
+  background-color: var(--color-navy);
+  text-align:       center;
+  max-width:        480px;
+  margin:           0 auto;
+  border:           1px solid rgba(201, 169, 110, 0.2);
+}
+
+.cv-download-block__title {
+  font-family:    var(--font-display);
+  font-size:      var(--text-2xl);
+  font-weight:    400;
+  color:          var(--color-on-navy);
+  letter-spacing: var(--tracking-tight);
+  line-height:    var(--leading-tight);
+}
+
+.cv-download-block__desc {
+  font-family:  var(--font-body);
+  font-size:    var(--text-base);
+  font-style:   italic;
+  color:        rgba(245, 240, 232, 0.6);
+  line-height:  var(--leading-relaxed);
+  max-width:    none;
+  margin:       0;
+}
+
+.cv-download-btn {
+  display:          inline-flex;
+  align-items:      center;
+  gap:              var(--space-3);
+  padding:          0.9em 2.2em;
+  background-color: var(--color-on-navy);
+  color:            var(--color-navy);
+  font-family:      var(--font-label);
+  font-size:        var(--text-xs);
+  font-weight:      600;
+  letter-spacing:   var(--tracking-label);
+  text-transform:   uppercase;
+  text-decoration:  none;
+  border:           2px solid var(--color-on-navy);
+  cursor:           none;
+  transition:       background-color var(--transition-slow),
+                    color            var(--transition-slow),
+                    border-color     var(--transition-slow);
+}
+
+.cv-download-btn:hover {
+  background-color: transparent;
+  color:            var(--color-on-navy);
+  border-color:     var(--color-on-navy);
+}
+
+.cv-download-btn svg {
+  width:  16px;
+  height: 16px;
+  stroke: currentColor;
+  fill:   none;
+  stroke-width: 1.5;
+}
+
+
+/* ============================================================
+   13. BLOC LANGUES — NIVEAUX CECRL
+   Deux colonnes, barre CSS animée
+   ============================================================ */
+
+.languages-grid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   var(--space-6);
+  padding:               var(--space-8) 0;
+}
+
+.language-card {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--space-4);
+  padding:        var(--space-8) var(--space-6);
+}
+
+.language-card__name {
+  font-family:    var(--font-display);
+  font-size:      var(--text-xl);
+  font-weight:    500;
+  color:          var(--color-on-navy);
+  letter-spacing: var(--tracking-tight);
+}
+
+.language-card__level-label {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          var(--color-gold);
+}
+
+/* Barre de niveau CECRL (A1 → C2 = 6 niveaux) */
+.language-bar {
+  display:          flex;
+  gap:              4px;
+  align-items:      center;
+  margin:           var(--space-2) 0;
+}
+
+.language-bar__segment {
+  height:           3px;
+  flex:             1;
+  background-color: rgba(245, 240, 232, 0.15);
+  transition:       background-color var(--transition-slow);
+  border-radius:    2px;
+}
+
+.language-bar__segment.is-filled {
+  background-color: var(--color-gold);
+}
+
+/* Certifications */
+.language-card__certs {
+  font-family:  var(--font-body);
+  font-size:    0.875rem;
+  font-style:   italic;
+  color:        rgba(245, 240, 232, 0.5);
+  line-height:  var(--leading-relaxed);
+  max-width:    none;
+  margin:       0;
+}
+
+@media (max-width: 640px) {
+  .languages-grid { grid-template-columns: 1fr; gap: 0; }
+  .language-card { border-bottom: 1px solid rgba(201, 169, 110, 0.15); }
+  .language-card:last-child { border-bottom: none; }
+}
+
+
+/* ============================================================
+   14. ENGAGEMENT ASSOCIATIF — CARTE ISOLÉE
+   ============================================================ */
+
+.engagement-card {
+  display:          grid;
+  grid-template-columns: auto 1fr;
+  gap:              var(--space-8) var(--space-12);
+  align-items:      start;
+  padding:          var(--space-10) var(--space-10);
+  background-color: var(--color-white);
+  border:           var(--border-fine);
+  max-width:        820px;
+  margin:           var(--space-8) auto 0;
+  position:         relative;
+}
+
+/* Ornement décoratif */
+.engagement-card::before {
+  content:          '✦';
+  position:         absolute;
+  top:              var(--space-4);
+  right:            var(--space-6);
+  font-size:        0.8rem;
+  color:            var(--color-gold);
+  opacity:          0.4;
+}
+
+.engagement-card__meta {
+  display:          flex;
+  flex-direction:   column;
+  gap:              var(--space-2);
+  min-width:        140px;
+}
+
+.engagement-card__date {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          var(--color-gold);
+}
+
+.engagement-card__role {
+  font-family:  var(--font-body);
+  font-size:    var(--text-base);
+  font-style:   italic;
+  color:        var(--color-text-light);
+  max-width:    none;
+  margin:       0;
+}
+
+.engagement-card__content {}
+
+.engagement-card__assoc {
+  font-family:    var(--font-display);
+  font-size:      var(--text-xl);
+  font-weight:    500;
+  color:          var(--color-navy);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom:  var(--space-3);
+}
+
+.engagement-card__missions {
+  list-style:  none;
+  padding:     0;
+  margin:      0;
+  display:     flex;
+  flex-direction: column;
+  gap:         var(--space-2);
+}
+
+.engagement-card__missions li {
+  font-family:  var(--font-body);
+  font-size:    var(--text-base);
+  line-height:  var(--leading-relaxed);
+  color:        var(--color-text);
+  padding-left: var(--space-6);
+  position:     relative;
+  max-width:    none;
+}
+
+.engagement-card__missions li::before {
+  content:    '—';
+  position:   absolute;
+  left:       0;
+  color:      var(--color-gold);
+}
+
+@media (max-width: 640px) {
+  .engagement-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-6);
+  }
+}
+
+
+/* ============================================================
+   15. OVERLAY DE CONFIRMATION — FORMULAIRE DE CONTACT
+   ============================================================ */
+
+.confirm-overlay {
+  position:         fixed;
+  inset:            0;
+  z-index:          var(--z-overlay);
+  background-color: rgba(28, 35, 71, 0.85);
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  padding:          var(--space-8);
+  backdrop-filter:  blur(4px);
+
+  /* Masqué par défaut */
+  opacity:          0;
+  pointer-events:   none;
+  visibility:       hidden;
+  transition:
+    opacity    var(--transition-slow),
+    visibility var(--transition-slow);
+}
+
+.confirm-overlay.is-visible {
+  opacity:       1;
+  pointer-events: all;
+  visibility:    visible;
+}
+
+.confirm-modal {
+  background-color: var(--color-bg);
+  border:           var(--border-gold);
+  padding:          var(--space-12) var(--space-12);
+  max-width:        480px;
+  width:            100%;
+  text-align:       center;
+  display:          flex;
+  flex-direction:   column;
+  align-items:      center;
+  gap:              var(--space-6);
+  position:         relative;
+
+  /* Animation d'entrée */
+  transform:        translateY(20px);
+  transition:       transform var(--transition-reveal);
+}
+
+.confirm-overlay.is-visible .confirm-modal {
+  transform: translateY(0);
+}
+
+.confirm-modal__check {
+  width:   52px;
+  height:  52px;
+  stroke:  var(--color-gold);
+  fill:    none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.confirm-modal__title {
+  font-family:    var(--font-display);
+  font-size:      var(--text-2xl);
+  font-weight:    500;
+  color:          var(--color-navy);
+  letter-spacing: var(--tracking-tight);
+  line-height:    var(--leading-tight);
+}
+
+.confirm-modal__text {
+  font-family:  var(--font-body);
+  font-size:    var(--text-md);
+  font-style:   italic;
+  color:        var(--color-text-light);
+  line-height:  var(--leading-relaxed);
+  max-width:    none;
+  margin:       0;
+}
+
+.confirm-modal__close {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          var(--color-navy);
+  background:     transparent;
+  border:         var(--border-navy);
+  padding:        0.7em 2em;
+  cursor:         none;
+  transition:     background-color var(--transition-base),
+                  color var(--transition-base);
+  margin-top:     var(--space-2);
+}
+
+.confirm-modal__close:hover {
+  background-color: var(--color-navy);
+  color:            var(--color-on-navy);
+}
+
+
+/* ============================================================
+   16. ENCARTS DE PREUVES ACADÉMIQUES
+   Discrets, à insérer en bas de chaque section de compétence
+   ============================================================ */
+
+.proof-encart {
+  display:          flex;
+  align-items:      flex-start;
+  gap:              var(--space-3);
+  padding:          var(--space-4) var(--space-5);
+  background-color: rgba(201, 169, 110, 0.06);
+  border-left:      2px solid var(--color-gold);
+  margin-top:       var(--space-4);
+}
+
+.proof-encart__icon {
+  width:      16px;
+  height:     16px;
+  stroke:     var(--color-gold);
+  fill:       none;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.proof-encart__text {
+  font-family:  var(--font-label);
+  font-size:    10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color:        var(--color-text-light);
+  line-height:  var(--leading-relaxed);
+  max-width:    none;
+  margin:       0;
+}
+
+.proof-encart__text strong {
+  font-weight: 700;
+  color:       var(--color-navy);
+}
+
+
+/* ============================================================
+   17. BADGE / TAG DE COMPÉTENCE
+   Petite pastille pour les mots-clés
+   ============================================================ */
+
+.tag {
+  display:          inline-flex;
+  align-items:      center;
+  padding:          3px 10px;
+  font-family:      var(--font-label);
+  font-size:        10px;
+  font-weight:      500;
+  letter-spacing:   0.1em;
+  text-transform:   uppercase;
+  color:            var(--color-navy);
+  border:           1px solid rgba(28, 35, 71, 0.2);
+  background-color: transparent;
+  transition:       background-color var(--transition-base),
+                    border-color var(--transition-base);
+}
+
+.tag:hover {
+  background-color: var(--color-navy);
+  color:            var(--color-on-navy);
+  border-color:     var(--color-navy);
+}
+
+.tag--gold {
+  color:        var(--color-gold);
+  border-color: rgba(201, 169, 110, 0.35);
+}
+
+.tag--gold:hover {
+  background-color: var(--color-gold);
+  color:            var(--color-navy);
+  border-color:     var(--color-gold);
+}
+
+/* Groupe de tags */
+.tags-group {
+  display:  flex;
+  flex-wrap: wrap;
+  gap:      var(--space-2);
+  margin-top: var(--space-4);
+}
+
+
+/* ============================================================
+   18. GRILLE RESPONSIVE UTILITAIRE
+   Pour les sections avec contenu en colonnes
+   ============================================================ */
+
+.grid-2 {
+  display:               grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:                   var(--space-8);
+  align-items:           start;
+}
+
+.grid-2--asymmetric {
+  grid-template-columns: 1fr 1.4fr;
+}
+
+.grid-3 {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   var(--space-6);
+}
+
+/* Contact info : 3 colonnes */
+.contact-info-grid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   var(--space-6);
+  padding:               var(--space-8) 0;
+}
+
+.contact-info-item {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  text-align:     center;
+  gap:            var(--space-3);
+  padding:        var(--space-6);
+}
+
+.contact-info-item__icon {
+  width:      32px;
+  height:     32px;
+  stroke:     var(--color-gold);
+  fill:       none;
+  stroke-width: 1.2;
+}
+
+.contact-info-item__label {
+  font-family:    var(--font-label);
+  font-size:      var(--text-xs);
+  font-weight:    600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color:          var(--color-text-light);
+}
+
+.contact-info-item__value {
+  font-family:  var(--font-body);
+  font-size:    var(--text-md);
+  font-style:   italic;
+  color:        var(--color-navy);
+  text-decoration: none;
+  transition:   color var(--transition-base);
+  max-width:    none;
+  margin:       0;
+}
+
+.contact-info-item__value:hover {
+  color: var(--color-gold);
+}
+
+/* Responsive grilles */
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-2--asymmetric {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-3,
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-info-grid { grid-template-columns: 1fr; }
+}
+/* ============================================================
+   ENCARTS DE PREUVES — ÉTAT ACTIF
+============================================================ */
+.proof-encart--active {
+  background-color: rgba(28, 35, 71, 0.04);
+  border-left-color: var(--color-navy);
+}
+.proof-encart__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+}
+.proof-encart__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 1px solid rgba(28, 35, 71, 0.25);
+  width: fit-content;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+.proof-encart__link:hover {
+  background-color: var(--color-navy);
+  color: var(--color-on-navy);
+}
+.proof-encart__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}

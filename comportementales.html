@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-fr="Compétences Comportementales — Soft Skills · Coline Stabile" data-en="Soft Skills · Coline Stabile">Compétences Comportementales — Soft Skills · Coline Stabile</title>
+  <meta name="description" data-fr="Rigueur, adaptabilité, sens de la négociation, esprit d'analyse et travail en équipe : mes compétences comportementales illustrées par des exemples concrets." data-en="Rigour, adaptability, negotiation, analytical mindset and teamwork: my soft skills illustrated with real examples." content="Rigueur, adaptabilité, sens de la négociation, esprit d'analyse et travail en équipe."/>
+  <meta name="author" content="Coline Stabile" />
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/components.css" />
+  <style>
+    /* ── HERO NAVY ─────────────────────────────────────────────── */
+    .ss-hero { background-color:var(--color-navy); min-height:72vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:calc(var(--header-height) + var(--space-16)) var(--padding-x) var(--space-16); text-align:center; position:relative; overflow:hidden; }
+    .ss-hero::before { content:'CS'; position:absolute; bottom:-0.18em; right:-0.04em; font-family:var(--font-display); font-size:clamp(12rem,30vw,26rem); font-weight:700; font-style:italic; color:transparent; -webkit-text-stroke:1px rgba(201,169,110,0.07); line-height:1; pointer-events:none; user-select:none; letter-spacing:-0.05em; }
+    .ss-hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(to right,transparent,var(--color-gold) 25%,var(--color-gold) 75%,transparent); opacity:0.3; }
+    .ss-hero__inner { position:relative; z-index:1; max-width:var(--max-width-text); }
+    .ss-hero__eyebrow { display:flex; align-items:center; justify-content:center; gap:var(--space-4); margin-bottom:var(--space-8); opacity:0; animation:ssIn 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s forwards; }
+    .ss-hero__eyebrow-line { width:32px; height:1px; background:var(--color-gold); flex-shrink:0; }
+    .ss-hero__eyebrow-text { font-family:var(--font-label); font-size:var(--text-xs); font-weight:500; letter-spacing:var(--tracking-label); text-transform:uppercase; color:var(--color-gold); }
+    .ss-hero__title { font-family:var(--font-display); font-size:clamp(var(--text-4xl),7vw,5rem); font-weight:300; color:var(--color-on-navy); letter-spacing:-0.03em; line-height:var(--leading-tight); margin-bottom:var(--space-6); opacity:0; animation:ssIn 0.85s cubic-bezier(0.22,1,0.36,1) 0.36s forwards; }
+    .ss-hero__divider { margin:var(--space-6) auto; opacity:0; animation:ssIn 0.6s ease 0.52s forwards; }
+    .ss-hero__chapeau { font-family:var(--font-body); font-size:var(--text-lg); font-style:italic; line-height:var(--leading-relaxed); color:rgba(245,240,232,0.72); max-width:640px; margin:0 auto; opacity:0; animation:ssIn 0.7s cubic-bezier(0.22,1,0.36,1) 0.66s forwards; }
+    .ss-hero__indicators { display:flex; align-items:center; justify-content:center; gap:var(--space-1); margin-top:var(--space-10); flex-wrap:wrap; opacity:0; animation:ssIn 0.7s ease 0.9s forwards; }
+    .ss-hero__ind { display:flex; flex-direction:column; align-items:center; gap:var(--space-2); padding:var(--space-4) var(--space-5); border:1px solid rgba(201,169,110,0.18); min-width:110px; text-decoration:none; transition:border-color var(--transition-base),background-color var(--transition-base); }
+    .ss-hero__ind:hover { border-color:rgba(201,169,110,0.45); background-color:rgba(201,169,110,0.06); }
+    .ss-hero__ind-num { font-family:var(--font-display); font-size:clamp(1.8rem,3vw,2.5rem); font-weight:300; color:var(--color-gold); line-height:1; opacity:0.7; }
+    .ss-hero__ind-label { font-family:var(--font-label); font-size:9px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:rgba(245,240,232,0.45); text-align:center; line-height:var(--leading-snug); }
+    @keyframes ssIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ── BLOCS COMPORTEMENTAUX ─────────────────────────────────── */
+    .ss-blocks {}
+    .ss-block { padding:var(--padding-section) var(--padding-x); position:relative; overflow:hidden; }
+    .ss-block:nth-child(odd) { background-color:var(--color-bg); }
+    .ss-block:nth-child(even) { background-color:var(--color-white); }
+    .ss-block + .ss-block { border-top:1px solid rgba(28,35,71,0.06); }
+    .ss-block__inner { max-width:var(--max-width); margin:0 auto; display:grid; grid-template-columns:auto 1fr; gap:var(--space-4) var(--space-10); align-items:start; }
+    .ss-block__number { font-family:var(--font-display); font-size:clamp(4rem,7vw,6rem); font-weight:600; color:var(--color-gold); line-height:0.85; letter-spacing:-0.04em; opacity:0.55; user-select:none; padding-top:0.1em; }
+    .ss-block__content { display:flex; flex-direction:column; gap:var(--space-5); }
+    .ss-block__title { font-family:var(--font-display); font-size:clamp(var(--text-xl),3vw,var(--text-2xl)); font-weight:500; color:var(--color-navy); letter-spacing:var(--tracking-tight); line-height:var(--leading-tight); }
+    .ss-block__subtitle { font-family:var(--font-label); font-size:9px; font-weight:400; letter-spacing:var(--tracking-label); text-transform:uppercase; color:var(--color-text-light); }
+    .ss-block__rule { width:48px; height:1px; background:var(--color-gold); opacity:0.6; }
+    .ss-block__why-label { font-family:var(--font-label); font-size:9px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-gold); }
+    .ss-block__why { font-family:var(--font-body); font-size:var(--text-md); line-height:var(--leading-relaxed); color:var(--color-text); max-width:none; margin:0; }
+    .ss-block__example-label { font-family:var(--font-label); font-size:9px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-text-light); margin-top:var(--space-2); }
+    .ss-block__example { font-family:var(--font-body); font-size:var(--text-base); font-style:italic; line-height:var(--leading-relaxed); color:var(--color-text-light); padding-left:var(--space-6); border-left:2px solid rgba(201,169,110,0.4); max-width:none; margin:0; }
+
+    /* ── BILAN NAVY ───────────────────────────────────────────── */
+    .section-ss-bilan { background-color:var(--color-navy); padding:var(--padding-section) var(--padding-x); position:relative; overflow:hidden; }
+    .section-ss-bilan::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(to right,transparent,var(--color-gold) 25%,var(--color-gold) 75%,transparent); opacity:0.3; }
+    .ss-bilan__inner { max-width:var(--max-width); margin:0 auto; position:relative; z-index:1; }
+    .ss-bilan__grid { display:grid; grid-template-columns:repeat(5,1fr); gap:var(--space-3); margin-top:var(--space-10); }
+    .ss-bilan__card { display:flex; flex-direction:column; align-items:center; text-align:center; padding:var(--space-8) var(--space-4); border:1px solid rgba(201,169,110,0.15); gap:var(--space-4); transition:border-color var(--transition-slow),background-color var(--transition-slow); }
+    .ss-bilan__card:hover { border-color:rgba(201,169,110,0.4); background-color:rgba(201,169,110,0.04); }
+    .ss-bilan__card-icon { width:40px; height:40px; stroke:var(--color-gold); fill:none; stroke-width:1.2; opacity:0.7; }
+    .ss-bilan__card-title { font-family:var(--font-display); font-size:var(--text-base); font-weight:500; color:var(--color-on-navy); letter-spacing:var(--tracking-tight); line-height:var(--leading-snug); }
+    .ss-bilan__card-sub { font-family:var(--font-label); font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(245,240,232,0.35); }
+
+    /* ── CTA ──────────────────────────────────────────────────── */
+    .section-cta-ss { background-color:var(--color-bg-alt); padding:var(--padding-section) var(--padding-x); text-align:center; }
+    .cta-ss__title { font-family:var(--font-display); font-size:clamp(var(--text-2xl),3.5vw,var(--text-3xl)); font-weight:300; color:var(--color-navy); letter-spacing:-0.02em; margin-bottom:var(--space-8); }
+    .cta-ss__actions { display:flex; align-items:center; justify-content:center; gap:var(--space-6); flex-wrap:wrap; }
+
+    /* ── PREUVES ACTIVES ──────────────────────────────────────── */
+    .proof-encart--active { background-color:rgba(28,35,71,0.04); border-left-color:var(--color-navy); }
+    .proof-encart__content { display:flex; flex-direction:column; gap:var(--space-3); flex:1; }
+    .proof-encart__link { display:inline-flex; align-items:center; gap:var(--space-2); font-family:var(--font-label); font-size:10px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-navy); text-decoration:none; padding:4px 10px; border:1px solid rgba(28,35,71,0.25); width:fit-content; transition:background-color var(--transition-base),color var(--transition-base); }
+    .proof-encart__link:hover { background-color:var(--color-navy); color:var(--color-on-navy); }
+    .proof-encart__links { display:flex; flex-wrap:wrap; gap:var(--space-2); }
+
+    /* ── RESPONSIVE ───────────────────────────────────────────── */
+    @media (max-width:1100px) { .ss-block__inner{grid-template-columns:1fr;} .ss-block__number{font-size:3rem;} .ss-bilan__grid{grid-template-columns:repeat(3,1fr);} }
+    @media (max-width:640px) { .ss-bilan__grid{grid-template-columns:1fr 1fr;} .cta-ss__actions{flex-direction:column;align-items:stretch;} }
+    @media (max-width:400px) { .ss-bilan__grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content" data-fr="Aller au contenu principal" data-en="Skip to main content">Aller au contenu principal</a>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <header class="site-header header--navy-hero" role="banner" id="site-header">
+    <div class="header__inner">
+      <a href="../index.html" class="header__logo" aria-label="Coline Stabile — Accueil">
+        <div class="header__monogram">
+          <svg viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <path d="M28 10 C18 8 8 14 8 22 C8 30 18 36 28 34" stroke="var(--color-gold)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <path d="M26 13 C33 12 37 16 34 20 C31 24 24 22 26 27 C28 32 35 33 38 31" stroke="var(--color-on-navy)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <circle cx="22" cy="38" r="1.5" fill="var(--color-gold)" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="header__logo-name" style="color:var(--color-on-navy);">Coline Stabile<span data-fr="Portfolio BUT TC BIAV" data-en="BUT TC BIAV Portfolio" style="color:rgba(245,240,232,0.5);">Portfolio BUT TC BIAV</span></div>
+      </a>
+      <nav class="site-nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list" role="list">
+          <li class="nav__item"><a href="../index.html" class="nav__link" data-fr="Accueil" data-en="Home">Accueil</a></li>
+          <li class="nav__item"><a href="../a-propos.html" class="nav__link" data-fr="À propos" data-en="About">À propos</a></li>
+          <li class="nav__item"><a href="../projet-professionnel.html" class="nav__link" data-fr="Projet Professionnel" data-en="Career Vision">Projet Professionnel</a></li>
+          <li class="nav__item nav__item--has-dropdown">
+            <button class="nav__link nav__link--dropdown is-active" aria-haspopup="true" aria-expanded="false" data-fr="Compétences" data-en="Skills">Compétences<svg class="dropdown-arrow" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <ul class="nav__dropdown" role="menu">
+              <li role="none"><a href="techniques.html" class="nav__dropdown-link" role="menuitem"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Compétences Techniques" data-en="Technical Skills">Compétences Techniques</span></a></li>
+              <li role="none"><a href="business-international.html" class="nav__dropdown-link" role="menuitem"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Business International BUT 3" data-en="International Business BUT 3">Business International BUT 3</span></a></li>
+              <li role="none"><a href="comportementales.html" class="nav__dropdown-link is-active" role="menuitem" aria-current="page"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Compétences Comportementales" data-en="Soft Skills">Compétences Comportementales</span></a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a href="../contact.html" class="nav__link" data-fr="Contact" data-en="Contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="flex" style="align-items:center;gap:var(--space-4);">
+        <div class="lang-switch" role="group" aria-label="Choisir la langue">
+          <button class="lang-switch__btn is-active" data-lang="fr" aria-pressed="true" aria-label="Français">FR</button>
+          <div class="lang-switch__separator" aria-hidden="true"></div>
+          <button class="lang-switch__btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+        </div>
+        <button class="nav__toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-overlay">
+          <span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav__mobile-overlay" id="mobile-overlay" aria-hidden="true" role="dialog">
+    <a href="../index.html" class="nav__mobile-link" data-fr="Accueil" data-en="Home">Accueil</a>
+    <a href="../a-propos.html" class="nav__mobile-link" data-fr="À propos" data-en="About">À propos</a>
+    <a href="../projet-professionnel.html" class="nav__mobile-link" data-fr="Projet Professionnel" data-en="Career Vision">Projet Professionnel</a>
+    <ul class="nav__mobile-sub">
+      <li><a href="techniques.html" class="nav__mobile-sub-link" data-fr="Compétences Techniques" data-en="Technical Skills">Compétences Techniques</a></li>
+      <li><a href="business-international.html" class="nav__mobile-sub-link" data-fr="Business International BUT 3" data-en="International Business BUT 3">Business International BUT 3</a></li>
+      <li><a href="comportementales.html" class="nav__mobile-sub-link" data-fr="Compétences Comportementales" data-en="Soft Skills">Compétences Comportementales</a></li>
+    </ul>
+    <a href="../contact.html" class="nav__mobile-link" data-fr="Contact" data-en="Contact">Contact</a>
+    <div class="nav__mobile-lang">
+      <button class="nav__mobile-lang-btn is-active" data-lang="fr" aria-pressed="true">FR</button>
+      <span class="nav__mobile-lang-sep" aria-hidden="true">·</span>
+      <button class="nav__mobile-lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="ss-hero" aria-labelledby="ss-h1">
+      <div class="ss-hero__inner">
+        <div class="ss-hero__eyebrow">
+          <span class="ss-hero__eyebrow-line" aria-hidden="true"></span>
+          <span class="ss-hero__eyebrow-text" data-fr="Portfolio BUT TC BIAV · Qualités Humaines · IUT Jean-Monnet" data-en="BUT TC BIAV Portfolio · Human Qualities · IUT Jean-Monnet">Portfolio BUT TC BIAV · Qualités Humaines · IUT Jean-Monnet</span>
+          <span class="ss-hero__eyebrow-line" aria-hidden="true"></span>
+        </div>
+        <h1 class="ss-hero__title" id="ss-h1" data-fr="Compétences Comportementales" data-en="Soft Skills">Compétences Comportementales</h1>
+        <div class="ss-hero__divider"><div class="ornament-divider" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.75"/></svg></div></div>
+        <p class="ss-hero__chapeau"
+           data-fr="Dans le cadre de mon projet professionnel d'acheteuse internationale, les compétences comportementales jouent un rôle essentiel. Elles me permettent de m'adapter aux exigences d'un environnement complexe et multiculturel, de communiquer efficacement et de négocier avec éthique."
+           data-en="Within my professional goal of becoming an international buyer, soft skills play an essential role. They allow me to adapt to the demands of a complex and multicultural environment, to communicate effectively and to negotiate ethically."
+        >Dans le cadre de mon projet professionnel d'acheteuse internationale, les compétences comportementales jouent un rôle essentiel.</p>
+        <nav class="ss-hero__indicators" aria-label="Navigation vers les compétences">
+          <a href="#ss-block-01" class="ss-hero__ind"><span class="ss-hero__ind-num">01</span><span class="ss-hero__ind-label" data-fr="Rigueur &amp; Organisation" data-en="Rigour &amp; Organisation">Rigueur &amp; Organisation</span></a>
+          <a href="#ss-block-02" class="ss-hero__ind"><span class="ss-hero__ind-num">02</span><span class="ss-hero__ind-label" data-fr="Adaptabilité" data-en="Adaptability">Adaptabilité</span></a>
+          <a href="#ss-block-03" class="ss-hero__ind"><span class="ss-hero__ind-num">03</span><span class="ss-hero__ind-label" data-fr="Négociation &amp; Éthique" data-en="Negotiation &amp; Ethics">Négociation &amp; Éthique</span></a>
+          <a href="#ss-block-04" class="ss-hero__ind"><span class="ss-hero__ind-num">04</span><span class="ss-hero__ind-label" data-fr="Esprit d'Analyse" data-en="Analytical Mindset">Esprit d'Analyse</span></a>
+          <a href="#ss-block-05" class="ss-hero__ind"><span class="ss-hero__ind-num">05</span><span class="ss-hero__ind-label" data-fr="Travail en Équipe" data-en="Teamwork">Travail en Équipe</span></a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         LES 5 BLOCS COMPORTEMENTAUX
+    ══════════════════════════════════════ -->
+    <div class="ss-blocks" role="list">
+
+      <!-- ── 01 RIGUEUR & ORGANISATION ── -->
+      <article class="ss-block" id="ss-block-01" role="listitem" aria-labelledby="ss-title-01">
+        <div class="ss-block__inner">
+          <div class="ss-block__number" aria-hidden="true">01</div>
+          <div class="ss-block__content" data-reveal>
+            <div>
+              <h2 class="ss-block__title" id="ss-title-01" data-fr="Rigueur et Organisation" data-en="Rigour &amp; Organisation">Rigueur et Organisation</h2>
+              <span class="ss-block__subtitle" data-fr="Soft Skill · 01 / 05" data-en="Soft Skill · 01 / 05">Soft Skill · 01 / 05</span>
+            </div>
+            <div class="ss-block__rule" aria-hidden="true"></div>
+            <span class="ss-block__why-label" data-fr="Pourquoi c'est essentiel" data-en="Why it matters">Pourquoi c'est essentiel</span>
+            <p class="ss-block__why"
+               data-fr="Être rigoureuse et organisée permet de garantir la fiabilité des achats, d'éviter les erreurs coûteuses et de maintenir une bonne coordination entre les différents partenaires à l'étranger. Dans un processus d'achat international, une seule erreur documentaire peut bloquer une livraison ou engager des pénalités contractuelles."
+               data-en="Being rigorous and organised ensures the reliability of purchases, prevents costly errors and maintains effective coordination between international partners. In an international purchasing process, a single documentary error can block a delivery or trigger contractual penalties."
+            >Être rigoureuse et organisée permet de garantir la fiabilité des achats, d'éviter les erreurs coûteuses et de maintenir une bonne coordination entre les différents partenaires à l'étranger.</p>
+            <span class="ss-block__example-label" data-fr="Illustration concrète" data-en="Concrete example">Illustration concrète</span>
+            <p class="ss-block__example"
+               data-fr="Lors de mon stage à La Vinifacture, j'ai travaillé de manière autonome sur la prospection B2B pour le marché belge. J'ai organisé mes relances de façon méthodique, structuré et alimenté ma base de données prospects, et rendu compte de l'avancement au responsable commercial chaque semaine."
+               data-en="During my internship at La Vinifacture, I worked independently on B2B prospecting for the Belgian market. I organised my follow-ups methodically, structured and updated my prospects database, and reported progress to the commercial manager weekly."
+            >Lors de mon stage à La Vinifacture, j'ai travaillé de manière autonome sur la prospection B2B pour le marché belge.</p>
+            <div class="proof-encart proof-encart--active" role="note">
+              <svg class="proof-encart__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v10M3 7l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 13h14" stroke-linecap="round" opacity="0.5"/></svg>
+              <div class="proof-encart__content">
+                <p class="proof-encart__text"><strong data-fr="Preuve — Rigueur &amp; Organisation" data-en="Evidence — Rigour &amp; Organisation">Preuve — Rigueur &amp; Organisation</strong></p>
+                <a href="../assets/preuves/experiences/rapport-vinifacture-2025.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Rapport de stage La Vinifacture" data-en="La Vinifacture internship report">Rapport de stage La Vinifacture</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── 02 ADAPTABILITÉ ── -->
+      <article class="ss-block" id="ss-block-02" role="listitem" aria-labelledby="ss-title-02">
+        <div class="ss-block__inner">
+          <div class="ss-block__number" aria-hidden="true">02</div>
+          <div class="ss-block__content" data-reveal>
+            <div>
+              <h2 class="ss-block__title" id="ss-title-02" data-fr="Adaptabilité" data-en="Adaptability">Adaptabilité</h2>
+              <span class="ss-block__subtitle" data-fr="Soft Skill · 02 / 05" data-en="Soft Skill · 02 / 05">Soft Skill · 02 / 05</span>
+            </div>
+            <div class="ss-block__rule" aria-hidden="true"></div>
+            <span class="ss-block__why-label" data-fr="Pourquoi c'est essentiel" data-en="Why it matters">Pourquoi c'est essentiel</span>
+            <p class="ss-block__why"
+               data-fr="Dans un environnement international, chaque pays possède ses propres règles, codes culturels, habitudes de négociation et rythmes professionnels. Un acheteur international doit savoir s'adapter rapidement à ces contextes variés pour collaborer efficacement, éviter les malentendus et saisir les opportunités."
+               data-en="In an international environment, each country has its own rules, cultural codes, negotiation habits and professional rhythms. An international buyer must be able to adapt quickly to these varied contexts to collaborate effectively, avoid misunderstandings and seize opportunities."
+            >Dans un environnement international, chaque pays possède ses propres règles, codes culturels, habitudes de négociation et rythmes professionnels.</p>
+            <span class="ss-block__example-label" data-fr="Illustration concrète" data-en="Concrete example">Illustration concrète</span>
+            <p class="ss-block__example"
+               data-fr="Mon semestre à l'étranger à Glasgow m'a permis de vivre et de travailler aux côtés de personnes issues de nationalités et de cultures très diverses. J'ai appris à ajuster ma communication, à respecter les différences culturelles et à m'intégrer dans un environnement totalement nouveau — y compris sur le plan académique (cours dispensés en anglais, évaluations selon des standards britanniques)."
+               data-en="My semester abroad in Glasgow allowed me to live and work alongside people from very diverse nationalities and cultures. I learned to adjust my communication, respect cultural differences and integrate into a completely new environment — including academically."
+            >Mon semestre à l'étranger à Glasgow m'a permis de vivre et travailler avec des personnes de cultures très diverses.</p>
+            <div class="proof-encart proof-encart--active" role="note">
+              <svg class="proof-encart__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v10M3 7l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 13h14" stroke-linecap="round" opacity="0.5"/></svg>
+              <div class="proof-encart__content">
+                <p class="proof-encart__text"><strong data-fr="Preuves — Adaptabilité (certifications anglais)" data-en="Evidence — Adaptability (English certifications)">Preuves — Adaptabilité (certifications anglais)</strong></p>
+                <div class="proof-encart__links">
+                  <a href="../assets/preuves/langues/certificat-cambridge-c1-2022.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Cambridge C1 (2022)</a>
+                  <a href="../assets/preuves/langues/certificat-toeic-2025.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>TOEIC (2025)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── 03 NÉGOCIATION & ÉTHIQUE ── -->
+      <article class="ss-block" id="ss-block-03" role="listitem" aria-labelledby="ss-title-03">
+        <div class="ss-block__inner">
+          <div class="ss-block__number" aria-hidden="true">03</div>
+          <div class="ss-block__content" data-reveal>
+            <div>
+              <h2 class="ss-block__title" id="ss-title-03" data-fr="Sens de la Négociation &amp; Éthique" data-en="Negotiation &amp; Ethical Standards">Sens de la Négociation &amp; Éthique</h2>
+              <span class="ss-block__subtitle" data-fr="Soft Skill · 03 / 05" data-en="Soft Skill · 03 / 05">Soft Skill · 03 / 05</span>
+            </div>
+            <div class="ss-block__rule" aria-hidden="true"></div>
+            <span class="ss-block__why-label" data-fr="Pourquoi c'est essentiel" data-en="Why it matters">Pourquoi c'est essentiel</span>
+            <p class="ss-block__why"
+               data-fr="Savoir négocier est fondamental pour obtenir les meilleures conditions tarifaires, logistiques ou contractuelles. Mais cette compétence doit toujours s'exercer dans le respect des valeurs éthiques : transparence, loyauté, respect des partenaires et des cadres légaux."
+               data-en="Knowing how to negotiate is fundamental for obtaining the best pricing, logistics or contractual conditions. However, this skill must always be exercised in line with ethical values: transparency, loyalty and respect for partners."
+            >Savoir négocier est fondamental pour obtenir les meilleures conditions, toujours dans le respect des valeurs éthiques.</p>
+            <span class="ss-block__example-label" data-fr="Illustration concrète" data-en="Concrete example">Illustration concrète</span>
+            <p class="ss-block__example"
+               data-fr="Lors de mes recherches de distributeurs pour le vin en Belgique, j'ai veillé à contacter les prospects de manière professionnelle, à écouter leurs besoins et à proposer une collaboration gagnant-gagnant, tout en respectant les normes du commerce équitable et les valeurs de La Vinifacture."
+               data-en="During my search for wine distributors in Belgium, I ensured that I contacted prospects professionally, listened to their needs and proposed a win-win collaboration, whilst respecting fair trade standards and La Vinifacture's values."
+            >Lors de mes recherches de distributeurs en Belgique, j'ai proposé une collaboration gagnant-gagnant dans le respect des valeurs de l'entreprise.</p>
+            <div class="proof-encart proof-encart--active" role="note">
+              <svg class="proof-encart__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v10M3 7l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 13h14" stroke-linecap="round" opacity="0.5"/></svg>
+              <div class="proof-encart__content">
+                <p class="proof-encart__text"><strong data-fr="Preuve — Négociation &amp; Éthique" data-en="Evidence — Negotiation &amp; Ethics">Preuve — Négociation &amp; Éthique</strong></p>
+                <div class="proof-encart__links">
+                  <a href="../assets/preuves/competences/vente-02-negociation-ethique.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Négociation éthique" data-en="Ethical negotiation">Négociation éthique</span></a>
+                  <a href="../assets/preuves/experiences/rapport-vinifacture-2025.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Rapport La Vinifacture" data-en="La Vinifacture report">Rapport La Vinifacture</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── 04 ESPRIT D'ANALYSE & INITIATIVE ── -->
+      <article class="ss-block" id="ss-block-04" role="listitem" aria-labelledby="ss-title-04">
+        <div class="ss-block__inner">
+          <div class="ss-block__number" aria-hidden="true">04</div>
+          <div class="ss-block__content" data-reveal>
+            <div>
+              <h2 class="ss-block__title" id="ss-title-04" data-fr="Esprit d'Analyse &amp; Prise d'Initiative" data-en="Analytical Mindset &amp; Initiative">Esprit d'Analyse &amp; Prise d'Initiative</h2>
+              <span class="ss-block__subtitle" data-fr="Soft Skill · 04 / 05" data-en="Soft Skill · 04 / 05">Soft Skill · 04 / 05</span>
+            </div>
+            <div class="ss-block__rule" aria-hidden="true"></div>
+            <span class="ss-block__why-label" data-fr="Pourquoi c'est essentiel" data-en="Why it matters">Pourquoi c'est essentiel</span>
+            <p class="ss-block__why"
+               data-fr="L'analyse est une compétence clé pour un acheteur international : étudier les marchés, évaluer les offres, comparer les fournisseurs et anticiper les risques. Un bon esprit d'analyse permet de faire des choix d'achats stratégiques et rentables."
+               data-en="Analysis is a key skill for an international buyer: studying markets, evaluating offers, comparing suppliers and anticipating risks. A strong analytical mindset enables strategic and profitable purchasing decisions."
+            >L'analyse est une compétence clé : étudier les marchés, évaluer les offres, comparer les fournisseurs et anticiper les risques.</p>
+            <span class="ss-block__example-label" data-fr="Illustration concrète" data-en="Concrete example">Illustration concrète</span>
+            <p class="ss-block__example"
+               data-fr="Pendant mon étude de marché sur la Belgique (stage La Vinifacture), j'ai analysé de façon autonome les opportunités du secteur viticole belge, les habitudes de consommation et les canaux de distribution, afin de recommander une stratégie d'implantation adaptée aux ressources et aux ambitions de l'entreprise."
+               data-en="During my Belgian market research (La Vinifacture internship), I independently analysed opportunities in the Belgian wine sector, consumer habits and distribution channels, in order to recommend an entry strategy aligned with the company's resources and ambitions."
+            >Pendant mon étude de marché Belgique, j'ai analysé les opportunités du secteur viticole et recommandé une stratégie adaptée.</p>
+            <div class="proof-encart proof-encart--active" role="note">
+              <svg class="proof-encart__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v10M3 7l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 13h14" stroke-linecap="round" opacity="0.5"/></svg>
+              <div class="proof-encart__content">
+                <p class="proof-encart__text"><strong data-fr="Preuves — Esprit d'Analyse" data-en="Evidence — Analytical Mindset">Preuves — Esprit d'Analyse</strong></p>
+                <div class="proof-encart__links">
+                  <a href="../assets/preuves/competences/international-03-selection-marches.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Sélection de marchés" data-en="Market selection">Sélection de marchés</span></a>
+                  <a href="../assets/preuves/experiences/rapport-vinifacture-2025.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Étude de marché Belgique" data-en="Belgium market research">Étude de marché Belgique</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── 05 TRAVAIL EN ÉQUIPE & AUTONOMIE ── -->
+      <article class="ss-block" id="ss-block-05" role="listitem" aria-labelledby="ss-title-05">
+        <div class="ss-block__inner">
+          <div class="ss-block__number" aria-hidden="true">05</div>
+          <div class="ss-block__content" data-reveal>
+            <div>
+              <h2 class="ss-block__title" id="ss-title-05" data-fr="Travail en Équipe &amp; Autonomie" data-en="Teamwork &amp; Autonomy">Travail en Équipe &amp; Autonomie</h2>
+              <span class="ss-block__subtitle" data-fr="Soft Skill · 05 / 05" data-en="Soft Skill · 05 / 05">Soft Skill · 05 / 05</span>
+            </div>
+            <div class="ss-block__rule" aria-hidden="true"></div>
+            <span class="ss-block__why-label" data-fr="Pourquoi c'est essentiel" data-en="Why it matters">Pourquoi c'est essentiel</span>
+            <p class="ss-block__why"
+               data-fr="L'acheteur international évolue dans un environnement où il doit à la fois collaborer avec des équipes internes (logistique, finance, production) et interagir avec des partenaires externes (fournisseurs, transitaires, douaniers). Il doit fonctionner de manière autonome tout en sachant coopérer efficacement."
+               data-en="The international buyer operates in an environment where they must both collaborate with internal teams (logistics, finance, production) and interact with external partners (suppliers, freight forwarders, customs officials). They must function autonomously whilst knowing how to cooperate effectively."
+            >L'acheteur international doit collaborer avec des équipes internes et des partenaires externes, tout en travaillant de manière autonome.</p>
+            <span class="ss-block__example-label" data-fr="Illustration concrète" data-en="Concrete example">Illustration concrète</span>
+            <p class="ss-block__example"
+               data-fr="Dans le cadre de mes expériences professionnelles variées (stages, alternance, engagement associatif Skippy Club), j'ai appris à travailler aussi bien en totale autonomie que dans des configurations d'équipe contraignantes, en m'adaptant aux modes de fonctionnement et aux cultures managériales de chaque structure."
+               data-en="Through my diverse professional experiences (internships, work-study, Skippy Club associative involvement), I have learned to work both in full autonomy and within demanding team configurations."
+            >Grâce à mes stages, alternance et engagement associatif, j'ai appris à travailler en autonomie comme en équipe.</p>
+            <div class="proof-encart proof-encart--active" role="note">
+              <svg class="proof-encart__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v10M3 7l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 13h14" stroke-linecap="round" opacity="0.5"/></svg>
+              <div class="proof-encart__content">
+                <p class="proof-encart__text"><strong data-fr="Preuves — Travail en Équipe &amp; Autonomie" data-en="Evidence — Teamwork &amp; Autonomy">Preuves — Travail en Équipe &amp; Autonomie</strong></p>
+                <div class="proof-encart__links">
+                  <a href="../assets/preuves/experiences/rapport-prestocosy-2024.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Rapport stage Presto Cosy" data-en="Presto Cosy internship report">Rapport Presto Cosy</span></a>
+                  <a href="../assets/preuves/experiences/rapport-vinifacture-2025.pdf" target="_blank" rel="noopener noreferrer" class="proof-encart__link"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 2H2v8h8V7M7 1h4v4M5 7l5-5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Rapport La Vinifacture" data-en="La Vinifacture report">Rapport La Vinifacture</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /ss-blocks -->
+
+    <!-- BILAN NAVY -->
+    <section class="section-ss-bilan" aria-labelledby="bilan-ss-title">
+      <div class="ss-bilan__inner">
+        <div class="section-title-block" style="margin-bottom:0;" data-reveal>
+          <h2 id="bilan-ss-title" style="color:var(--color-on-navy);font-family:var(--font-display);font-size:clamp(var(--text-2xl),3.5vw,var(--text-3xl));font-weight:400;letter-spacing:-0.02em;"
+              data-fr="En résumé — 5 qualités au service du projet"
+              data-en="In summary — 5 qualities in service of the project"
+          >En résumé — 5 qualités au service du projet</h2>
+          <div class="ornament-divider" style="margin:var(--space-4) 0 0;" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.7"/></svg></div>
+        </div>
+        <div class="ss-bilan__grid">
+          <div class="ss-bilan__card" data-reveal>
+            <svg class="ss-bilan__card-icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 20h24M8 12h16M8 28h12" stroke-linecap="round"/><circle cx="30" cy="28" r="7"/><path d="M27.5 28l2 2 3.5-3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3 class="ss-bilan__card-title" data-fr="Rigueur &amp; Organisation" data-en="Rigour &amp; Organisation">Rigueur &amp; Organisation</h3>
+            <span class="ss-bilan__card-sub" data-fr="Fiabilité · Méthode" data-en="Reliability · Method">Fiabilité · Méthode</span>
+          </div>
+          <div class="ss-bilan__card" data-reveal data-delay="100">
+            <svg class="ss-bilan__card-icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="13"/><path d="M20 7 C16 13 16 27 20 33 M20 7 C24 13 24 27 20 33" stroke-linecap="round"/><path d="M7 20h26" stroke-linecap="round"/></svg>
+            <h3 class="ss-bilan__card-title" data-fr="Adaptabilité" data-en="Adaptability">Adaptabilité</h3>
+            <span class="ss-bilan__card-sub" data-fr="Multiculturel · Flexibilité" data-en="Multicultural · Flexibility">Multiculturel · Flexibilité</span>
+          </div>
+          <div class="ss-bilan__card" data-reveal data-delay="200">
+            <svg class="ss-bilan__card-icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 30 C12 30 16 22 20 22 C24 22 28 30 32 30" stroke-linecap="round"/><circle cx="20" cy="16" r="6"/><path d="M17 16l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3 class="ss-bilan__card-title" data-fr="Négociation &amp; Éthique" data-en="Negotiation &amp; Ethics">Négociation &amp; Éthique</h3>
+            <span class="ss-bilan__card-sub" data-fr="Win-Win · Loyauté" data-en="Win-Win · Loyalty">Win-Win · Loyauté</span>
+          </div>
+          <div class="ss-bilan__card" data-reveal data-delay="300">
+            <svg class="ss-bilan__card-icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 30 L16 18 L22 24 L30 10" stroke-linecap="round" stroke-linejoin="round"/><circle cx="28" cy="15" r="5"/><line x1="31" y1="18" x2="36" y2="23" stroke-linecap="round"/></svg>
+            <h3 class="ss-bilan__card-title" data-fr="Esprit d'Analyse &amp; Initiative" data-en="Analytical Mindset &amp; Initiative">Esprit d'Analyse &amp; Initiative</h3>
+            <span class="ss-bilan__card-sub" data-fr="Diagnostic · Action" data-en="Diagnosis · Action">Diagnostic · Action</span>
+          </div>
+          <div class="ss-bilan__card" data-reveal data-delay="400">
+            <svg class="ss-bilan__card-icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="14" cy="14" r="5"/><circle cx="26" cy="14" r="5"/><circle cx="20" cy="26" r="5"/><line x1="18" y1="16" x2="15" y2="21" stroke-linecap="round" opacity="0.6"/><line x1="22" y1="16" x2="25" y2="21" stroke-linecap="round" opacity="0.6"/><line x1="17" y1="28" x2="22" y2="28" stroke-linecap="round" opacity="0.6"/></svg>
+            <h3 class="ss-bilan__card-title" data-fr="Travail en Équipe &amp; Autonomie" data-en="Teamwork &amp; Autonomy">Travail en Équipe &amp; Autonomie</h3>
+            <span class="ss-bilan__card-sub" data-fr="Collaboration · Réseau" data-en="Collaboration · Network">Collaboration · Réseau</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-cta-ss" aria-labelledby="cta-ss-title">
+      <div class="container--narrow">
+        <div class="ornament-divider" data-reveal aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.7"/></svg></div>
+        <h2 class="cta-ss__title" id="cta-ss-title" data-reveal data-delay="80" data-fr="Ces compétences vous intéressent ?" data-en="Interested in these competencies?">Ces compétences vous intéressent ?</h2>
+        <div class="cta-ss__actions" data-reveal data-delay="160">
+          <a href="../projet-professionnel.html" class="btn btn--primary" data-fr="→ Découvrir mon projet professionnel" data-en="→ Discover my career vision">→ Découvrir mon projet professionnel</a>
+          <a href="../contact.html" class="btn btn--secondary" data-fr="Me contacter" data-en="Get in touch">Me contacter</a>
+          <a href="techniques.html" class="btn--text" data-fr="Voir mes compétences techniques →" data-en="View my technical skills →">Voir mes compétences techniques →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div class="footer__identity">
+          <p class="footer__name">Coline Stabile</p>
+          <p class="footer__subtitle" data-fr="Étudiante BUT TC BIAV · IUT Jean-Monnet, Saint-Étienne" data-en="BUT TC BIAV Student · IUT Jean-Monnet, Saint-Étienne">Étudiante BUT TC BIAV · IUT Jean-Monnet, Saint-Étienne</p>
+          <a href="mailto:colinestabile43@icloud.com" class="footer__email">colinestabile43@icloud.com</a>
+          <p class="footer__phone">07 63 49 45 99</p>
+        </div>
+        <div class="footer__monogram">
+          <svg viewBox="0 0 80 80" fill="none" aria-label="Monogramme CS">
+            <path d="M52 18 C32 14 14 24 14 40 C14 56 32 66 52 62" stroke="var(--color-gold)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+            <path d="M48 22 C62 20 68 30 60 37 C52 44 40 40 46 50 C52 60 66 62 72 58" stroke="rgba(245,240,232,0.55)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+          </svg>
+          <span class="footer__monogram-tagline">Portfolio · 2026</span>
+        </div>
+        <div class="footer__links">
+          <p class="footer__nav-label" data-fr="Navigation" data-en="Navigation">Navigation</p>
+          <a href="../index.html" class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Accueil" data-en="Home">Accueil</span></a>
+          <a href="../a-propos.html" class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="À propos" data-en="About">À propos</span></a>
+          <a href="../projet-professionnel.html" class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Projet Professionnel" data-en="Career Vision">Projet Professionnel</span></a>
+          <a href="techniques.html" class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Compétences Techniques" data-en="Technical Skills">Compétences Techniques</span></a>
+          <a href="../contact.html" class="footer__link"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Contact" data-en="Contact">Contact</span></a>
+          <a href="../assets/pdf/CV_Coline_Stabile_2026.pdf" download class="footer__cv-btn" style="margin-top:var(--space-6);">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 2v6M3 6l3 3 3-3M2 10h8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-fr="Télécharger mon CV (PDF)" data-en="Download my CV (PDF)">Télécharger mon CV (PDF)</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copyright">© 2026 Coline Stabile · Tous droits réservés</span>
+        <div style="display:flex;align-items:center;gap:var(--space-4);">
+          <a href="#" class="footer__legal" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
+          <span class="footer__bottom-sep" aria-hidden="true">·</span>
+          <span class="footer__legal">colinestabile.github.io</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/lang-switch.js" defer></script>
+  <script src="../assets/js/scroll-reveal.js" defer></script>
+</body>
+</html>

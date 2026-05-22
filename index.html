@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <!-- ============================================================
+       COLINE STABILE — PORTFOLIO BUT TC BIAV
+       index.html — Page d'accueil
+       Référence : DEV-CS-2026-06 | colinestabile.github.io
+  ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- ── SEO PRINCIPAL ─────────────────────────────────────── -->
+  <title
+    data-fr="Coline Stabile — Portfolio BUT TC BIAV · Achats Internationaux"
+    data-en="Coline Stabile — Portfolio BUT TC BIAV · International Purchasing"
+  >Coline Stabile — Portfolio BUT TC BIAV · Achats Internationaux</title>
+
+  <meta name="description"
+    data-fr="Étudiante en BUT Techniques de Commercialisation parcours BIAV à l'IUT Jean-Monnet. Spécialisée en commerce international, achats et négociation interculturelle. Futur poste : Acheteuse internationale en parfumerie de niche."
+    data-en="BUT TC BIAV student at IUT Jean-Monnet, specialising in international trade, purchasing and cross-cultural negotiation. Career goal: International Buyer in niche perfumery."
+    content="Étudiante en BUT Techniques de Commercialisation parcours BIAV à l'IUT Jean-Monnet. Spécialisée en commerce international, achats et négociation interculturelle. Futur poste : Acheteuse internationale en parfumerie de niche."
+  />
+
+  <meta name="keywords" content="portfolio BUT TC BIAV, achats internationaux, commerce international, étudiante IUT Jean-Monnet, parfumerie de niche, Coline Stabile" />
+  <meta name="author" content="Coline Stabile" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- ── OPEN GRAPH ─────────────────────────────────────────── -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Coline Stabile — Portfolio BUT TC BIAV" />
+  <meta property="og:description" content="Étudiante en BUT TC BIAV, future acheteuse internationale en parfumerie de niche. IUT Jean-Monnet, Saint-Étienne." />
+  <meta property="og:url"         content="https://colinestabile.github.io/" />
+  <meta property="og:locale"      content="fr_FR" />
+  <meta property="og:locale:alternate" content="en_GB" />
+
+  <!-- ── HREFLANG ───────────────────────────────────────────── -->
+  <link rel="alternate" hreflang="fr" href="https://colinestabile.github.io/" />
+  <link rel="alternate" hreflang="en" href="https://colinestabile.github.io/?lang=en" />
+  <link rel="canonical" href="https://colinestabile.github.io/" />
+
+  <!-- ── FAVICON ────────────────────────────────────────────── -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <!-- ── GOOGLE FONTS ───────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ── FEUILLES DE STYLE ──────────────────────────────────── -->
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+
+  <!-- ── STYLES INLINE — SPÉCIFIQUES À LA HOME ─────────────── -->
+  <style>
+    /* ── HERO ──────────────────────────────────────────────── */
+    .hero {
+      position:         relative;
+      min-height:       100vh;
+      display:          grid;
+      grid-template-columns: 1fr 1fr;
+      overflow:         hidden;
+      background-color: var(--color-bg);
+    }
+
+    /* Texture grain en overlay */
+    .hero::after {
+      content:    '';
+      position:   absolute;
+      inset:      0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size:  200px 200px;
+      opacity:    0.045;
+      pointer-events: none;
+      z-index:    2;
+    }
+
+    /* ── Colonne gauche — texte ─── */
+    .hero__content {
+      position:   relative;
+      z-index:    3;
+      display:    flex;
+      flex-direction: column;
+      justify-content: center;
+      padding:    calc(var(--header-height) + 3rem) var(--space-16) var(--space-16) clamp(var(--space-10), 8vw, var(--space-20));
+      gap:        var(--space-8);
+    }
+
+    /* Label au-dessus du H1 */
+    .hero__eyebrow {
+      display:        flex;
+      align-items:    center;
+      gap:            var(--space-4);
+      opacity:        0;
+      transform:      translateY(12px);
+      animation:      heroFadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.3s forwards;
+    }
+
+    .hero__eyebrow-line {
+      display:    block;
+      width:      40px;
+      height:     1px;
+      background: var(--color-gold);
+      flex-shrink: 0;
+    }
+
+    .hero__eyebrow-text {
+      font-family:    var(--font-label);
+      font-size:      var(--text-xs);
+      font-weight:    500;
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color:          var(--color-gold);
+    }
+
+    /* H1 animé lettre par lettre */
+    .hero__title {
+      font-family:    var(--font-display);
+      font-size:      clamp(3.5rem, 6vw, 5.5rem);
+      font-weight:    300;
+      color:          var(--color-navy);
+      letter-spacing: -0.02em;
+      line-height:    1.0;
+      overflow:       hidden;
+    }
+
+    /* Chaque lettre wrappée par HeroLetters.init() */
+    .hero__letter {
+      display:          inline-block;
+      opacity:          0;
+      transform:        translateY(100%);
+      animation:        letterReveal 0.6s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+
+    @keyframes letterReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Tagline en italique Cormorant */
+    .hero__tagline {
+      font-family:  var(--font-display);
+      font-size:    clamp(1.1rem, 2vw, 1.45rem);
+      font-style:   italic;
+      font-weight:  300;
+      color:        var(--color-text-light);
+      letter-spacing: 0.01em;
+      opacity:      0;
+      transform:    translateY(12px);
+      animation:    heroFadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.95s forwards;
+      line-height:  var(--leading-snug);
+    }
+
+    .hero__tagline .tagline-sep {
+      display:    inline-block;
+      margin:     0 0.6em;
+      color:      var(--color-gold);
+      font-style: normal;
+      opacity:    0.6;
+    }
+
+    /* Chapeau */
+    .hero__chapeau {
+      font-family:  var(--font-body);
+      font-size:    clamp(1rem, 1.4vw, 1.15rem);
+      line-height:  var(--leading-relaxed);
+      color:        var(--color-text);
+      max-width:    480px;
+      opacity:      0;
+      transform:    translateY(12px);
+      animation:    heroFadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 1.15s forwards;
+      margin:       0;
+    }
+
+    /* Groupe de CTA */
+    .hero__ctas {
+      display:    flex;
+      align-items: center;
+      gap:        var(--space-6);
+      flex-wrap:  wrap;
+      opacity:    0;
+      transform:  translateY(12px);
+      animation:  heroFadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 1.35s forwards;
+    }
+
+    /* Séparateur ornement sous le chapeau */
+    .hero__ornament {
+      opacity:    0;
+      animation:  heroFadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 1.05s forwards;
+    }
+
+    @keyframes heroFadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Colonne droite — visuel ─── */
+    .hero__visual {
+      position:   relative;
+      overflow:   hidden;
+    }
+
+    /* Placeholder photo en attendant portrait.jpg */
+    .hero__photo-wrap {
+      position:   absolute;
+      inset:      0;
+      overflow:   hidden;
+    }
+
+    .hero__photo {
+      width:      100%;
+      height:     100%;
+      object-fit: cover;
+      object-position: center top;
+      transform:  scale(1.04);
+      animation:  heroImgReveal 1.4s cubic-bezier(0.22,1,0.36,1) 0.1s forwards;
+      filter:     saturate(0.85);
+    }
+
+    @keyframes heroImgReveal {
+      0%   { transform: scale(1.12); opacity: 0; }
+      100% { transform: scale(1.04); opacity: 1; }
+    }
+
+    /* Overlay dégradé sur la photo (gauche → transparent) */
+    .hero__photo-overlay {
+      position:   absolute;
+      inset:      0;
+      background: linear-gradient(
+        to right,
+        var(--color-bg) 0%,
+        rgba(245, 240, 232, 0.15) 40%,
+        transparent 100%
+      );
+      z-index:    1;
+    }
+
+    /* Monogramme en filigrane sur la colonne droite */
+    .hero__monogram-bg {
+      position:   absolute;
+      bottom:     -0.08em;
+      right:      -0.06em;
+      font-family: var(--font-display);
+      font-size:  clamp(12rem, 28vw, 26rem);
+      font-weight: 700;
+      font-style: italic;
+      color:      transparent;
+      -webkit-text-stroke: 1px rgba(245, 240, 232, 0.12);
+      text-stroke:         1px rgba(245, 240, 232, 0.12);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      z-index:    2;
+      letter-spacing: -0.05em;
+      animation:  heroFadeUp 1s ease 0.6s both;
+    }
+
+    /* Photo placeholder (quand aucune image) */
+    .hero__photo-placeholder {
+      width:      100%;
+      height:     100%;
+      background: linear-gradient(135deg, #DCD6CA 0%, #C8C0B0 50%, #B8AE9E 100%);
+      display:    flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero__photo-placeholder svg {
+      width:      120px;
+      height:     120px;
+      opacity:    0.18;
+    }
+
+    /* Scroll indicator */
+    .hero__scroll-hint {
+      position:   absolute;
+      bottom:     var(--space-8);
+      left:       50%;
+      transform:  translateX(-50%);
+      z-index:    3;
+      display:    flex;
+      flex-direction: column;
+      align-items: center;
+      gap:        var(--space-2);
+      opacity:    0;
+      animation:  heroFadeUp 0.7s ease 1.8s forwards;
+      cursor:     none;
+    }
+
+    .hero__scroll-hint span {
+      font-family:    var(--font-label);
+      font-size:      9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color:          var(--color-text-light);
+    }
+
+    .hero__scroll-line {
+      width:      1px;
+      height:     40px;
+      background: linear-gradient(to bottom, var(--color-gold), transparent);
+      animation:  scrollLineAnim 2s ease-in-out 2.2s infinite;
+    }
+
+    @keyframes scrollLineAnim {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50%       { opacity: 1;   transform: scaleY(1.3); }
+    }
+
+    /* ── SECTION CHIFFRES CLÉS ──────────────────────────────── */
+    .section-stats {
+      background-color: var(--color-navy);
+      padding:          0 var(--padding-x);
+      position:         relative;
+      overflow:         hidden;
+    }
+
+    /* Ligne dorée en haut */
+    .section-stats::before {
+      content:    '';
+      position:   absolute;
+      top:        0; left: 0; right: 0;
+      height:     1px;
+      background: linear-gradient(to right, transparent, var(--color-gold) 30%, var(--color-gold) 70%, transparent);
+      opacity:    0.35;
+    }
+
+    /* Ornement typographique en fond */
+    .section-stats__bg-text {
+      position:   absolute;
+      right:      -0.05em;
+      top:        50%;
+      transform:  translateY(-50%);
+      font-family: var(--font-display);
+      font-size:  clamp(8rem, 20vw, 18rem);
+      font-weight: 700;
+      font-style: italic;
+      color:      transparent;
+      -webkit-text-stroke: 1px rgba(201, 169, 110, 0.07);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+      letter-spacing: -0.04em;
+    }
+
+    /* ── SECTION PRÉSENTATION ───────────────────────────────── */
+    .section-about {
+      background-color: var(--color-bg-alt);
+      padding:          var(--padding-section) var(--padding-x);
+    }
+
+    .about-grid {
+      display:    grid;
+      grid-template-columns: 380px 1fr;
+      gap:        var(--space-16);
+      align-items: center;
+      max-width:  var(--max-width);
+      margin:     0 auto;
+    }
+
+    /* Photo portrait */
+    .about__photo-wrap {
+      position:   relative;
+    }
+
+    .about__photo {
+      width:      100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display:    block;
+    }
+
+    /* Cadre décoratif décalé */
+    .about__photo-frame {
+      position:   absolute;
+      inset:      -12px;
+      border:     1px solid rgba(201, 169, 110, 0.3);
+      pointer-events: none;
+      z-index:    -1;
+    }
+
+    /* Placeholder photo */
+    .about__photo-placeholder {
+      width:      100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(160deg, #DCD6CA 0%, #C8C0B0 100%);
+      display:    flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about__photo-placeholder svg {
+      width:    80px;
+      height:   80px;
+      opacity:  0.2;
+    }
+
+    .about__content {
+      display:    flex;
+      flex-direction: column;
+      gap:        var(--space-6);
+    }
+
+    .about__title {
+      font-family:    var(--font-display);
+      font-size:      clamp(var(--text-2xl), 3.5vw, 3rem);
+      font-weight:    400;
+      color:          var(--color-navy);
+      letter-spacing: -0.02em;
+      line-height:    var(--leading-tight);
+    }
+
+    .about__title em {
+      color:      var(--color-gold);
+      font-style: italic;
+    }
+
+    .about__text {
+      font-family:  var(--font-body);
+      font-size:    var(--text-md);
+      line-height:  var(--leading-relaxed);
+      color:        var(--color-text);
+      max-width:    580px;
+      margin:       0;
+    }
+
+    /* ── SECTION APERÇU COMPÉTENCES ─────────────────────────── */
+    .section-skills-preview {
+      background-color: var(--color-bg);
+      padding:          var(--padding-section) var(--padding-x);
+    }
+
+    .section-skills-preview .container {
+      max-width: var(--max-width);
+    }
+
+    /* ── SECTION PROJET PRO — TEASER ────────────────────────── */
+    .section-project {
+      background-color: var(--color-navy);
+      padding:          0 var(--padding-x);
+      overflow:         hidden;
+      position:         relative;
+    }
+
+    .project-grid {
+      display:    grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      max-width:  var(--max-width);
+      margin:     0 auto;
+      min-height: 70vh;
+    }
+
+    .project__content {
+      display:    flex;
+      flex-direction: column;
+      justify-content: center;
+      gap:        var(--space-8);
+      padding:    var(--padding-section) var(--space-16) var(--padding-section) 0;
+    }
+
+    .project__overline {
+      display:    flex;
+      align-items: center;
+      gap:        var(--space-4);
+    }
+
+    .project__overline-line {
+      width:      32px;
+      height:     1px;
+      background: var(--color-gold);
+      flex-shrink: 0;
+    }
+
+    .project__overline-text {
+      font-family:    var(--font-label);
+      font-size:      var(--text-xs);
+      font-weight:    500;
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color:          var(--color-gold);
+    }
+
+    .project__title {
+      font-family:    var(--font-display);
+      font-size:      clamp(2rem, 3.5vw, 3rem);
+      font-weight:    400;
+      color:          var(--color-on-navy);
+      letter-spacing: -0.02em;
+      line-height:    var(--leading-tight);
+    }
+
+    .project__title em {
+      display:    block;
+      font-style: italic;
+      font-weight: 300;
+      color:      rgba(245, 240, 232, 0.75);
+    }
+
+    .project__text {
+      font-family:  var(--font-body);
+      font-size:    var(--text-md);
+      font-style:   italic;
+      line-height:  var(--leading-relaxed);
+      color:        rgba(245, 240, 232, 0.7);
+      max-width:    520px;
+      margin:       0;
+    }
+
+    .project__visual {
+      position:   relative;
+      overflow:   hidden;
+      height:     100%;
+      min-height: 480px;
+    }
+
+    /* Image parfumerie éditoriale */
+    .project__img {
+      position:   absolute;
+      inset:      0;
+      width:      100%;
+      height:     100%;
+      object-fit: cover;
+      object-position: center;
+      filter:     saturate(0.7) brightness(0.85);
+      transition: transform 1.2s cubic-bezier(0.22,1,0.36,1),
+                  filter 0.8s ease;
+    }
+
+    .section-project:hover .project__img {
+      transform:  scale(1.04);
+      filter:     saturate(0.85) brightness(0.9);
+    }
+
+    .project__img-overlay {
+      position:   absolute;
+      inset:      0;
+      background: linear-gradient(
+        to left,
+        rgba(28,35,71,0.1) 0%,
+        rgba(28,35,71,0.6) 70%,
+        var(--color-navy) 100%
+      );
+      z-index:    1;
+    }
+
+    /* Placeholder image parfumerie */
+    .project__img-placeholder {
+      width:      100%;
+      height:     100%;
+      min-height: 500px;
+      background: linear-gradient(135deg, #1a2240 0%, #0e1428 50%, #161e38 100%);
+      display:    flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project__img-placeholder svg {
+      width:    100px;
+      height:   100px;
+      opacity:  0.12;
+    }
+
+    /* ── SECTION CTA FINAL ──────────────────────────────────── */
+    .section-cta {
+      background-color: var(--color-bg-alt);
+      padding:          var(--padding-section) var(--padding-x);
+      text-align:       center;
+    }
+
+    .cta-final__title {
+      font-family:    var(--font-display);
+      font-size:      clamp(var(--text-3xl), 5vw, 4.5rem);
+      font-weight:    300;
+      color:          var(--color-navy);
+      letter-spacing: -0.02em;
+      line-height:    var(--leading-tight);
+      margin-bottom:  var(--space-6);
+    }
+
+    .cta-final__text {
+      font-family:  var(--font-body);
+      font-size:    var(--text-lg);
+      font-style:   italic;
+      line-height:  var(--leading-relaxed);
+      color:        var(--color-text-light);
+      max-width:    540px;
+      margin:       0 auto var(--space-10);
+    }
+
+    .cta-final__actions {
+      display:    flex;
+      align-items: center;
+      justify-content: center;
+      gap:        var(--space-6);
+      flex-wrap:  wrap;
+    }
+
+    .cta-final__note {
+      font-family:    var(--font-label);
+      font-size:      10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color:          var(--color-text-light);
+      margin-top:     var(--space-4);
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero__visual { display: none; }
+      .hero__content {
+        padding: calc(var(--header-height) + 2rem) var(--padding-x) var(--space-16);
+        min-height: 100vh;
+        background-image: none;
+      }
+
+      .about-grid { grid-template-columns: 280px 1fr; gap: var(--space-10); }
+      .project-grid { grid-template-columns: 1fr; }
+      .project__visual { min-height: 340px; }
+      .project__content { padding: var(--space-16) 0; }
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+      .about__photo-wrap { max-width: 320px; margin: 0 auto; }
+      .hero__chapeau { max-width: none; }
+      .hero__ctas { gap: var(--space-4); }
+    }
+
+    @media (max-width: 480px) {
+      .hero__title { font-size: 3rem; }
+      .cta-final__actions { flex-direction: column; align-items: stretch; }
+      .cta-final__actions .btn { text-align: center; justify-content: center; }
+    }
+  </style>
+
+  <!-- ── SCHEMA JSON-LD ─────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://colinestabile.github.io/#person",
+        "name": "Coline Stabile",
+        "email": "colinestabile43@icloud.com",
+        "telephone": "+33763494599",
+        "jobTitle": "Étudiante BUT TC BIAV — Future Acheteuse Internationale",
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "IUT Jean-Monnet — Saint-Étienne"
+        },
+        "url": "https://colinestabile.github.io/",
+        "knowsLanguage": ["fr", "en", "es"],
+        "description": "Étudiante en BUT Techniques de Commercialisation, parcours BIAV. Spécialisée en achats internationaux et commerce international. Future acheteuse en parfumerie de niche."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://colinestabile.github.io/#website",
+        "url": "https://colinestabile.github.io/",
+        "name": "Coline Stabile — Portfolio BUT TC BIAV",
+        "author": { "@id": "https://colinestabile.github.io/#person" },
+        "inLanguage": ["fr", "en"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://colinestabile.github.io/" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ── SKIP LINK ACCESSIBILITÉ ──────────────────────────── -->
+  <a class="skip-link" href="#main-content"
+     data-fr="Aller au contenu principal"
+     data-en="Skip to main content"
+  >Aller au contenu principal</a>
+
+  <!-- ── CURSEUR PERSONNALISÉ ─────────────────────────────── -->
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="site-header" role="banner" id="site-header">
+    <div class="header__inner">
+
+      <!-- Logo / Identité -->
+      <a href="/" class="header__logo" aria-label="Coline Stabile — Accueil">
+        <!-- Monogramme SVG "CS" calligraphique -->
+        <div class="header__monogram">
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- C stylisé -->
+            <path d="M28 10 C18 8 8 14 8 22 C8 30 18 36 28 34"
+                  stroke="var(--color-gold)" stroke-width="1.4"
+                  stroke-linecap="round" fill="none"/>
+            <!-- S stylisé -->
+            <path d="M26 13 C33 12 37 16 34 20 C31 24 24 22 26 27 C28 32 35 33 38 31"
+                  stroke="var(--color-navy)" stroke-width="1.4"
+                  stroke-linecap="round" fill="none"/>
+            <!-- Point décoratif -->
+            <circle cx="22" cy="38" r="1.5" fill="var(--color-gold)" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="header__logo-name">
+          Coline Stabile
+          <span data-fr="Portfolio BUT TC BIAV" data-en="BUT TC BIAV Portfolio">Portfolio BUT TC BIAV</span>
+        </div>
+      </a>
+
+      <!-- Navigation principale -->
+      <nav class="site-nav" role="navigation" aria-label="Navigation principale">
+        <ul class="nav__list" role="list">
+          <li class="nav__item">
+            <a href="/" class="nav__link is-active"
+               data-fr="Accueil" data-en="Home"
+               aria-current="page">Accueil</a>
+          </li>
+          <li class="nav__item">
+            <a href="a-propos.html" class="nav__link"
+               data-fr="À propos" data-en="About">À propos</a>
+          </li>
+          <li class="nav__item">
+            <a href="projet-professionnel.html" class="nav__link"
+               data-fr="Projet Professionnel" data-en="Career Vision">Projet Professionnel</a>
+          </li>
+          <!-- Dropdown Compétences -->
+          <li class="nav__item nav__item--has-dropdown">
+            <button class="nav__link nav__link--dropdown"
+                    aria-haspopup="true" aria-expanded="false"
+                    data-fr="Compétences" data-en="Skills">
+              Compétences
+              <svg class="dropdown-arrow" viewBox="0 0 10 10" aria-hidden="true">
+                <path d="M2 3.5L5 6.5L8 3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="nav__dropdown" role="menu">
+              <li role="none">
+                <a href="competences/techniques.html" class="nav__dropdown-link" role="menuitem">
+                  <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span data-fr="Compétences Techniques" data-en="Technical Skills">Compétences Techniques</span>
+                </a>
+              </li>
+              <li role="none">
+                <a href="competences/business-international.html" class="nav__dropdown-link" role="menuitem">
+                  <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span data-fr="Business International BUT 3" data-en="International Business BUT 3">Business International BUT 3</span>
+                </a>
+              </li>
+              <li role="none">
+                <a href="competences/comportementales.html" class="nav__dropdown-link" role="menuitem">
+                  <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7h10M7 2l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span data-fr="Compétences Comportementales" data-en="Soft Skills">Compétences Comportementales</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav__item">
+            <a href="contact.html" class="nav__link"
+               data-fr="Contact" data-en="Contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Switch FR / EN + Hamburger -->
+      <div class="flex" style="align-items:center; gap: var(--space-4);">
+        <!-- Switch linguistique -->
+        <div class="lang-switch" role="group" aria-label="Choisir la langue">
+          <button class="lang-switch__btn is-active"
+                  data-lang="fr"
+                  aria-pressed="true"
+                  aria-label="Français">FR</button>
+          <div class="lang-switch__separator" aria-hidden="true"></div>
+          <button class="lang-switch__btn"
+                  data-lang="en"
+                  aria-pressed="false"
+                  aria-label="English">EN</button>
+        </div>
+
+        <!-- Bouton hamburger mobile -->
+        <button class="nav__toggle"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false"
+                aria-controls="mobile-overlay">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Menu mobile overlay ─────────────────────────────── -->
+  <div class="nav__mobile-overlay" id="mobile-overlay" aria-hidden="true" role="dialog" aria-label="Menu navigation">
+    <a href="/"                           class="nav__mobile-link" data-fr="Accueil"                data-en="Home"                >Accueil</a>
+    <a href="a-propos.html"               class="nav__mobile-link" data-fr="À propos"               data-en="About"               >À propos</a>
+    <a href="projet-professionnel.html"   class="nav__mobile-link" data-fr="Projet Professionnel"   data-en="Career Vision"       >Projet Professionnel</a>
+    <ul class="nav__mobile-sub">
+      <li><a href="competences/techniques.html"       class="nav__mobile-sub-link" data-fr="Compétences Techniques"       data-en="Technical Skills">Compétences Techniques</a></li>
+      <li><a href="competences/business-international.html" class="nav__mobile-sub-link" data-fr="Business International BUT 3" data-en="International Business BUT 3">Business International BUT 3</a></li>
+      <li><a href="competences/comportementales.html" class="nav__mobile-sub-link" data-fr="Compétences Comportementales" data-en="Soft Skills"      >Compétences Comportementales</a></li>
+    </ul>
+    <a href="contact.html"                class="nav__mobile-link" data-fr="Contact"                data-en="Contact"             >Contact</a>
+    <!-- Switch langue mobile -->
+    <div class="nav__mobile-lang">
+      <button class="nav__mobile-lang-btn is-active" data-lang="fr" aria-pressed="true">FR</button>
+      <span class="nav__mobile-lang-sep" aria-hidden="true">·</span>
+      <button class="nav__mobile-lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       CONTENU PRINCIPAL
+  ============================================================ -->
+  <main id="main-content">
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 1 — HERO FULL-SCREEN
+    ══════════════════════════════════════════════════════════ -->
+    <section class="hero" aria-label="Introduction" id="hero">
+
+      <!-- Colonne gauche : texte -->
+      <div class="hero__content">
+
+        <!-- Eyebrow label -->
+        <div class="hero__eyebrow">
+          <span class="hero__eyebrow-line" aria-hidden="true"></span>
+          <span class="hero__eyebrow-text"
+                data-fr="Portfolio · BUT TC BIAV · 2026"
+                data-en="Portfolio · BUT TC BIAV · 2026"
+          >Portfolio · BUT TC BIAV · 2026</span>
+        </div>
+
+        <!-- H1 animé lettre par lettre -->
+        <h1 class="hero__title" id="hero-title">Coline Stabile</h1>
+
+        <!-- Tagline -->
+        <p class="hero__tagline">
+          <span data-fr="Sales" data-en="Sales">Sales</span>
+          <span class="tagline-sep" aria-hidden="true">·</span>
+          <span data-fr="Business Development" data-en="Business Development">Business Development</span>
+          <span class="tagline-sep" aria-hidden="true">·</span>
+          <span data-fr="Commerce International" data-en="International Trade">Commerce International</span>
+        </p>
+
+        <!-- Ornement séparateur -->
+        <div class="hero__ornament">
+          <div class="ornament-divider" style="max-width: 240px; margin: 0;">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z"
+                    fill="var(--color-gold)" opacity="0.7"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Chapeau -->
+        <p class="hero__chapeau"
+           data-fr="Étudiante en troisième année de BUT Techniques de Commercialisation, parcours BIAV — IUT Jean-Monnet, Saint-Étienne. Assertive, réactive et force de proposition, je construis mon projet professionnel autour des achats internationaux dans l'univers de la parfumerie de niche."
+           data-en="Third-year student in BUT Business and Commerce, BIAV track — IUT Jean-Monnet, Saint-Étienne. Assertive, responsive and proactive, I am building my career around international purchasing in the world of niche perfumery."
+        >Étudiante en troisième année de BUT Techniques de Commercialisation, parcours BIAV — IUT Jean-Monnet, Saint-Étienne. Assertive, réactive et force de proposition, je construis mon projet professionnel autour des achats internationaux dans l'univers de la parfumerie de niche.</p>
+
+        <!-- CTA -->
+        <div class="hero__ctas">
+          <a href="a-propos.html" class="btn btn--primary"
+             data-fr="Découvrir mon parcours" data-en="Explore my journey"
+          >
+            Découvrir mon parcours
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M2 7h10M7 2l5 5-5 5"/>
+            </svg>
+          </a>
+          <a href="assets/pdf/CV_Coline_Stabile_2026.pdf"
+             download
+             class="btn--text js-cv-link"
+             data-href-fr="assets/pdf/CV_Coline_Stabile_2026.pdf"
+             data-href-en="assets/pdf/CV_Coline_Stabile_EN_2026.pdf"
+             data-fr="Télécharger mon CV ↓" data-en="Download my CV ↓"
+          >Télécharger mon CV ↓</a>
+        </div>
+      </div>
+
+      <!-- Colonne droite : photo -->
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__photo-wrap">
+          <img
+            src="assets/img/portrait.jpg"
+            alt="Portrait de Coline Stabile"
+            class="hero__photo"
+            loading="eager"
+            width="480"
+            height="600"
+          />
+          <div class="hero__photo-overlay"></div>
+        </div>
+        <!-- Monogramme en filigrane -->
+        <div class="hero__monogram-bg" aria-hidden="true">CS</div>
+      </div>
+
+      <!-- Indicateur de scroll -->
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span data-fr="Défiler" data-en="Scroll">Défiler</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 2 — CHIFFRES CLÉS (FOND NAVY)
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-stats" aria-label="Chiffres clés">
+      <div class="section-stats__bg-text" aria-hidden="true">2026</div>
+
+      <div class="stats-grid container" style="max-width: var(--max-width);">
+
+        <div class="stat-item" data-reveal>
+          <div class="stat-item__value">
+            <span class="stat-value"
+                  data-counter="3"
+                  data-counter-suffix=""
+                  aria-label="3">3</span>
+          </div>
+          <p class="stat-item__label"
+             data-fr="Stages & alternances en commerce international"
+             data-en="Internships & work-study placements in international trade"
+          >Stages & alternances en commerce international</p>
+        </div>
+
+        <div class="stat-item" data-reveal data-delay="150">
+          <div class="stat-item__value">
+            <span class="stat-value"
+                  data-counter="1"
+                  data-counter-suffix=""
+                  aria-label="1">1</span>
+          </div>
+          <p class="stat-item__label"
+             data-fr="Semestre à l'international — Glasgow, Écosse"
+             data-en="Semester abroad — Glasgow, Scotland"
+          >Semestre à l'international — Glasgow, Écosse</p>
+        </div>
+
+        <div class="stat-item" data-reveal data-delay="300">
+          <div class="stat-item__value">
+            <span aria-label="C1" style="font-size: 0.85em; font-weight: 300;">C1</span>
+          </div>
+          <p class="stat-item__label"
+             data-fr="Niveau d'anglais certifié — Cambridge & TOEIC"
+             data-en="Certified English level — Cambridge & TOEIC"
+          >Niveau d'anglais certifié — Cambridge &amp; TOEIC</p>
+        </div>
+
+        <div class="stat-item" data-reveal data-delay="450">
+          <div class="stat-item__value">
+            <span class="stat-value"
+                  data-counter="2026"
+                  data-counter-suffix=""
+                  aria-label="2026">2026</span>
+          </div>
+          <p class="stat-item__label"
+             data-fr="Diplôme BUT TC BIAV — IUT Jean-Monnet"
+             data-en="BUT TC BIAV Degree — IUT Jean-Monnet"
+          >Diplôme BUT TC BIAV — IUT Jean-Monnet</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 3 — PRÉSENTATION SYNTHÉTIQUE
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-about" aria-labelledby="about-title">
+      <div class="about-grid">
+
+        <!-- Portrait -->
+        <div class="about__photo-wrap" data-reveal>
+          <!-- <img src="assets/img/portrait.jpg" alt="Portrait de Coline Stabile" class="about__photo"> -->
+          <img
+            src="assets/img/portrait.jpg"
+            alt="Portrait de Coline Stabile"
+            class="about__photo"
+            loading="lazy"
+            width="380"
+            height="507"
+          />
+          <div class="about__photo-frame" aria-hidden="true"></div>
+        </div>
+
+        <!-- Texte -->
+        <div class="about__content">
+          <h2 class="about__title" id="about-title" data-reveal>
+            <span data-fr="Un profil à la croisée du" data-en="A profile at the crossroads of">Un profil à la croisée du</span><br>
+            <em data-fr="commerce, de la culture" data-en="commerce, culture">commerce, de la culture</em><br>
+            <span data-fr="et de l'international" data-en="and international business">et de l'international</span>
+          </h2>
+
+          <div class="ornament-divider" style="margin: 0;" data-reveal data-delay="100" aria-hidden="true">
+            <svg viewBox="0 0 20 20">
+              <path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.7"/>
+            </svg>
+          </div>
+
+          <p class="about__text" data-reveal data-delay="150"
+             data-fr="Curieuse et ouverte sur le monde, j'ai eu l'opportunité d'effectuer un semestre à Glasgow au sein de la Glasgow Caledonian University, expérience qui a profondément renforcé ma maîtrise de l'anglais professionnel et ma capacité d'adaptation à des environnements multiculturels."
+             data-en="Curious and open to the world, I had the opportunity to study a semester in Glasgow at Glasgow Caledonian University — an experience that significantly strengthened my professional English and my ability to adapt to multicultural environments."
+          >Curieuse et ouverte sur le monde, j'ai eu l'opportunité d'effectuer un semestre à Glasgow au sein de la Glasgow Caledonian University, expérience qui a profondément renforcé ma maîtrise de l'anglais professionnel et ma capacité d'adaptation à des environnements multiculturels.</p>
+
+          <p class="about__text" data-reveal data-delay="200"
+             data-fr="Mes expériences professionnelles — en stage et en alternance — m'ont confrontée aux réalités du commerce international : prospection B2B export, études de marché, coordination logistique, gestion de la relation client. Je suis particulièrement attirée par les secteurs liés aux produits responsables, au vin et à la parfumerie de niche."
+             data-en="My professional experiences — internships and work-study placements — have exposed me to the realities of international trade: B2B export prospecting, market research, logistics coordination and client relationship management. I am particularly drawn to responsible products, wine and niche perfumery."
+          >Mes expériences professionnelles — en stage et en alternance — m'ont confrontée aux réalités du commerce international : prospection B2B export, études de marché, coordination logistique, gestion de la relation client. Je suis particulièrement attirée par les secteurs liés aux produits responsables, au vin et à la parfumerie de niche.</p>
+
+          <div data-reveal data-delay="250">
+            <a href="a-propos.html" class="btn--text"
+               data-fr="→ En savoir plus sur mon parcours"
+               data-en="→ Learn more about my journey"
+            >→ En savoir plus sur mon parcours</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 4 — APERÇU DES COMPÉTENCES (5 CARTES)
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-skills-preview" aria-labelledby="skills-preview-title">
+      <div class="container">
+
+        <div class="section-header" data-reveal>
+          <h2 id="skills-preview-title"
+              data-fr="Mes domaines de compétences"
+              data-en="My areas of expertise"
+          >Mes domaines de compétences</h2>
+          <div class="ornament-divider" aria-hidden="true">
+            <svg viewBox="0 0 20 20">
+              <path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.7"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="skills-preview-grid">
+
+          <!-- Carte 1 — Stratégie d'Achats -->
+          <article class="skill-card" data-reveal data-delay="0">
+            <svg class="skill-card__icon" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M4 8h24M4 16h16M4 24h10" stroke-linecap="round"/>
+              <circle cx="26" cy="22" r="5"/>
+              <path d="M24 22l1.5 1.5L28 20" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="skill-card__title"
+                data-fr="Stratégie d'Achats"
+                data-en="Purchasing Strategy"
+            >Stratégie d'Achats</h3>
+            <p class="skill-card__desc"
+               data-fr="Analyse, sourcing et gestion du panel fournisseurs"
+               data-en="Analysis, sourcing and supplier portfolio management"
+            >Analyse, sourcing et gestion du panel fournisseurs</p>
+          </article>
+
+          <!-- Carte 2 — Commerce International -->
+          <article class="skill-card" data-reveal data-delay="100">
+            <svg class="skill-card__icon" viewBox="0 0 32 32" aria-hidden="true">
+              <circle cx="16" cy="16" r="12"/>
+              <path d="M16 4 C12 10 12 22 16 28 M16 4 C20 10 20 22 16 28" stroke-linecap="round"/>
+              <path d="M4 16h24" stroke-linecap="round"/>
+              <path d="M6 10h20M6 22h20" stroke-linecap="round"/>
+            </svg>
+            <h3 class="skill-card__title"
+                data-fr="Commerce International"
+                data-en="International Trade"
+            >Commerce International</h3>
+            <p class="skill-card__desc"
+               data-fr="Incoterms, études de marché, développement export"
+               data-en="Incoterms, market research, export development"
+            >Incoterms, études de marché, développement export</p>
+          </article>
+
+          <!-- Carte 3 — Vente & Négociation -->
+          <article class="skill-card" data-reveal data-delay="200">
+            <svg class="skill-card__icon" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M6 20 L14 12 L20 18 L28 8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 8h6v6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 26h20" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+            <h3 class="skill-card__title"
+                data-fr="Vente &amp; Négociation"
+                data-en="Sales &amp; Negotiation"
+            >Vente &amp; Négociation</h3>
+            <p class="skill-card__desc"
+               data-fr="Prospection B2B, construction de propositions commerciales"
+               data-en="B2B prospecting, building commercial proposals"
+            >Prospection B2B, construction de propositions commerciales</p>
+          </article>
+
+          <!-- Carte 4 — Marketing -->
+          <article class="skill-card" data-reveal data-delay="300">
+            <svg class="skill-card__icon" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M16 4 L28 16 L16 28 L4 16 Z" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="16" cy="16" r="4"/>
+              <path d="M16 12 V8 M16 20 V24 M12 16 H8 M20 16 H24" stroke-linecap="round"/>
+            </svg>
+            <h3 class="skill-card__title"
+                data-fr="Marketing"
+                data-en="Marketing"
+            >Marketing</h3>
+            <p class="skill-card__desc"
+               data-fr="Analyse de marché, stratégie de communication"
+               data-en="Market analysis, communication strategy"
+            >Analyse de marché, stratégie de communication</p>
+          </article>
+
+          <!-- Carte 5 — Communication -->
+          <article class="skill-card" data-reveal data-delay="400">
+            <svg class="skill-card__icon" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M6 8 h20 a2 2 0 0 1 2 2 v8 a2 2 0 0 1 -2 2 H18 L12 26 V20 H6 a2 2 0 0 1 -2 -2 V10 a2 2 0 0 1 2 -2 Z"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 14h12M10 18h8" stroke-linecap="round" opacity="0.7"/>
+            </svg>
+            <h3 class="skill-card__title"
+                data-fr="Communication"
+                data-en="Communication"
+            >Communication</h3>
+            <p class="skill-card__desc"
+               data-fr="Adaptabilité interculturelle, expression écrite &amp; orale"
+               data-en="Cross-cultural adaptability, written &amp; oral expression"
+            >Adaptabilité interculturelle, expression écrite &amp; orale</p>
+          </article>
+
+        </div>
+
+        <!-- CTA de section -->
+        <div style="text-align: center; margin-top: var(--space-10);" data-reveal>
+          <a href="competences/techniques.html" class="btn btn--secondary"
+             data-fr="Voir mes compétences détaillées →"
+             data-en="View my detailed skills →"
+          >Voir mes compétences détaillées →</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 5 — PROJET PROFESSIONNEL (TEASER)
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-project" aria-labelledby="project-title">
+      <div class="project-grid">
+
+        <!-- Contenu texte -->
+        <div class="project__content">
+
+          <div class="project__overline" data-reveal>
+            <span class="project__overline-line" aria-hidden="true"></span>
+            <span class="project__overline-text"
+                  data-fr="Projet Professionnel"
+                  data-en="Career Vision"
+            >Projet Professionnel</span>
+          </div>
+
+          <h2 class="project__title" id="project-title" data-reveal data-delay="100">
+            <span data-fr="Mon ambition :" data-en="My ambition:">Mon ambition :</span><br>
+            <span data-fr="Acheteuse Internationale" data-en="International Buyer">Acheteuse Internationale</span>
+            <em data-fr="en Parfumerie de Niche" data-en="in Niche Perfumery">en Parfumerie de Niche</em>
+          </h2>
+
+          <!-- Séparateur doré -->
+          <div style="width: 48px; height: 1px; background: var(--color-gold); opacity: 0.6;" data-reveal data-delay="150" aria-hidden="true"></div>
+
+          <p class="project__text" data-reveal data-delay="200"
+             data-fr="Passionnée par les univers sensoriels et créatifs, je construis chaque étape de mon parcours vers un objectif précis : devenir acheteuse internationale spécialisée dans le sourcing de matières premières rares, en lien direct avec des artisans, des producteurs et des créateurs du monde entier."
+             data-en="Passionate about sensory and creative worlds, I shape every step of my journey towards a precise goal: to become an international buyer specialising in the sourcing of rare raw materials, in direct contact with artisans, producers and creators from around the world."
+          >Passionnée par les univers sensoriels et créatifs, je construis chaque étape de mon parcours vers un objectif précis : devenir acheteuse internationale spécialisée dans le sourcing de matières premières rares, en lien direct avec des artisans, des producteurs et des créateurs du monde entier.</p>
+
+          <div data-reveal data-delay="280">
+            <a href="projet-professionnel.html" class="btn btn--on-navy"
+               data-fr="→ Découvrir mon projet professionnel"
+               data-en="→ Discover my career vision"
+            >→ Découvrir mon projet professionnel</a>
+          </div>
+
+        </div>
+
+        <!-- Visuel éditorial -->
+        <div class="project__visual" aria-hidden="true">
+          <!-- <img src="assets/img/parfumerie-editorial.jpg" alt="" class="project__img"> -->
+          <img
+            src="assets/img/parfumerie-editorial.jpg"
+            alt=""
+            class="project__img"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+          <div class="project__img-overlay"></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 6 — CTA FINAL
+    ══════════════════════════════════════════════════════════ -->
+    <section class="section-cta" aria-labelledby="cta-title">
+      <div class="container--narrow">
+
+        <div class="ornament-divider" data-reveal aria-hidden="true">
+          <svg viewBox="0 0 20 20">
+            <path d="M10 2 L12 8 L18 8 L13.5 11.5 L15.5 17.5 L10 14 L4.5 17.5 L6.5 11.5 L2 8 L8 8 Z" fill="var(--color-gold)" opacity="0.7"/>
+          </svg>
+        </div>
+
+        <h2 class="cta-final__title" id="cta-title" data-reveal data-delay="100"
+            data-fr="Travaillons ensemble"
+            data-en="Let's work together"
+        >Travaillons ensemble</h2>
+
+        <p class="cta-final__text" data-reveal data-delay="180"
+           data-fr="Vous êtes recruteur, professionnel du secteur ou simplement curieux de mon profil ? Je réponds à tout message avec attention."
+           data-en="Are you a recruiter, industry professional or simply curious about my profile? I respond to every message with care."
+        >Vous êtes recruteur, professionnel du secteur ou simplement curieux de mon profil ? Je réponds à tout message avec attention.</p>
+
+        <div class="cta-final__actions" data-reveal data-delay="260">
+          <a href="contact.html" class="btn btn--primary"
+             data-fr="→ Me contacter" data-en="→ Get in touch"
+          >
+            → Me contacter
+          </a>
+          <a href="assets/pdf/CV_Coline_Stabile_2026.pdf" download
+             class="btn btn--secondary js-cv-link"
+             data-href-fr="assets/pdf/CV_Coline_Stabile_2026.pdf"
+             data-href-en="assets/pdf/CV_Coline_Stabile_EN_2026.pdf"
+             data-fr="Télécharger mon CV" data-en="Download my CV"
+          >Télécharger mon CV</a>
+        </div>
+
+        <p class="cta-final__note" data-reveal data-delay="340"
+           data-fr="Réponse garantie sous 48 heures."
+           data-en="Reply guaranteed within 48 hours."
+        >Réponse garantie sous 48 heures.</p>
+
+      </div>
+    </section>
+
+  </main><!-- /main -->
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__grid">
+
+        <!-- Colonne gauche — identité -->
+        <div class="footer__identity">
+          <p class="footer__name">Coline Stabile</p>
+          <p class="footer__subtitle"
+             data-fr="Étudiante BUT TC BIAV · IUT Jean-Monnet, Saint-Étienne"
+             data-en="BUT TC BIAV Student · IUT Jean-Monnet, Saint-Étienne"
+          >Étudiante BUT TC BIAV · IUT Jean-Monnet, Saint-Étienne</p>
+
+          <a href="mailto:colinestabile43@icloud.com" class="footer__email">
+            colinestabile43@icloud.com
+          </a>
+          <p class="footer__phone">07 63 49 45 99</p>
+
+          <div class="tags-group" style="margin-top: var(--space-6);">
+            <span class="tag tag--gold" data-fr="Achats Internationaux" data-en="International Purchasing">Achats Internationaux</span>
+            <span class="tag tag--gold" data-fr="Parfumerie de Niche"   data-en="Niche Perfumery"         >Parfumerie de Niche</span>
+            <span class="tag tag--gold" data-fr="Commerce Export"        data-en="Export Trade"             >Commerce Export</span>
+          </div>
+        </div>
+
+        <!-- Centre — monogramme grand format -->
+        <div class="footer__monogram">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Monogramme CS">
+            <!-- C grand -->
+            <path d="M52 18 C32 14 14 24 14 40 C14 56 32 66 52 62"
+                  stroke="var(--color-gold)" stroke-width="1.6"
+                  stroke-linecap="round" fill="none"/>
+            <!-- S grand -->
+            <path d="M48 22 C62 20 68 30 60 37 C52 44 40 40 46 50 C52 60 66 62 72 58"
+                  stroke="rgba(245,240,232,0.55)" stroke-width="1.4"
+                  stroke-linecap="round" fill="none"/>
+            <!-- Ornements -->
+            <circle cx="40" cy="72" r="2" fill="var(--color-gold)" opacity="0.5"/>
+            <line x1="30" y1="72" x2="36" y2="72" stroke="var(--color-gold)" stroke-width="0.8" opacity="0.4"/>
+            <line x1="44" y1="72" x2="50" y2="72" stroke="var(--color-gold)" stroke-width="0.8" opacity="0.4"/>
+          </svg>
+          <span class="footer__monogram-tagline"
+                data-fr="Portfolio · 2026" data-en="Portfolio · 2026"
+          >Portfolio · 2026</span>
+        </div>
+
+        <!-- Colonne droite — navigation & CV -->
+        <div class="footer__links">
+          <p class="footer__nav-label" data-fr="Navigation" data-en="Navigation">Navigation</p>
+
+          <a href="/" class="footer__link"
+             data-fr="Accueil" data-en="Home">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6l4-4 4 4M3 5v5h2V8h2v2h2V5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-fr="Accueil" data-en="Home">Accueil</span>
+          </a>
+          <a href="a-propos.html" class="footer__link"
+             data-fr="À propos" data-en="About">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6l4-4 4 4M3 5v5h2V8h2v2h2V5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-fr="À propos" data-en="About">À propos</span>
+          </a>
+          <a href="projet-professionnel.html" class="footer__link">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6l4-4 4 4M3 5v5h2V8h2v2h2V5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-fr="Projet Professionnel" data-en="Career Vision">Projet Professionnel</span>
+          </a>
+          <a href="competences/techniques.html" class="footer__link">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6l4-4 4 4M3 5v5h2V8h2v2h2V5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-fr="Compétences" data-en="Skills">Compétences</span>
+          </a>
+          <a href="contact.html" class="footer__link">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6l4-4 4 4M3 5v5h2V8h2v2h2V5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-fr="Contact" data-en="Contact">Contact</span>
+          </a>
+
+          <!-- Bouton CV -->
+          <a href="assets/pdf/CV_Coline_Stabile_2026.pdf"
+             download
+             class="footer__cv-btn js-cv-link"
+             style="margin-top: var(--space-6);"
+             data-href-fr="assets/pdf/CV_Coline_Stabile_2026.pdf"
+             data-href-en="assets/pdf/CV_Coline_Stabile_EN_2026.pdf"
+             data-fr="↓ Télécharger mon CV (PDF)"
+             data-en="↓ Download my CV (PDF)"
+          >
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M6 2v6M3 6l3 3 3-3M2 10h8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Télécharger mon CV (PDF)
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bas du footer -->
+      <div class="footer__bottom">
+        <span class="footer__copyright">
+          © 2026 Coline Stabile · Tous droits réservés
+        </span>
+        <div style="display: flex; align-items: center; gap: var(--space-4);">
+          <a href="#" class="footer__legal"
+             data-fr="Mentions légales" data-en="Legal notice"
+          >Mentions légales</a>
+          <span class="footer__bottom-sep" aria-hidden="true">·</span>
+          <span class="footer__legal"
+                data-fr="colinestabile.github.io"
+                data-en="colinestabile.github.io"
+          >colinestabile.github.io</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       SCRIPTS — chargés en defer (après le DOM)
+  ============================================================ -->
+  <script src="assets/js/lang-switch.js"  defer></script>
+  <script src="assets/js/scroll-reveal.js" defer></script>
+
+  <!-- Script inline minimal : initialisation des counter au scroll
+       (le CounterAnim recherche les [data-counter] dans .stats-grid) -->
+  <script>
+    // Surcharge du sélecteur counter pour cibler les .stat-value
+    document.addEventListener('DOMContentLoaded', () => {
+      const statValues = document.querySelectorAll('.stat-value[data-counter]');
+      statValues.forEach(el => {
+        el.closest('.stat-item')?.setAttribute('data-counter-ready', 'true');
+      });
+    });
+  </script>
+
+  <!-- ── CV bilingue : met à jour le href des boutons CV selon la langue active ── -->
+  <script>
+    (function () {
+      function updateCvLinks(lang) {
+        document.querySelectorAll('.js-cv-link').forEach(function (link) {
+          var href = link.getAttribute('data-href-' + lang);
+          if (href) link.setAttribute('href', href);
+        });
+      }
+
+      /* Applique immédiatement la préférence stockée (même clé que lang-switch.js) */
+      updateCvLinks(localStorage.getItem('lang') || 'fr');
+
+      /* Écoute l'événement langChange émis par lang-switch.js à chaque bascule */
+      document.addEventListener('langChange', function (e) {
+        updateCvLinks(e.detail.lang);
+      });
+    })();
+  </script>
+
+</body>
+</html>
